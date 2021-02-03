@@ -1,0 +1,7 @@
+.newStudentForm{
+    display: inline-flex;
+    flex-direction: column;
+}
+.mat-mini-fab-submit{
+    align-self: flex-end;
+}
