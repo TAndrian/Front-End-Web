@@ -1,6 +1,6 @@
 /* Modèle pour le chantier*/
 export class DemandeDeChantier {
-    constructor(id: string, site: number, client: number, employee: string[], material: string, adresse: string, regularite: string, estimationTemps: number, particularite: string, description: string, infoInterne: string) {
+    constructor(id: number, site: number, client: number, employee: string[], material: string, adresse: string, regularite: string, estimationTemps: number, particularite: string, description: string, infoInterne: string) {
         this._id = id;
         this._site = site;
         this._client = client;
@@ -14,7 +14,7 @@ export class DemandeDeChantier {
         this._infoInterne = infoInterne;
     }
 
-    private _id: string;
+    private _id: number;
     private _site: number;
     private _client: number;
     private _employee: string[];
@@ -26,11 +26,11 @@ export class DemandeDeChantier {
     private _description: string;
     private _infoInterne: string;
 
-    get id(): string {
+    get id(): number {
         return this._id;
     }
 
-    set id(value: string) {
+    set id(value: number) {
         this._id = value;
     }
 
