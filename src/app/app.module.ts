@@ -5,21 +5,16 @@ import { AppComponent } from './app.component';
 import {StudentModule} from './students/student.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
 import { FormulaireDemandeChantierComponent } from './formulaire-demande-chantier/formulaire-demande-chantier.component';
-import { SharedModule } from './shared/shared.module';
-import { MatSelectModule } from '@angular/material/select';
+import {AppMaterialModule} from './app-material/app-material.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormulaireDemandeChantierComponent,
   ],
-  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,13 +23,9 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatIconModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    SharedModule,
-    
+    AppMaterialModule,
+    SharedModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
