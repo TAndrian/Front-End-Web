@@ -10,11 +10,11 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Heure :</mat-label>
-        <input matInput type="time" formControlName="heure">
+        <input matInput type="number" formControlName="heure">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Minute :</mat-label>
-        <input matInput type="text" formControlName="minute">
+        <input matInput type="number" formControlName="minute">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Adresse :</mat-label>
@@ -63,7 +63,7 @@
     <mat-form-field>
         <mat-label>Client :</mat-label>
         <mat-select>
-            <mat-option *ngFor="let client of (clients | filtreNomPrenom:'nom':filtreClient)"
+            <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
                         [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
         </mat-select>
     </mat-form-field>

@@ -5,11 +5,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltreNomPrenomPipe implements PipeTransform {
 
-  transform(value: any[], property?: string,   searchString?: string): any[]{
+  transform(value: any[], properties: [string, string], searchString?: string): any[]{
     if (typeof value !== 'undefined') {
       if (searchString !== ''){
         return value.filter((e) => {
-          return e[property].toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
+          return (e[properties[0]].toLowerCase().indexOf(searchString.toLowerCase()) !== -1 || e[properties[1]].toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
         });
       }
       else {
