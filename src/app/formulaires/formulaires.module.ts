@@ -7,6 +7,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {FormulaireDemandeChantierComponent} from './formulaire-demande-chantier/formulaire-demande-chantier.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
+import {SharedModule} from '../shared/shared.module';
 
 
 
@@ -21,7 +22,8 @@ import {SharedMaterialModule} from '../shared-material/shared-material.module';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    SharedModule
   ],
   exports: [
       FormulaireDemandeChantierComponent

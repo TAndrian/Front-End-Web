@@ -10,7 +10,7 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Heure :</mat-label>
-        <input matInput type="text" formControlName="heure">
+        <input matInput type="time" formControlName="heure">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Minute :</mat-label>
@@ -57,13 +57,16 @@
         <input matInput type="text" formControlName="informationsInternes">
     </mat-form-field>
     <mat-form-field>
+        <mat-label>Filtrer les clients :</mat-label>
+        <input matInput type="search" formControlName="client"  [(ngModel)]="filtreClient">
+    </mat-form-field>
+    <mat-form-field>
         <mat-label>Client :</mat-label>
-        <button mat-raised-button color="primary">Nouveau client</button>
-        <input matInput type="search" formControlName="client">
         <mat-select>
-            <mat-option value="one">First option</mat-option>
-            <mat-option value="two">Second option</mat-option>
+            <mat-option *ngFor="let client of (clients | filtreNomPrenom:'nom':filtreClient)"
+                        [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
         </mat-select>
     </mat-form-field>
+    <button mat-raised-button color="primary">Nouveau client</button>
 </form>
 <button mat-raised-button color="primary">Ajouter</button>

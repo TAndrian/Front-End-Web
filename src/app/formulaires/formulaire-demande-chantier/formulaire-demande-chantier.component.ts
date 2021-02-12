@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Site } from '../../shared/model/site';
+import {Client} from '../../shared/model/client';
 
 @Component({
   selector: 'app-formulaire-demande-chantier',
@@ -24,15 +25,20 @@ export class FormulaireDemandeChantierComponent implements OnInit {
      informationsInternes: new FormControl(''),
      client: new FormControl(''),
    }
-   )
+   );
 
    sites: Site[] = [];
-   
-  constructor() { 
-    this.sites.push(new Site(1, "Beaulieu", "Linh", "François", "rue du bélieré", "", ""));
+   clients: Client[] = [];
+
+   filtreClient = '';
+
+  constructor() {
+    this.sites.push(new Site(1, 'Beaulieu', 'Linh', 'François', 'rue du bélieré', '', ''));
+    this.clients.push(new Client(1, 'Saint', 'Bernard', '', '', ''));
+    this.clients.push(new Client(2, 'Castex', 'Jean', '', '', ''));
   }
 
-  
+
 
   ngOnInit(): void {
   }
