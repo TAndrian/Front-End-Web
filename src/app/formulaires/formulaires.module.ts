@@ -8,12 +8,16 @@ import {FormulaireDemandeChantierComponent} from './formulaire-demande-chantier/
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {SharedModule} from '../shared/shared.module';
+import { FormulaireClientComponent } from './formulaire-client/formulaire-client.component';
+import { FormulaireSiteComponent } from './formulaire-site/formulaire-site.component';
 
 
 
 @NgModule({
   declarations: [
-      FormulaireDemandeChantierComponent
+      FormulaireDemandeChantierComponent,
+      FormulaireClientComponent,
+      FormulaireSiteComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,9 @@ import {SharedModule} from '../shared/shared.module';
     SharedModule
   ],
   exports: [
-      FormulaireDemandeChantierComponent
+      FormulaireDemandeChantierComponent,
+      FormulaireClientComponent,
+      FormulaireSiteComponent 
   ]
 })
 export class FormulairesModule { }

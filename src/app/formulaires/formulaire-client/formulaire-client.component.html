@@ -1,0 +1,36 @@
+<h1>Nouveau Client</h1>
+<form [formGroup]="clientForm">
+    <mat-form-field>
+        <mat-label>Nom :</mat-label>
+        <input matInput type="text" formControlName="nom">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Prenom :</mat-label>
+        <input matInput type="text" formControlName="prenom">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Adresse :</mat-label>
+        <input matInput type="text" formControlName="adresse">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Complément :</mat-label>
+        <input matInput type="text" formControlName="complement">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Code Postal :</mat-label>
+        <input matInput type="text" formControlName="codePostal">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ville :</mat-label>
+        <input matInput type="text" formControlName="ville">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>E-Mail :</mat-label>
+        <input matInput type="email" formControlName="mail">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Informations Complementaires :</mat-label>
+        <input matInput type="text" formControlName="infoComplementaire">
+    </mat-form-field>
+</form>
+<button mat-raised-button color="primary">Ajouter</button>
