@@ -1,12 +1,20 @@
 <h1>
-    Demande de Chantier
+    Nouveau Chantier
 </h1>
-<form [formGroup]="demandeDeChantierForm">
+<form [formGroup]="nouveauChantierForm">
     <mat-form-field>
         <mat-label>Site :</mat-label>
         <mat-select>
             <mat-option *ngFor="let site of sites" value="site.id">{{site.nomSite}}</mat-option>
         </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Employé :</mat-label>
+        <input matInput type="number" formControleName="employee">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Regularité :</mat-label>
+        <input matInput type="text" formControlName="regularite">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Heure :</mat-label>
@@ -41,14 +49,6 @@
         <input matInput type="text" formControlName="description">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Employé :</mat-label>
-        <input matInput type="number" formControleName="employe">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Regularité :</mat-label>
-        <input matInput type="text" formControlName="regularite">
-    </mat-form-field>
-    <mat-form-field>
         <mat-label>Particularité :</mat-label>
         <input matInput type="text" formControlName="particularite">
     </mat-form-field>
@@ -68,6 +68,50 @@
                         [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
         </mat-select>
     </mat-form-field>
-    
+    <mat-form-field>
+        <mat-label>Nom du chantier :</mat-label>
+        <input matInput type="text" formControlName="nomDuChantier">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>State de chantier :</mat-label>
+        <input matInput type="text" formControlName="terminer">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Téléphone associée :</mat-label>
+        <input matInput type="text" formControlName="telephone">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Durée :</mat-label>
+        <input matInput type="number" formControlName="heure">
+        <input matInput type="number" formControlName="minute">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Upload CSV :</mat-label>
+        <ngx-mat-file-input formControlName="uploadCSV">
+        </ngx-mat-file-input>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Photo problème :</mat-label>
+        <ngx-mat-file-input formControlName="photoProleme">
+        </ngx-mat-file-input>   
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Information specifique :</mat-label>
+        <input matInput type="text" formControlName="informationsSpecifique">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Signatures :</mat-label>
+        <ngx-mat-file-input formControlName="signatures">
+        </ngx-mat-file-input>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Probleme Remontée :</mat-label>
+        <input matInput type="text" formControlName="problemeRemontee">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Preuve d'achat :</mat-label>
+        <ngx-mat-file-input formControlName="preuveAchat">
+        </ngx-mat-file-input>
+    </mat-form-field>
 </form>
 <button mat-raised-button color="primary">Ajouter</button>

@@ -8,12 +8,14 @@ import {FormulaireDemandeChantierComponent} from './formulaire-demande-chantier/
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {SharedModule} from '../shared/shared.module';
-
+import { FormulaireNouveauChantierComponent } from './formulaire-nouveau-chantier/formulaire-nouveau-chantier.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 
 @NgModule({
   declarations: [
-      FormulaireDemandeChantierComponent
+      FormulaireDemandeChantierComponent,
+      FormulaireNouveauChantierComponent
   ],
   imports: [
     CommonModule,
@@ -23,10 +25,12 @@ import {SharedModule} from '../shared/shared.module';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    SharedModule
+    SharedModule,
+    NgxMatFileInputModule
   ],
   exports: [
-      FormulaireDemandeChantierComponent
+      FormulaireDemandeChantierComponent,
+      FormulaireNouveauChantierComponent
   ]
 })
 export class FormulairesModule { }
