@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Student} from '../model/student';
+import {Student} from '../shared/model/student';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -17,6 +17,6 @@ export class StudentService {
     };
 
     post(student: Student): Observable<any> {
-        return this.http.post('/v1/api/student/add', student, this.options);
+        return this.http.post('/api/v1/student/add', student, this.options);
     }
 }

@@ -1,0 +1,73 @@
+<h1>
+    Demande de Chantier
+</h1>
+<form [formGroup]="demandeDeChantierForm">
+    <mat-form-field>
+        <mat-label>Site :</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let site of sites" value="site.id">{{site.nomSite}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Heure :</mat-label>
+        <input matInput type="number" formControlName="heure">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Minute :</mat-label>
+        <input matInput type="number" formControlName="minute">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Adresse :</mat-label>
+        <input matInput type="text" formControlName="adresse">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Complément :</mat-label>
+        <input matInput type="text" formControlName="complement">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Code Postal :</mat-label>
+        <input matInput type="text" formControlName="codePostal">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ville :</mat-label>
+        <input matInput type="text" formControlName="ville">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Materiel :</mat-label>
+        <input matInput type="text" formControlName="materiel">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description :</mat-label>
+        <input matInput type="text" formControlName="description">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Employé :</mat-label>
+        <input matInput type="number" formControleName="employe">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Regularité :</mat-label>
+        <input matInput type="text" formControlName="regularite">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Particularité :</mat-label>
+        <input matInput type="text" formControlName="particularite">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Informations internes :</mat-label>
+        <input matInput type="text" formControlName="informationsInternes">
+    </mat-form-field>
+    <button mat-raised-button color="primary">Nouveau client</button>
+    <mat-form-field>
+        <mat-label>Filtrer les clients :</mat-label>
+        <input matInput type="search" formControlName="client"  [(ngModel)]="filtreClient">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Client :</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
+                        [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+</form>
+<button mat-raised-button color="primary">Ajouter</button>

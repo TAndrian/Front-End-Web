@@ -1,0 +1,40 @@
+<h1>Nouveau Site</h1>
+<form [formGroup]="siteForm">
+    <mat-form-field>
+        <mat-label>Nom du Site:</mat-label>
+        <input matInput type="text" formControlName="nomSite">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Nom du Chef :</mat-label>
+        <input matInput type="text" formControlName="nomChef">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Prénom du Chef :</mat-label>
+        <input matInput type="text" formControlName="prenomChef">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Adresse :</mat-label>
+        <input matInput type="text" formControlName="adresse">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Complément :</mat-label>
+        <input matInput type="text" formControlName="complement">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Code Postal :</mat-label>
+        <input matInput type="text" formControlName="codePostal">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Ville :</mat-label>
+        <input matInput type="text" formControlName="ville">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>E-Mail :</mat-label>
+        <input matInput type="email" formControlName="mail">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Telephone Associé:</mat-label>
+        <input matInput type="text" formControlName="telephone">
+    </mat-form-field>
+</form>
+<button mat-raised-button color="primary">Ajouter</button>
