@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
 import {StudentService} from '../student.service';
-import {Student} from '../../model/student';
+import {Student} from '../../shared/model/student';
 import {HttpResponse} from '@angular/common/http';
 
 @Component({
