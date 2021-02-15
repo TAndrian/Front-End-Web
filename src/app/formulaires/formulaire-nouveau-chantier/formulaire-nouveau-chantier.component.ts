@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Site } from '../../shared/model/site';
 import {Client} from '../../shared/model/client';
 
+
 @Component({
   selector: 'app-formulaire-nouveau-chantier',
   templateUrl: './formulaire-nouveau-chantier.component.html',
@@ -13,6 +14,8 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     site : new FormControl(''),
     employee : new FormControl(''),
     regularite: new FormControl(''),
+    dateDebuteReg: new FormControl(),
+    dateFinReg: new FormControl(),
     heure: new FormControl(''),
     minute: new FormControl(''),
     particularite: new FormControl(''),
