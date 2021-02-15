@@ -62,7 +62,7 @@
     </mat-form-field>
 </form>
 
-<mat-checkbox [(ngModel)]="regularite">Regularite</mat-checkbox>
+<mat-checkbox [(ngModel)]="regularite" (change)="resetJours()">Regularite</mat-checkbox>
 <br>
 <div *ngIf="regularite">
     <form [formGroup]="demandeDeChantierForm">

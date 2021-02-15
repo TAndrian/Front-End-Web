@@ -68,6 +68,10 @@ export class FormulaireDemandeChantierComponent implements OnInit {
   //  this.getSites();
   }
 
+  resetJours() :void {
+    this.joursRegularite= new Set();
+  }
+
   change(jour: JourSemaineType) : void{
     if(this.joursRegularite.has(jour)){
       this.joursRegularite.delete(jour);
@@ -136,18 +140,20 @@ export class FormulaireDemandeChantierComponent implements OnInit {
     const dateFinRegularite = this.demandeDeChantierForm.controls.dateFinRegularite.value;
     const joursRegularite = this.joursRegularite;
 
-    joursRegularite.forEach(data => {
-      console.log("Les jours: " + data);
-    });
-    this.demandeDeChantierService.addDemandeDeChantier(
-      new DemandeDeChantier(
-      site.id,client.id,nombreEmployes,materiel,adresse,regularite,
-      estimationTemps,particularite,description,informationsInterne,
-       dateDebutRegularite,dateFinRegularite,joursRegularite
-     // new Date(), new Date(), new Set<JourSemaineType>()
-    )).subscribe(
+    var chantier: DemandeDeChantier;
+    if(this.regularite){
+      chantier = new DemandeDeChantier(
+        site.id,client.id,nombreEmployes,materiel,adresse,regularite,
+        estimationTemps,particularite,description,informationsInterne,
+         dateDebutRegularite,dateFinRegularite,joursRegularite);
+    }else{
+      chantier = new DemandeDeChantier(
+        site.id,client.id,nombreEmployes,materiel,adresse,regularite,
+        estimationTemps,particularite,description,informationsInterne);
+    }
+    this.demandeDeChantierService.addDemandeDeChantier(chantier).subscribe(
       (res: HttpResponse<any>) => {console.log(res.headers.get('Location')); }
     );
-
+    
   }
 }
