@@ -1,7 +1,8 @@
 import {StatusType} from './statusType';
 
 export class Chantier{
-    constructor(site: number, client: number, problemes: number[], documents: number[], adresse: string, ouvriers: string[], materiel: string, dateDebut: Date, dateFin: Date, heureDemarrage: Date, estimationTemps: number, telephone: string, statusChantier: StatusType, nomChantier: string, informationsInterne: string, description: string) {
+    constructor(public site: number, public client: number, public problemes: number[], public documents: number[], public adresse: string, public ouvriers: string[], public materiel: string, public dateDebut: Date, public dateFin: Date, public heureDemarrage: Date, public estimationTemps: number, public telephone: string, public statusChantier: StatusType, public nomChantier: string, public informationsInterne: string,public description: string) {
+        /*
         this._site = site;
         this._client = client;
         this._problemes = problemes;
@@ -18,7 +19,9 @@ export class Chantier{
         this._nomChantier = nomChantier;
         this._informationsInterne = informationsInterne;
         this._description = description;
+        */
     }
+    /*
     private _id: number;
     private _site: number;
     private _client: number;
@@ -172,5 +175,5 @@ export class Chantier{
     set description(value: string) {
         this._description = value;
     }
-
+    */
 }
