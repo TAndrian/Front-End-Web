@@ -9,12 +9,12 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Heure :</mat-label>
-        <input formControlName="heure" matInput type="number">
+        <mat-label>Nombre Employés :</mat-label>
+        <input formControleName="nombreEmployes" matInput type="number">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Minute :</mat-label>
-        <input formControlName="minute" matInput type="number">
+        <mat-label>Materiel :</mat-label>
+        <input formControlName="materiel" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Adresse :</mat-label>
@@ -33,28 +33,20 @@
         <input formControlName="ville" matInput type="text">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Materiel :</mat-label>
-        <input formControlName="materiel" matInput type="text">
+        <mat-label>Particularité :</mat-label>
+        <input formControlName="particularite" matInput type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Estimation Temps :</mat-label>
+        <input formControleName="estimationTemps" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Description :</mat-label>
         <input formControlName="description" matInput type="text">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Nombre Employés :</mat-label>
-        <input formControleName="nombreEmployes" matInput type="number">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Regularité :</mat-label>
-        <input formControlName="regularite" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Particularité :</mat-label>
-        <input formControlName="particularite" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
         <mat-label>Informations internes :</mat-label>
-        <input formControlName="infoInterne" matInput type="text">
+        <input formControlName="informationsInterne" matInput type="text">
     </mat-form-field>
     <button color="primary" mat-raised-button>Nouveau client</button>
     <mat-form-field>
@@ -68,6 +60,35 @@
                         [value]=client>{{client.nom}} {{client.prenom}}</mat-option>
         </mat-select>
     </mat-form-field>
-
 </form>
+
+<mat-checkbox [(ngModel)]="regularite">Regularite</mat-checkbox>
+<br>
+<div *ngIf="regularite">
+    <form [formGroup]="demandeDeChantierForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Date du début de la regularité</mat-label>
+            <input matInput [matDatepicker]="pickerDebut"
+            formControlName="dateDebutRegularite">
+            <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>
+            <mat-datepicker #pickerDebut></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Date de fin de la regularité</mat-label>
+            <input matInput [matDatepicker]="pickerFin"
+            formControlName="dateFinRegularite">
+            <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+            <mat-datepicker #pickerFin></mat-datepicker>
+          </mat-form-field>
+        <div>
+            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.LUNDI)">Lundi</mat-checkbox>
+            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.MARDI)">Mardi</mat-checkbox>
+            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.MERCREDI)">Mercredi</mat-checkbox>
+            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.JEUDI)">Jeudi</mat-checkbox>
+            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.VENDREDI)">Vendredi</mat-checkbox>
+            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.SAMEDI)">Samedi</mat-checkbox>
+            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.DIMANCHE)">Dimanche</mat-checkbox>
+        </div>   
+    </form>
+</div>
 <button (click)="onSubmit()" color="primary" mat-raised-button>Ajouter</button>

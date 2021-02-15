@@ -1,6 +1,6 @@
 export enum StatusType {
-    demarre,
-    enAttente,
-    enCours,
-    termine
+    DEMARRE,
+    ENATTENTE,
+    ENCOURS,
+    TERMINE
 }

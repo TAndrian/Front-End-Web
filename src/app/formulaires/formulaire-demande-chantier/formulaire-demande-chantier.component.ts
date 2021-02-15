@@ -7,6 +7,8 @@ import { ClientService } from 'src/app/core/services/client.service';
 import { SiteService } from 'src/app/core/services/site.service';
 import { DemandeDeChantier } from 'src/app/shared/model/demandeDeChantier';
 import { HttpResponse } from '@angular/common/http';
+import { JourSemaineType } from 'src/app/shared/model/jourSemaineType';
+
 
 @Component({
   selector: 'app-formulaire-demande-chantier',
@@ -16,24 +18,33 @@ import { HttpResponse } from '@angular/common/http';
 export class FormulaireDemandeChantierComponent implements OnInit {
    demandeDeChantierForm = new FormGroup({
      site : new FormControl(''),
-     heure: new FormControl(''),
-     minute: new FormControl(''),
-     adresse: new FormControl(''),
+     client: new FormControl(''),
      nombreEmployes: new FormControl(''),
+     materiel: new FormControl(''),
+
+     adresse: new FormControl(''),
      complement: new FormControl(''),
      codePostal: new FormControl(''),
      ville: new FormControl(''),
-     materiel: new FormControl(''),
-     description: new FormControl(''),
+
+     regulariteFormControl: new FormControl(''),
+     estimationTemps: new FormControl(''),
      particularite: new FormControl(''),
-     regularite: new FormControl(''),
-     infoInterne: new FormControl(''),
-     client: new FormControl(''),
+     description: new FormControl(''),
+     informationsInterne: new FormControl(''),
+
+     dateDebutRegularite: new FormControl(''),
+     dateFinRegularite: new FormControl(''),
+
+     
    }
    );
 
    sites: Site[] = [];
    clients: Client[] = [];
+   regularite: boolean = false;
+   jourSemaineType: typeof JourSemaineType = JourSemaineType;
+   joursRegularite: Set<JourSemaineType> = new Set();
 
    filtreClient = '';
 
@@ -57,7 +68,15 @@ export class FormulaireDemandeChantierComponent implements OnInit {
   //  this.getSites();
   }
 
-
+  change(jour: JourSemaineType) : void{
+    if(this.joursRegularite.has(jour)){
+      this.joursRegularite.delete(jour);
+      console.log("Removing" + jour);
+    }else if(jour){
+      this.joursRegularite.add(jour);
+      console.log("Adding" + jour);
+    }
+  }
 
   testAPI() : void {
     this.clientService.getClientById("6").subscribe(data =>  {
@@ -67,7 +86,7 @@ export class FormulaireDemandeChantierComponent implements OnInit {
       this.sites.push(data);
     })
 
-    const ddc = new DemandeDeChantier(2,7,5,'bois','dddd','toto',5,'toto','toto','toto',);   
+    const ddc = new DemandeDeChantier(2,7,5,'bois','dddd',true,5,'toto','toto','toto',new Date(),new Date(),new Set<JourSemaineType>());   
     //TODO: Quand on update, ça ne change pas les réferences
     this.demandeDeChantierService.updateDemandeDeChantierById('7',ddc).subscribe(data => {
         console.log(data);
@@ -97,27 +116,35 @@ export class FormulaireDemandeChantierComponent implements OnInit {
 */
   onSubmit() : void {
 
-    const client = this.demandeDeChantierForm.controls.client.value;
     const site = this.demandeDeChantierForm.controls.site.value;
-    const description = this.demandeDeChantierForm.controls.description.value;
-    const estimationTemps = this.demandeDeChantierForm.controls.heure.value;
-
+    const client = this.demandeDeChantierForm.controls.client.value;
     const nombreEmployes = this.demandeDeChantierForm.controls.nombreEmployes.value;
     const materiel = this.demandeDeChantierForm.controls.materiel.value;
 
-    const regularite = this.demandeDeChantierForm.controls.regularite.value;
-    const particularite = this.demandeDeChantierForm.controls.particularite.value; 
-    const infoInterne = this.demandeDeChantierForm.controls.infoInterne.value;
-
-    const adresse =   this.demandeDeChantierForm.controls.adresse.value + ', '
+    const adresse =  this.demandeDeChantierForm.controls.adresse.value + ', '
     + this.demandeDeChantierForm.controls.complement.value + ', '
     + this.demandeDeChantierForm.controls.codePostal.value + ', '
     + this.demandeDeChantierForm.controls.ville.value;
 
+    const regularite = this.regularite;
+    const estimationTemps = this.demandeDeChantierForm.controls.estimationTemps.value;
+    const particularite = this.demandeDeChantierForm.controls.particularite.value; 
+    const description = this.demandeDeChantierForm.controls.description.value;
+    const informationsInterne = this.demandeDeChantierForm.controls.informationsInterne.value;
 
-    this.demandeDeChantierService.addDemandeDeChantier(new DemandeDeChantier(
+    const dateDebutRegularite = this.demandeDeChantierForm.controls.dateDebutRegularite.value;
+    const dateFinRegularite = this.demandeDeChantierForm.controls.dateFinRegularite.value;
+    const joursRegularite = this.joursRegularite;
+
+    joursRegularite.forEach(data => {
+      console.log("Les jours: " + data);
+    });
+    this.demandeDeChantierService.addDemandeDeChantier(
+      new DemandeDeChantier(
       site.id,client.id,nombreEmployes,materiel,adresse,regularite,
-      estimationTemps,particularite,description,infoInterne
+      estimationTemps,particularite,description,informationsInterne,
+       dateDebutRegularite,dateFinRegularite,joursRegularite
+     // new Date(), new Date(), new Set<JourSemaineType>()
     )).subscribe(
       (res: HttpResponse<any>) => {console.log(res.headers.get('Location')); }
     );
