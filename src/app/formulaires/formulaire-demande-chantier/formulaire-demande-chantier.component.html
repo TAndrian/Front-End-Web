@@ -62,33 +62,33 @@
     </mat-form-field>
 </form>
 
-<mat-checkbox [(ngModel)]="regularite" (change)="resetJours()">Regularite</mat-checkbox>
+<mat-checkbox (change)="resetJours()" [(ngModel)]="regularite">Regularite</mat-checkbox>
 <br>
 <div *ngIf="regularite">
     <form [formGroup]="demandeDeChantierForm">
         <mat-form-field appearance="fill">
             <mat-label>Date du début de la regularité</mat-label>
-            <input matInput [matDatepicker]="pickerDebut"
-            formControlName="dateDebutRegularite">
-            <mat-datepicker-toggle matSuffix [for]="pickerDebut"></mat-datepicker-toggle>
+            <input [matDatepicker]="pickerDebut" formControlName="dateDebutRegularite"
+                   matInput>
+            <mat-datepicker-toggle [for]="pickerDebut" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #pickerDebut></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
             <mat-label>Date de fin de la regularité</mat-label>
-            <input matInput [matDatepicker]="pickerFin"
-            formControlName="dateFinRegularite">
-            <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+            <input [matDatepicker]="pickerFin" formControlName="dateFinRegularite"
+                   matInput>
+            <mat-datepicker-toggle [for]="pickerFin" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #pickerFin></mat-datepicker>
-          </mat-form-field>
+        </mat-form-field>
         <div>
-            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.LUNDI)">Lundi</mat-checkbox>
-            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.MARDI)">Mardi</mat-checkbox>
-            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.MERCREDI)">Mercredi</mat-checkbox>
-            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.JEUDI)">Jeudi</mat-checkbox>
-            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.VENDREDI)">Vendredi</mat-checkbox>
-            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.SAMEDI)">Samedi</mat-checkbox>
-            <mat-checkbox formNameArray="joursArray" (change)="change(jourSemaineType.DIMANCHE)">Dimanche</mat-checkbox>
-        </div>   
+            <mat-checkbox (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
+            <mat-checkbox (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
+            <mat-checkbox (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi</mat-checkbox>
+            <mat-checkbox (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
+            <mat-checkbox (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi</mat-checkbox>
+            <mat-checkbox (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
+            <mat-checkbox (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche</mat-checkbox>
+        </div>
     </form>
 </div>
 <button (click)="onSubmit()" color="primary" mat-raised-button>Ajouter</button>
