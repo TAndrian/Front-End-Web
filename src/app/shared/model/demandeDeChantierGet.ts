@@ -1,18 +1,18 @@
-import { Client } from "./client";
-import { Site } from "./site";
+import {Client} from "./client";
+import {Site} from "./site";
 
 /* Modèle pour le chantier*/
 export class DemandeDeChantierGet {
-    constructor(public id: number, 
-                public site: Site, 
-                public client: Client, 
-                public employee: number, 
-                public material: string, 
-                public adresse: string, 
-                public regularite: string, 
-                public estimationTemps: number, 
-                public particularite: string, 
-                public description: string, 
+    constructor(public id: number,
+                public site: Site,
+                public client: Client,
+                public employee: number,
+                public material: string,
+                public adresse: string,
+                public regularite: string,
+                public estimationTemps: number,
+                public particularite: string,
+                public description: string,
                 public infoInterne: string) {
         /*
         this._id = id;
@@ -28,105 +28,106 @@ export class DemandeDeChantierGet {
         this._infoInterne = infoInterne;
         */
     }
-/*
-    private _id: number;
-    private _site: Site;
-    private _client: Client;
-    private _employee: number;
-    private _material: string;
-    private _adresse: string;
-    private _regularite: string;
-    private _estimationTemps: number;
-    private _particularite: string;
-    private _description: string;
-    private _infoInterne: string;
 
-    get id(): number {
-        return this._id;
-    }
+    /*
+        private _id: number;
+        private _site: Site;
+        private _client: Client;
+        private _employee: number;
+        private _material: string;
+        private _adresse: string;
+        private _regularite: string;
+        private _estimationTemps: number;
+        private _particularite: string;
+        private _description: string;
+        private _infoInterne: string;
 
-    set id(value: number) {
-        this._id = value;
-    }
+        get id(): number {
+            return this._id;
+        }
 
-    get site(): Site {
-        return this._site;
-    }
+        set id(value: number) {
+            this._id = value;
+        }
 
-    set site(value: Site) {
-        this._site = value;
-    }
+        get site(): Site {
+            return this._site;
+        }
 
-    get client(): Client {
-        return this._client;
-    }
+        set site(value: Site) {
+            this._site = value;
+        }
 
-    set client(value: Client) {
-        this._client = value;
-    }
+        get client(): Client {
+            return this._client;
+        }
 
-    get employee(): number {
-        return this._employee;
-    }
+        set client(value: Client) {
+            this._client = value;
+        }
 
-    set employee(value: number) {
-        this._employee = value;
-    }
+        get employee(): number {
+            return this._employee;
+        }
 
-    get material(): string {
-        return this._material;
-    }
+        set employee(value: number) {
+            this._employee = value;
+        }
 
-    set material(value: string) {
-        this._material = value;
-    }
+        get material(): string {
+            return this._material;
+        }
 
-    get adresse(): string {
-        return this._adresse;
-    }
+        set material(value: string) {
+            this._material = value;
+        }
 
-    set adresse(value: string) {
-        this._adresse = value;
-    }
+        get adresse(): string {
+            return this._adresse;
+        }
 
-    get regularite(): string {
-        return this._regularite;
-    }
+        set adresse(value: string) {
+            this._adresse = value;
+        }
 
-    set regularite(value: string) {
-        this._regularite = value;
-    }
+        get regularite(): string {
+            return this._regularite;
+        }
 
-    get estimationTemps(): number {
-        return this._estimationTemps;
-    }
+        set regularite(value: string) {
+            this._regularite = value;
+        }
 
-    set estimationTemps(value: number) {
-        this._estimationTemps = value;
-    }
+        get estimationTemps(): number {
+            return this._estimationTemps;
+        }
 
-    get particularite(): string {
-        return this._particularite;
-    }
+        set estimationTemps(value: number) {
+            this._estimationTemps = value;
+        }
 
-    set particularite(value: string) {
-        this._particularite = value;
-    }
+        get particularite(): string {
+            return this._particularite;
+        }
 
-    get description(): string {
-        return this._description;
-    }
+        set particularite(value: string) {
+            this._particularite = value;
+        }
 
-    set description(value: string) {
-        this._description = value;
-    }
+        get description(): string {
+            return this._description;
+        }
 
-    get infoInterne(): string {
-        return this._infoInterne;
-    }
+        set description(value: string) {
+            this._description = value;
+        }
 
-    set infoInterne(value: string) {
-        this._infoInterne = value;
-    }
-    */
+        get infoInterne(): string {
+            return this._infoInterne;
+        }
+
+        set infoInterne(value: string) {
+            this._infoInterne = value;
+        }
+        */
 }

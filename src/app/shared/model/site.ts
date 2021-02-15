@@ -1,19 +1,20 @@
-export class Site{
-    constructor(public nomSite: string, 
-                public nomChef: string, 
-                public prenomChef: string, 
-                public adresse: string, 
-                public mail: string, 
+export class Site {
+    constructor(public nomSite: string,
+                public nomChef: string,
+                public prenomChef: string,
+                public adresse: string,
+                public mail: string,
                 public telephone: string) {
-/*
-        this._nomSite = nomSite;
-        this._nomChef = nomChef;
-        this._prenomChef = prenomChef;
-        this._adresse = adresse;
-        this._mail = mail;
-        this._telephone = telephone;
-        */
+        /*
+                this._nomSite = nomSite;
+                this._nomChef = nomChef;
+                this._prenomChef = prenomChef;
+                this._adresse = adresse;
+                this._mail = mail;
+                this._telephone = telephone;
+                */
     }
+
     /*
     private _id: number;
     private _nomSite: string;

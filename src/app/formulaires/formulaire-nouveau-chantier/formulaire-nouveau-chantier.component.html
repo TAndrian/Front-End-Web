@@ -10,73 +10,73 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Employé :</mat-label>
-        <input matInput type="number" formControleName="employee">
+        <input formControleName="employee" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Regularité :</mat-label>
-        <input matInput type="text" formControlName="regularite">
+        <input formControlName="regularite" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Date Debut Régularité :</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-            <input matStartDate matInput formControlName="dateDebuteReg" placeholder="Start date">
-            <input matEndDate matInput formControlName="dateFinReg" placeholder="End date">
+            <input formControlName="dateDebuteReg" matInput matStartDate placeholder="Start date">
+            <input formControlName="dateFinReg" matEndDate matInput placeholder="End date">
         </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
     </mat-form-field>
-    
- <!--   <mat-form-field>
-        <mat-date-range-input>
-            <mat-label>Date Fin Régularité :</mat-label>
-            <input matEndtDate formControlName="dateFinReg">
-        </mat-date-range-input>
-    </mat-form-field>
-    --> 
+
+    <!--   <mat-form-field>
+           <mat-date-range-input>
+               <mat-label>Date Fin Régularité :</mat-label>
+               <input matEndtDate formControlName="dateFinReg">
+           </mat-date-range-input>
+       </mat-form-field>
+       -->
     <mat-form-field>
         <mat-label>Heure :</mat-label>
-        <input matInput type="number" formControlName="heure">
+        <input formControlName="heure" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Minute :</mat-label>
-        <input matInput type="number" formControlName="minute">
+        <input formControlName="minute" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Adresse :</mat-label>
-        <input matInput type="text" formControlName="adresse">
+        <input formControlName="adresse" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Complément :</mat-label>
-        <input matInput type="text" formControlName="complement">
+        <input formControlName="complement" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Code Postal :</mat-label>
-        <input matInput type="text" formControlName="codePostal">
+        <input formControlName="codePostal" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Ville :</mat-label>
-        <input matInput type="text" formControlName="ville">
+        <input formControlName="ville" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Materiel :</mat-label>
-        <input matInput type="text" formControlName="materiel">
+        <input formControlName="materiel" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Description :</mat-label>
-        <input matInput type="text" formControlName="description">
+        <input formControlName="description" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Particularité :</mat-label>
-        <input matInput type="text" formControlName="particularite">
+        <input formControlName="particularite" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Informations internes :</mat-label>
-        <input matInput type="text" formControlName="informationsInternes">
+        <input formControlName="informationsInternes" matInput type="text">
     </mat-form-field>
-    <button mat-raised-button color="primary">Nouveau client</button>
+    <button color="primary" mat-raised-button>Nouveau client</button>
     <mat-form-field>
         <mat-label>Filtrer les clients :</mat-label>
-        <input matInput type="search" formControlName="client"  [(ngModel)]="filtreClient">
+        <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Client :</mat-label>
@@ -87,20 +87,20 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Nom du chantier :</mat-label>
-        <input matInput type="text" formControlName="nomDuChantier">
+        <input formControlName="nomDuChantier" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>State de chantier :</mat-label>
-        <input matInput type="text" formControlName="terminer">
+        <input formControlName="terminer" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Téléphone associée :</mat-label>
-        <input matInput type="text" formControlName="telephone">
+        <input formControlName="telephone" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Durée :</mat-label>
-        <input matInput type="number" formControlName="heure">
-        <input matInput type="number" formControlName="minute">
+        <input formControlName="heure" matInput type="number">
+        <input formControlName="minute" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Upload CSV :</mat-label>
@@ -110,11 +110,11 @@
     <mat-form-field>
         <mat-label>Photo problème :</mat-label>
         <ngx-mat-file-input formControlName="photoProleme">
-        </ngx-mat-file-input>   
+        </ngx-mat-file-input>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Information specifique :</mat-label>
-        <input matInput type="text" formControlName="informationsSpecifique">
+        <input formControlName="informationsSpecifique" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Signatures :</mat-label>
@@ -123,7 +123,7 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Probleme Remontée :</mat-label>
-        <input matInput type="text" formControlName="problemeRemontee">
+        <input formControlName="problemeRemontee" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Preuve d'achat :</mat-label>
@@ -131,4 +131,4 @@
         </ngx-mat-file-input>
     </mat-form-field>
 </form>
-<button mat-raised-button color="primary">Ajouter</button>
+<button color="primary" mat-raised-button>Ajouter</button>

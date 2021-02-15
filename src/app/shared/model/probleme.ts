@@ -1,9 +1,10 @@
-export class Probleme{
+export class Probleme {
     constructor(public description: string, public imageUrl: string[]) {
 
         //this._description = description;
         //this._imageUrl = imageUrl;
     }
+
     /*
     private _id: number;
     private _description: string;

@@ -1,4 +1,4 @@
-export enum JourSemaineType{
+export enum JourSemaineType {
     Lundi,
     Mardi,
     Mercredi,

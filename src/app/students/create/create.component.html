@@ -1,12 +1,15 @@
 <form [formGroup]="newStudentForm" class="newStudentForm">
     <mat-form-field>
         <mat-label>Nom :</mat-label>
-        <input matInput type="text" formControlName="name">
+        <input formControlName="name" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label> Identifiant du professeur :</mat-label>
-        <input matInput type="text" formControlName="profId">
+        <input formControlName="profId" matInput type="text">
     </mat-form-field>
-    <button class="mat-mini-fab-submit" mat-mini-fab color="primary" type="submit" (click)="onSubmit()" [disabled]="!newStudentForm.valid"><mat-icon>arrow_right_alt</mat-icon></button>
+    <button (click)="onSubmit()" [disabled]="!newStudentForm.valid" class="mat-mini-fab-submit" color="primary" mat-mini-fab
+            type="submit">
+        <mat-icon>arrow_right_alt</mat-icon>
+    </button>
 
 </form>

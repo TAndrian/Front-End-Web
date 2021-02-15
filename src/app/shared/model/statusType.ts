@@ -1,5 +1,5 @@
-export enum StatusType{
-    demarre ,
+export enum StatusType {
+    demarre,
     enAttente,
     enCours,
     termine

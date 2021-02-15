@@ -1,15 +1,14 @@
 import {DocumentType} from './documentType';
 
-export class Document{
+export class Document {
     constructor(nomDocument: string, imagesUrl: string[], documentType: DocumentType) {
         this._nomDocument = nomDocument;
         this._imagesUrl = imagesUrl;
         this._documentType = documentType;
     }
+
     private _id: number;
-    private _nomDocument: string;
-    private _imagesUrl: string[];
-    private _documentType: DocumentType;
+
     get id(): number {
         return this._id;
     }
@@ -17,6 +16,8 @@ export class Document{
     set id(value: number) {
         this._id = value;
     }
+
+    private _nomDocument: string;
 
     get nomDocument(): string {
         return this._nomDocument;
@@ -26,6 +27,8 @@ export class Document{
         this._nomDocument = value;
     }
 
+    private _imagesUrl: string[];
+
     get imagesUrl(): string[] {
         return this._imagesUrl;
     }
@@ -33,6 +36,8 @@ export class Document{
     set imagesUrl(value: string[]) {
         this._imagesUrl = value;
     }
+
+    private _documentType: DocumentType;
 
     get documentType(): DocumentType {
         return this._documentType;

@@ -1,4 +1,4 @@
-export enum DocumentType{
+export enum DocumentType {
     signature,
     devis,
     facture,

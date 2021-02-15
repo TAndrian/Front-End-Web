@@ -10,56 +10,56 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Heure :</mat-label>
-        <input matInput type="number" formControlName="heure">
+        <input formControlName="heure" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Minute :</mat-label>
-        <input matInput type="number" formControlName="minute">
+        <input formControlName="minute" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Adresse :</mat-label>
-        <input matInput type="text" formControlName="adresse">
+        <input formControlName="adresse" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Complément :</mat-label>
-        <input matInput type="text" formControlName="complement">
+        <input formControlName="complement" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Code Postal :</mat-label>
-        <input matInput type="text" formControlName="codePostal">
+        <input formControlName="codePostal" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Ville :</mat-label>
-        <input matInput type="text" formControlName="ville">
+        <input formControlName="ville" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Materiel :</mat-label>
-        <input matInput type="text" formControlName="materiel">
+        <input formControlName="materiel" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Description :</mat-label>
-        <input matInput type="text" formControlName="description">
+        <input formControlName="description" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Nombre Employés :</mat-label>
-        <input matInput type="number" formControleName="nombreEmployes">
+        <input formControleName="nombreEmployes" matInput type="number">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Regularité :</mat-label>
-        <input matInput type="text" formControlName="regularite">
+        <input formControlName="regularite" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Particularité :</mat-label>
-        <input matInput type="text" formControlName="particularite">
+        <input formControlName="particularite" matInput type="text">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Informations internes :</mat-label>
-        <input matInput type="text" formControlName="infoInterne">
+        <input formControlName="infoInterne" matInput type="text">
     </mat-form-field>
-    <button mat-raised-button color="primary">Nouveau client</button>
+    <button color="primary" mat-raised-button>Nouveau client</button>
     <mat-form-field>
         <mat-label>Filtrer les clients :</mat-label>
-        <input matInput type="search" formControlName="client" [(ngModel)]="filtreClient">
+        <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Client :</mat-label>
@@ -68,6 +68,6 @@
                         [value]=client>{{client.nom}} {{client.prenom}}</mat-option>
         </mat-select>
     </mat-form-field>
-    
+
 </form>
-<button mat-raised-button color="primary" (click)="onSubmit()">Ajouter</button>
+<button (click)="onSubmit()" color="primary" mat-raised-button>Ajouter</button>
