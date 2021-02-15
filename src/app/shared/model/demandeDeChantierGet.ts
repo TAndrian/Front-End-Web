@@ -2,18 +2,9 @@ import { Client } from "./client";
 import { Site } from "./site";
 
 /* Modèle pour le chantier*/
-export class DemandeDeChantier {
-    constructor(public siteId: number, 
-                public clientId: number, 
-                public nombreEmployes: number, 
-                public material: string, 
-                public adresse: string, 
-                public regularite: string, 
-                public estimationTemps: number, 
-                public particularite: string, 
-                public description: string, 
-                public infoInterne: string) {
-/*
+export class DemandeDeChantierGet {
+    constructor(id: number, site: Site, client: Client, employee: number, material: string, adresse: string, regularite: string, estimationTemps: number, particularite: string, description: string, infoInterne: string) {
+        this._id = id;
         this._site = site;
         this._client = client;
         this._employee = employee;
@@ -24,12 +15,11 @@ export class DemandeDeChantier {
         this._particularite = particularite;
         this._description = description;
         this._infoInterne = infoInterne;
-        */
     }
-/*
+
     private _id: number;
-    private _site: number;
-    private _client: number;
+    private _site: Site;
+    private _client: Client;
     private _employee: number;
     private _material: string;
     private _adresse: string;
@@ -47,19 +37,19 @@ export class DemandeDeChantier {
         this._id = value;
     }
 
-    get site(): number {
+    get site(): Site {
         return this._site;
     }
 
-    set site(value: number) {
+    set site(value: Site) {
         this._site = value;
     }
 
-    get client(): number {
+    get client(): Client {
         return this._client;
     }
 
-    set client(value: number) {
+    set client(value: Client) {
         this._client = value;
     }
 
@@ -126,5 +116,4 @@ export class DemandeDeChantier {
     set infoInterne(value: string) {
         this._infoInterne = value;
     }
-    */
 }

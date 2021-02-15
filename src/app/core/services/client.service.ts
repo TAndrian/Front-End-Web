@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Client } from '../../model/client';
+import { Client } from '../../shared/model/client';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,11 +17,12 @@ export class ClientService {
   };
 
   addClient(client: Client): Observable<any> {
-    return this.http.post('/api/v1/client/add', client, this.options);
+    console.log('json: '+JSON.stringify(client));
+    return this.http.post('/api/v1/client/add', JSON.stringify(client), this.options);
   }
 
-  getClientById(id: string): Observable<any> {
-    return this.http.get('/api/v1/client/' + id);
+  getClientById(id: string): Observable<Client> {
+    return this.http.get<Client>('/api/v1/client/get/' + id);
   }
 /*
   getAllClients(): Observable<any> {

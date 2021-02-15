@@ -1,13 +1,20 @@
 export class Site{
-    constructor(id: number, nomSite: string, nomChef: string, prenomChef: string, adresse: string, mail: string, telephone: string) {
-        this._id = id;
+    constructor(public nomSite: string, 
+                public nomChef: string, 
+                public prenomChef: string, 
+                public adresse: string, 
+                public mail: string, 
+                public telephone: string) {
+/*
         this._nomSite = nomSite;
         this._nomChef = nomChef;
         this._prenomChef = prenomChef;
         this._adresse = adresse;
         this._mail = mail;
         this._telephone = telephone;
+        */
     }
+    /*
     private _id: number;
     private _nomSite: string;
     private _nomChef: string;
@@ -70,4 +77,5 @@ export class Site{
     set telephone(value: string) {
         this._telephone = value;
     }
+    */
 }

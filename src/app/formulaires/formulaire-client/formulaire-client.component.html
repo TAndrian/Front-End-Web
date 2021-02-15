@@ -33,4 +33,11 @@
         <input matInput type="text" formControlName="infoComplementaire">
     </mat-form-field>
 </form>
-<button mat-raised-button color="primary">Ajouter</button>
+<button mat-raised-button color="primary" (click)="onSubmit()">Ajouter</button>
+
+<div *ngIf = "client">
+    {{client.nom}}{{client.prenom}}
+</div>
+<div *ngIf = "!client">
+    MARCH PO
+</div>

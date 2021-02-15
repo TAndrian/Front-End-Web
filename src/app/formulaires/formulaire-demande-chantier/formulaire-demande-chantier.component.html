@@ -4,8 +4,8 @@
 <form [formGroup]="demandeDeChantierForm">
     <mat-form-field>
         <mat-label>Site :</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let site of sites" value="site.id">{{site.nomSite}}</mat-option>
+        <mat-select formControlName="site">
+            <mat-option *ngFor="let site of sites" [value]=site>{{site.nomSite}}</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field>
@@ -41,8 +41,8 @@
         <input matInput type="text" formControlName="description">
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Employé :</mat-label>
-        <input matInput type="number" formControleName="employe">
+        <mat-label>Nombre Employés :</mat-label>
+        <input matInput type="number" formControleName="nombreEmployes">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Regularité :</mat-label>
@@ -54,20 +54,20 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Informations internes :</mat-label>
-        <input matInput type="text" formControlName="informationsInternes">
+        <input matInput type="text" formControlName="infoInterne">
     </mat-form-field>
     <button mat-raised-button color="primary">Nouveau client</button>
     <mat-form-field>
         <mat-label>Filtrer les clients :</mat-label>
-        <input matInput type="search" formControlName="client"  [(ngModel)]="filtreClient">
+        <input matInput type="search" formControlName="client" [(ngModel)]="filtreClient">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Client :</mat-label>
-        <mat-select>
+        <mat-select formControlName="client">
             <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
-                        [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
+                        [value]=client>{{client.nom}} {{client.prenom}}</mat-option>
         </mat-select>
     </mat-form-field>
     
 </form>
-<button mat-raised-button color="primary">Ajouter</button>
+<button mat-raised-button color="primary" (click)="onSubmit()">Ajouter</button>

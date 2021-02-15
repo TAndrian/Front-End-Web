@@ -1,8 +1,7 @@
 import {StatusType} from './statusType';
 
 export class Chantier{
-    constructor(id: number, site: number, client: number, problemes: number[], documents: number[], adresse: string, ouvriers: string[], materiel: string, dateDebut: Date, dateFin: Date, heureDemarrage: Date, estimationTemps: number, telephone: string, statusChantier: StatusType, nomChantier: string, informationsInterne: string, description: string) {
-        this._id = id;
+    constructor(site: number, client: number, problemes: number[], documents: number[], adresse: string, ouvriers: string[], materiel: string, dateDebut: Date, dateFin: Date, heureDemarrage: Date, estimationTemps: number, telephone: string, statusChantier: StatusType, nomChantier: string, informationsInterne: string, description: string) {
         this._site = site;
         this._client = client;
         this._problemes = problemes;

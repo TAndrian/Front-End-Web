@@ -44,12 +44,13 @@ export class FormulaireNouveauChantierComponent implements OnInit {
   filtreClient = '';
 
   constructor() {
-    this.sites.push(new Site(1, 'Beaulieu', 'Linh', 'François', 'rue du bélieré', '', ''));
-    this.clients.push(new Client(1, 'Saint', 'Bernard', '', '', ''));
-    this.clients.push(new Client(2, 'Castex', 'Jean', '', '', ''));
+  //  this.sites.push(new Site('Beaulieu', 'Linh', 'François', 'rue du bélieré', '', ''));
+  //  this.clients.push(new Client(1, 'Saint', 'Bernard', '', '', ''));
+  //  this.clients.push(new Client(2, 'Castex', 'Jean', '', '', ''));
   }
 
   ngOnInit(): void {
+
   }
 
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {Site} from '../../model/site';
+import { Site } from '../../shared/model/site';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class SiteService {
  }
 
  getSiteById(id:string): Observable<any> {
-   return this.http.get('/api/v1/get/site/get/'+id);
+   return this.http.get('/api/v1/site/get/'+id);
  }
 /*
  getAllSites(): Observable<any> {

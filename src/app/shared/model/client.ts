@@ -1,65 +1,74 @@
 export class Client{
-    constructor(id: number, nom: string, prenom: string, adresse: string, mail: string, infoComplementaire: string) {
-        this._id = id;
-        this._nom = nom;
-        this._prenom = prenom;
-        this._adresse = adresse;
-        this._mail = mail;
-        this._infoComplementaire = infoComplementaire;
+constructor(public nom: string,
+            public prenom: string,
+            public adresse: string,
+            public mail: string,
+            public infoComplementaire: string){
+        /*
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.mail = mail;
+        this.infoComplementaire = infoComplementaire;
+        */
     }
 
-    private _id: number;
-    private _nom: string;
-    private _prenom: string;
-    private _adresse: string;
-    private _mail: string;
-    private _infoComplementaire: string;
+
+    /*
+    public id: number;
+    public nom: string;
+    public prenom: string;
+    public adresse: string;
+    public mail: string;
+    public infoComplementaire: string;
+
 
     get id(): number {
-        return this._id;
+        return this.id;
     }
 
     set id(value: number) {
-        this._id = value;
+        this.id = value;
     }
 
     get nom(): string {
-        return this._nom;
+        return this.nom;
     }
 
     set nom(value: string) {
-        this._nom = value;
+        this.nom = value;
     }
 
     get prenom(): string {
-        return this._prenom;
+        return this.prenom;
     }
 
     set prenom(value: string) {
-        this._prenom = value;
+        this.prenom = value;
     }
 
     get adresse(): string {
-        return this._adresse;
+        return this.adresse;
     }
 
     set adresse(value: string) {
-        this._adresse = value;
+        this.adresse = value;
     }
 
     get mail(): string {
-        return this._mail;
+        return this.mail;
     }
 
     set mail(value: string) {
-        this._mail = value;
+        this.mail = value;
     }
 
     get infoComplementaire(): string {
-        return this._infoComplementaire;
+        return this.infoComplementaire;
     }
 
     set infoComplementaire(value: string) {
-        this._infoComplementaire = value;
+        this.infoComplementaire = value;
     }
+    */
 }

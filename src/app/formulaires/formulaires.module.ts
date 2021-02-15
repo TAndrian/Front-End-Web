@@ -9,13 +9,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {SharedModule} from '../shared/shared.module';
 import { FormulaireNouveauChantierComponent } from './formulaire-nouveau-chantier/formulaire-nouveau-chantier.component';
-import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { FormulaireClientComponent } from './formulaire-client/formulaire-client.component';
+import { FormulaireSiteComponent } from './formulaire-site/formulaire-site.component';
 
 
 @NgModule({
   declarations: [
       FormulaireDemandeChantierComponent,
-      FormulaireNouveauChantierComponent
+      FormulaireNouveauChantierComponent,
+      FormulaireClientComponent,
+      FormulaireSiteComponent
   ],
   imports: [
     CommonModule,
@@ -25,12 +28,13 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    SharedModule,
-    NgxMatFileInputModule
+    SharedModule
   ],
   exports: [
       FormulaireDemandeChantierComponent,
-      FormulaireNouveauChantierComponent
+      FormulaireNouveauChantierComponent,
+      FormulaireClientComponent,
+      FormulaireSiteComponent
   ]
 })
 export class FormulairesModule { }

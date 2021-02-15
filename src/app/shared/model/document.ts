@@ -1,8 +1,7 @@
 import {DocumentType} from './documentType';
 
 export class Document{
-    constructor(id: number, nomDocument: string, imagesUrl: string[], documentType: DocumentType) {
-        this._id = id;
+    constructor(nomDocument: string, imagesUrl: string[], documentType: DocumentType) {
         this._nomDocument = nomDocument;
         this._imagesUrl = imagesUrl;
         this._documentType = documentType;

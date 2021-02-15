@@ -1,9 +1,10 @@
 export class Probleme{
-    constructor(id: number, description: string, imageUrl: string[]) {
-        this._id = id;
-        this._description = description;
-        this._imageUrl = imageUrl;
+    constructor(public description: string, public imageUrl: string[]) {
+
+        //this._description = description;
+        //this._imageUrl = imageUrl;
     }
+    /*
     private _id: number;
     private _description: string;
     private _imageUrl: string[];
@@ -30,4 +31,5 @@ export class Probleme{
     set imageUrl(value: string[]) {
         this._imageUrl = value;
     }
+    */
 }
