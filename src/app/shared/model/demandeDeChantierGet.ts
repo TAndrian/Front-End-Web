@@ -3,7 +3,18 @@ import { Site } from "./site";
 
 /* Modèle pour le chantier*/
 export class DemandeDeChantierGet {
-    constructor(id: number, site: Site, client: Client, employee: number, material: string, adresse: string, regularite: string, estimationTemps: number, particularite: string, description: string, infoInterne: string) {
+    constructor(public id: number, 
+                public site: Site, 
+                public client: Client, 
+                public employee: number, 
+                public material: string, 
+                public adresse: string, 
+                public regularite: string, 
+                public estimationTemps: number, 
+                public particularite: string, 
+                public description: string, 
+                public infoInterne: string) {
+        /*
         this._id = id;
         this._site = site;
         this._client = client;
@@ -15,8 +26,9 @@ export class DemandeDeChantierGet {
         this._particularite = particularite;
         this._description = description;
         this._infoInterne = infoInterne;
+        */
     }
-
+/*
     private _id: number;
     private _site: Site;
     private _client: Client;
@@ -116,4 +128,5 @@ export class DemandeDeChantierGet {
     set infoInterne(value: string) {
         this._infoInterne = value;
     }
+    */
 }
