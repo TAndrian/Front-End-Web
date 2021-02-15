@@ -9,16 +9,18 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {SharedModule} from '../shared/shared.module';
 import { FormulaireNouveauChantierComponent } from './formulaire-nouveau-chantier/formulaire-nouveau-chantier.component';
-import { FormulaireClientComponent } from './formulaire-client/formulaire-client.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { FormulaireSiteComponent } from './formulaire-site/formulaire-site.component';
-
+import { FormulaireClientComponent } from './formulaire-client/formulaire-client.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
       FormulaireDemandeChantierComponent,
       FormulaireNouveauChantierComponent,
-      FormulaireClientComponent,
-      FormulaireSiteComponent
+      FormulaireSiteComponent,
+      FormulaireClientComponent
   ],
   imports: [
     CommonModule,
@@ -28,13 +30,16 @@ import { FormulaireSiteComponent } from './formulaire-site/formulaire-site.compo
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    SharedModule
+    SharedModule,
+    NgxMatFileInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
   exports: [
       FormulaireDemandeChantierComponent,
       FormulaireNouveauChantierComponent,
-      FormulaireClientComponent,
-      FormulaireSiteComponent
+      FormulaireSiteComponent,
+      FormulaireClientComponent
   ]
 })
 export class FormulairesModule { }
