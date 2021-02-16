@@ -6,7 +6,7 @@
         <h1>{{chantier.nomChantier}} </h1>
         <span>{{chantier.adresse}}</span>
 
-        <p>Statut :<span class="etat-actuel"> {{getStatus(chantier)}}</span></p>
+        <p>Statut :<span class="etat-actuel"> {{getStatus(chantier.statusChantier)}}</span></p>
     </div>
 
     <div class="left-buttons-detail-chantier">
@@ -42,23 +42,23 @@
         <mat-card *ngIf="chantier.regularite">
             <div class="mat-custom-header"><mat-card-title>Régulier</mat-card-title></div>
             <mat-card-content>
-                <p>Date de début : {{chantier.dateDebutRegularite}}</p>
-                <p>Date de fin : {{chantier.dateFinRegularite}}</p>
-                <mat-list *ngIf="chantier.rapportsRegulier.size !== 0">
-                    <mat-list-item *ngFor="let rapport of chantier.rapportsRegulier">
-                        <p>date prévu pour le début{{rapport.dateDebutTheorique}}</p>
-                        <p>date prévu pour la fin{{rapport.dateFinTheorique}}</p>
-                        <p> date effective du début :{{rapport.dateDebutEffectif}}</p>
-                        <p> date effective de la fin {{rapport.dateFinEffectif}}</p>
-                        statut : {{rapport.statut}}
-                    </mat-list-item>
-                </mat-list>
+                <p>Date de début : {{(chantier.dateDebutRegularite | date:'short')}}</p>
+                <p>Date de fin : {{(chantier.dateFinRegularite | date:'short')}}</p>
+                <ul *ngIf="chantier.rapportsRegulier.size !== 0">
+                    <li *ngFor="let rapport of chantier.rapportsRegulier" class="item-ouvrier">
+                        <p>date prévu pour le début{{(rapport.dateDebutTheorique | date:'short')}}</p>
+                        <p>date prévu pour la fin{{(rapport.dateFinTheorique | date:'short')}}</p>
+                        <p> date effective du début :{{(rapport.dateDebutEffectif | date:'short')}}</p>
+                        <p> date effective de la fin {{(rapport.dateFinEffectif | date:'short')}}</p>
+                        statut : {{getStatus(rapport.statut)}}
+                    </li>
+                </ul>
                 <p>Jour(s) de travaux : {{getJours(chantier.joursRegularite)}}</p>
             </mat-card-content>
         </mat-card>
     </div>
     <div class="right-content">
-        <mat-card>
+        <mat-card class="detail-chantier-card">
             <div class="mat-custom-header">
                 <mat-card-title>Détails du chantier</mat-card-title>
             </div>
@@ -87,10 +87,10 @@
                     </mat-list>
                 </div>
                 <div class="date">
-                    <p>date prévu pour le début : {{chantier.dateDebutTheorique | date:'shortDate'}}</p>
-                    <p>date prévu pour la fin : {{chantier.dateFinTheorique | date:'shortDate'}}</p>
-                    <p>date effective du début : {{(chantier.dateDebutEffectif.getDate().toString()!=='')?(chantier.dateDebutEffectif | date:'shortDate'):'en attente'}}</p>
-                    <p>date effective de la fin : {{(chantier.dateFinEffectif.getDate().toString()!=='')?(chantier.dateFinEffectif | date:'shortDate') :'en attente'}}</p>
+                    <p>date prévu pour le début : {{chantier.dateDebutTheorique | date:'short'}}</p>
+                    <p>date prévu pour la fin : {{chantier.dateFinTheorique | date:'short'}}</p>
+                    <p>date effective du début : {{(chantier.dateDebutEffectif!==null)?(chantier.dateDebutEffectif | date:'short'):'en attente'}}</p>
+                    <p>date effective de la fin : {{(chantier.dateFinEffectif!==null)?(chantier.dateFinEffectif | date:'short') :'en attente'}}</p>
                 </div>
 
             </mat-card-content>
@@ -100,13 +100,13 @@
                 <mat-card-title>Ouvriers</mat-card-title>
             </div>
             <mat-card-content>
-                <mat-list class="liste-ouvrier">
+                <li class="liste-ouvrier">
                     <div *ngFor="let ouvrier of chantier.ouvriers">
-                        <mat-list-item>{{ouvrier}}</mat-list-item>
+                        <ul>{{ouvrier}}</ul>
                         <mat-divider></mat-divider>
                     </div>
 
-                </mat-list>
+                </li>
             </mat-card-content>
         </mat-card>
 
