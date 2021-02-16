@@ -5,9 +5,10 @@ import {FormulaireClientComponent} from './formulaires/formulaire-client/formula
 import {FormulaireSiteComponent} from './formulaires/formulaire-site/formulaire-site.component';
 import {FormulaireDemandeChantierComponent} from './formulaires/formulaire-demande-chantier/formulaire-demande-chantier.component';
 import {DetailChantierComponent} from './affichage/detail-chantier/detail-chantier.component';
+import {ListChantiersComponent} from './affichage/list-chantiers/list-chantiers.component';
 
 const routes: Routes = [
-    {path: '', component: FormulaireDemandeChantierComponent},
+    {path: '', component: ListChantiersComponent},
     {path: 'demandeDeChantier', component: FormulaireDemandeChantierComponent},
     {path: 'nouveauChantier', component: FormulaireNouveauChantierComponent},
     {path: 'client', component: FormulaireClientComponent},
