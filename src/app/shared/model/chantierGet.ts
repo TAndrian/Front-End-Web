@@ -1,12 +1,15 @@
+import { Client } from './client';
 import { JourSemaineType } from './jourSemaineType';
 import { Media } from './media';
 import { Probleme } from './probleme';
 import { RapportChantierRegulier } from './rapportChantierRegulier';
+import { Site } from './site';
 import {StatusType} from './statusType';
 
-export class Chantier {
-    constructor(public siteId: number,
-                public clientId: number, 
+export class ChantierGet {
+    constructor(public id: number,
+                public site: Site,
+                public client: Client, 
                 public problemes: Set<Probleme>, 
                 public medias: Set<Media>, 
                 public adresse: string, 
