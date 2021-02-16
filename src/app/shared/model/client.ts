@@ -3,5 +3,6 @@ export class Client {
                 public prenom: string,
                 public adresse: string,
                 public mail: string,
-                public infoComplementaire: string) {}
+                public infoComplementaire: string) {
+    }
 }

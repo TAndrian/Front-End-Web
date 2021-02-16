@@ -1,1 +1,114 @@
-<p>detail-chantier works!</p>
+<div class="wrapper-button-detail-chantier">
+    <div class="right-buttons-detail-chantier">
+        <button color="primary" mat-raised-button>Retour</button>
+    </div>
+    <div class="header-detail-chantier">
+        <h1>{{chantier.nomChantier}} </h1>
+        <span>{{chantier.adresse}}</span>
+
+        <p>Statut :<span class="etat-actuel"> {{getStatus(chantier.statusChantier)}}</span></p>
+    </div>
+
+    <div class="left-buttons-detail-chantier">
+        <button color="primary" mat-raised-button>Modifier</button>
+        <button color="primary" mat-raised-button>Créer nouveau chantier</button>
+        <button color="primary" mat-raised-button>Affecter à un mobile</button>
+    </div>
+</div>
+<div class="detail-chantier-wrapper">
+    <div class="left-content">
+        <mat-card>
+            <div class="mat-custom-header">
+                <mat-card-title>Site</mat-card-title>
+            </div>
+            <mat-card-content>
+                <p>Nom : {{chantier.site.nomSite}}</p>
+                <p>Chef : {{chantier.site.nomChef}} {{chantier.site.prenomChef}}</p>
+                <p>Lieu : {{chantier.site.adresse}}</p>
+                <p>Contact : {{chantier.site.mail}}</p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <div class="mat-custom-header">
+                <mat-card-title>
+                    Client
+                </mat-card-title>
+            </div>
+            <mat-card-content>
+                <p>Nom : {{chantier.client.nom}} {{chantier.client.prenom}}</p>
+                <p>Contact : {{chantier.client.mail}}</p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card *ngIf="chantier.regularite">
+            <div class="mat-custom-header"><mat-card-title>Régulier</mat-card-title></div>
+            <mat-card-content>
+                <p>Date de début : {{(chantier.dateDebutRegularite | date:'short')}}</p>
+                <p>Date de fin : {{(chantier.dateFinRegularite | date:'short')}}</p>
+                <ul *ngIf="chantier.rapportsRegulier.size !== 0">
+                    <li *ngFor="let rapport of chantier.rapportsRegulier" class="item-ouvrier">
+                        <p>date prévu pour le début{{(rapport.dateDebutTheorique | date:'short')}}</p>
+                        <p>date prévu pour la fin{{(rapport.dateFinTheorique | date:'short')}}</p>
+                        <p> date effective du début :{{(rapport.dateDebutEffectif | date:'short')}}</p>
+                        <p> date effective de la fin {{(rapport.dateFinEffectif | date:'short')}}</p>
+                        statut : {{getStatus(rapport.statut)}}
+                    </li>
+                </ul>
+                <p>Jour(s) de travaux : {{getJours(chantier.joursRegularite)}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="right-content">
+        <mat-card class="detail-chantier-card">
+            <div class="mat-custom-header">
+                <mat-card-title>Détails du chantier</mat-card-title>
+            </div>
+            <mat-card-content  class="detail-chantier-card-content">
+                <div class="detail-chantier-principal-content">
+                    <span>Description : </span>
+                    <p>{{chantier.description}}</p>
+                    <mat-list *ngIf="chantier.problemes.size != 0">
+                        Problèmes :
+                        <mat-list-item *ngFor="let problem of chantier.problemes">
+                            <div class="probleme-desc">
+                                <p>{{problem.description}}</p>
+                                <img mat-card-image src="{{problem.imageUrl}}" alt="non disponible"/>
+                            </div>
+
+                        </mat-list-item>
+                    </mat-list>
+                    <mat-list *ngIf="chantier.materiel != ''">
+                        Matériel :  {{chantier.materiel}}
+                    </mat-list>
+                    <mat-list *ngIf="chantier.medias.size != 0">
+                        Document :
+                        <mat-list-item *ngFor="let media of chantier.medias">
+                            {{media}}
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+                <div class="date">
+                    <p>date prévu pour le début : {{chantier.dateDebutTheorique | date:'short'}}</p>
+                    <p>date prévu pour la fin : {{chantier.dateFinTheorique | date:'short'}}</p>
+                    <p>date effective du début : {{(chantier.dateDebutEffectif!==null)?(chantier.dateDebutEffectif | date:'short'):'en attente'}}</p>
+                    <p>date effective de la fin : {{(chantier.dateFinEffectif!==null)?(chantier.dateFinEffectif | date:'short') :'en attente'}}</p>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <div class="mat-custom-header">
+                <mat-card-title>Ouvriers</mat-card-title>
+            </div>
+            <mat-card-content>
+                <li class="liste-ouvrier">
+                    <div *ngFor="let ouvrier of chantier.ouvriers">
+                        <ul>{{ouvrier}}</ul>
+                        <mat-divider></mat-divider>
+                    </div>
+
+                </li>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>

@@ -2,16 +2,15 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Chantier} from '../../shared/model/chantier';
-import {DemandeDeChantierGet} from '../../shared/model/demandeDeChantierGet';
 import {environment} from '../../../environments/environment';
-import { ChantierGet } from 'src/app/shared/model/chantierGet';
+import {ChantierGet} from 'src/app/shared/model/chantierGet';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ChantierService {
 
-  options: any = {
+    options: any = {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
         observe: 'response',
     };

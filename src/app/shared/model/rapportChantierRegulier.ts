@@ -1,4 +1,4 @@
-import { StatusType } from "./statusType";
+import {StatusType} from "./statusType";
 
 export class RapportChantierRegulier {
     constructor(
@@ -7,6 +7,7 @@ export class RapportChantierRegulier {
         public dateDebutEffectif: Date,
         public dateFinEffectif: Date,
         public statut: StatusType
-    ){}
+    ) {
+    }
 
 }

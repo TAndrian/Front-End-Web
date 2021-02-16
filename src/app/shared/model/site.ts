@@ -4,5 +4,6 @@ export class Site {
                 public prenomChef: string,
                 public adresse: string,
                 public mail: string,
-                public telephone: string) {}
+                public telephone: string) {
+    }
 }
