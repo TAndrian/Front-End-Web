@@ -1,17 +1,18 @@
-.titre-list-chantiers{
+.titre-list-chantiers {
     margin-left: auto;
     margin-right: auto;
     height: 20%;
 }
 
-.outils-wrapper{
+.outils-wrapper {
     width: 20%;
     position: absolute;
     left: auto;
     flex-direction: column;
     justify-content: space-between;
 }
-.list-de-chantiers-wrapper{
+
+.list-de-chantiers-wrapper {
     width: 65%;
     position: absolute;
     left: 30%;

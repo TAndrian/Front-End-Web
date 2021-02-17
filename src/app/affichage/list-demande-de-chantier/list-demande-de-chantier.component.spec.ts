@@ -1,25 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListDemandeDeChantierComponent } from './list-demande-de-chantier.component';
+import {ListDemandeDeChantierComponent} from './list-demande-de-chantier.component';
 
 describe('ListDemandeDeChantierComponent', () => {
-  let component: ListDemandeDeChantierComponent;
-  let fixture: ComponentFixture<ListDemandeDeChantierComponent>;
+    let component: ListDemandeDeChantierComponent;
+    let fixture: ComponentFixture<ListDemandeDeChantierComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ListDemandeDeChantierComponent ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ListDemandeDeChantierComponent]
+        })
+            .compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ListDemandeDeChantierComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ListDemandeDeChantierComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

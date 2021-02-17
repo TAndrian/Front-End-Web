@@ -3,7 +3,8 @@
         <p> Nom du site : {{demandeDeChantier.site.nomSite}}</p>
         <p> Adresse : {{demandeDeChantier.adresse}}</p>
         <p> Nom du client : {{demandeDeChantier.client.nom}} {{demandeDeChantier.client.prenom}}</p>
-        <p *ngIf="demandeDeChantier.regularite"> Jours de régularités : {{affichageUtilsService.getJours(demandeDeChantier.joursRegularite)}}</p>
+        <p *ngIf="demandeDeChantier.regularite"> Jours de régularités
+            : {{affichageUtilsService.getJours(demandeDeChantier.joursRegularite)}}</p>
         <p> Informations internes : {{demandeDeChantier.informationsInterne}}</p>
         <p> Nombre de personne : {{demandeDeChantier.nombreEmployes}}</p>
         <p> Description : {{demandeDeChantier.description}}</p>
@@ -11,3 +12,5 @@
         <p> Estimation du temps : {{demandeDeChantier.estimationTemps}}</p>
     </mat-list-item>
 </mat-list>
+<button mat-raised-button> Ajouter </button>
+

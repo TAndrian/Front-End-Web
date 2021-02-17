@@ -1,77 +1,92 @@
-.detail-chantier-wrapper{
+.detail-chantier-wrapper {
     display: flex;
     justify-content: space-between;
-    padding-top: 15px ;
+    padding-top: 15px;
     padding-left: 10px;
     padding-right: 10px;
     height: 100%;
 }
-.left-content{
+
+.left-content {
     width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.right-content{
+
+.right-content {
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.wrapper-button-detail-chantier{
+.wrapper-button-detail-chantier {
     display: flex;
     justify-content: space-between;
-    padding-top: 15px ;
+    padding-top: 15px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-.mat-card-title-custom{
-  margin: 0 auto !important;
+.mat-card-title-custom {
+    margin: 0 auto !important;
 }
+
 .detail-chantier-card-content {
     display: flex;
     height: 100%;
 }
-.detail-chantier-principal-content{
+
+.detail-chantier-principal-content {
     flex-grow: 2;
 }
-.date{
+
+.date {
     text-align: justify;
 }
-.etat-actuel{
+
+.etat-actuel {
     font-style: italic;
     text-transform: lowercase;
 }
-.header-detail-chantier{
+
+.header-detail-chantier {
     text-align: left;
 }
-img{
+
+img {
     max-width: 150px;
     max-height: 150px;
     position: relative;
 }
-mat-list{
+
+mat-list {
     height: 100%;
 }
-mat-list-item{
+
+mat-list-item {
     height: 100%;
 }
-.probleme-desc{
+
+.probleme-desc {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-.item-ouvrier{
+
+.item-ouvrier {
     height: 24px;
 }
+
 li {
     list-style-type: none;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
-.detail-chantier-card{
+
+.detail-chantier-card {
     flex-grow: 2;
 }

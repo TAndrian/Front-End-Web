@@ -1,53 +1,53 @@
 <div class="titre-list-chantiers">
 </div>
 <div class="outils-wrapper">
-  <div class="left-content">
-    <mat-card>
-      <div class="left-buttons-filtre">
-        <button color="primary" mat-raised-button>Lieu</button>
-        <button color="primary" mat-raised-button>Durée</button>
-        <button color="primary" mat-raised-button>Matériel</button>
+    <div class="left-content">
+        <mat-card>
+            <div class="left-buttons-filtre">
+                <button color="primary" mat-raised-button>Lieu</button>
+                <button color="primary" mat-raised-button>Durée</button>
+                <button color="primary" mat-raised-button>Matériel</button>
+            </div>
+        </mat-card>
     </div>
-    </mat-card>
-  </div>
 </div>
 
 <div class="list-de-chantiers-wrapper">
-  <mat-toolbar>
-    <input matInput placeholder="rechercher" value="Cherche">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>search</mat-icon>
-    </button>
-  </mat-toolbar>
+    <mat-toolbar>
+        <input matInput placeholder="rechercher" value="Cherche">
+        <button aria-label="Example icon-button with menu icon" class="example-icon" mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-toolbar>
 
-  <div class="list">
-    <mat-card *ngFor="let item of obs | async">
-      <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Chantier {{item.id }}
-          </mat-panel-title>
-          <button mat-icon-button (click)="toDetaileChantier">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </button>
-        </mat-expansion-panel-header>
-        <div>
-          Adress: {{item.adresse}}
-          Site: {{item.site}}
-          Chef du site: {{item.site.nomChef}}
-          Nom de chantier: {{item.nomChantier}}
-          Début-fin: {{item.dateDebutEffectif}} - {{item.dateFinEffectif}}
-          Etat: {{item.statusChantier}}
-        </div>
-      </mat-expansion-panel>
-    </mat-card>
-  </div>
-  <mat-toolbar>
-    <mat-paginator [length]="length"
-                    [pageSize]="2"
-                    [pageSizeOptions]= "[5, 10, 25, 100]">
-    </mat-paginator>  
-  </mat-toolbar>
-  
-  
+    <div class="list">
+        <mat-card *ngFor="let item of obs | async">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Chantier {{item.id }}
+                    </mat-panel-title>
+                    <button (click)="toDetaileChantier" mat-icon-button>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </mat-expansion-panel-header>
+                <div>
+                    Adress: {{item.adresse}}
+                    Site: {{item.site}}
+                    Chef du site: {{item.site.nomChef}}
+                    Nom de chantier: {{item.nomChantier}}
+                    Début-fin: {{item.dateDebutEffectif}} - {{item.dateFinEffectif}}
+                    Etat: {{item.statusChantier}}
+                </div>
+            </mat-expansion-panel>
+        </mat-card>
+    </div>
+    <mat-toolbar>
+        <mat-paginator [length]="length"
+                       [pageSizeOptions]="[5, 10, 25, 100]"
+                       [pageSize]="2">
+        </mat-paginator>
+    </mat-toolbar>
+
+
 </div>

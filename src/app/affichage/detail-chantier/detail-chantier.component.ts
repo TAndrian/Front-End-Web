@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StatusType} from '../../shared/model/statusType';
 import {ChantierGet} from '../../shared/model/chantierGet';
 import {Site} from '../../shared/model/site';
