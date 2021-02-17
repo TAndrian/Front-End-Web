@@ -26,11 +26,11 @@ export class SiteService {
         return this.http.get(environment.apiUrl + 'site/get/' + id);
     }
 
-    /*
+    
      getAllSites(): Observable<any> {
        return this.http.get(environment.apiUrl + 'site/get');
      }
-    */
+    
     updateSiteById(id: string, site: Site): Observable<any> {
         return this.http.put(environment.apiUrl + 'site/update/' + id, site, this.options);
     }
