@@ -9,11 +9,13 @@ import {ListChantiersComponent} from './affichage/list-chantiers/list-chantiers.
 
 const routes: Routes = [
     {path: '', component: ListChantiersComponent},
-    {path: 'demandeDeChantier', component: FormulaireDemandeChantierComponent},
-    {path: 'nouveauChantier', component: FormulaireNouveauChantierComponent},
-    {path: 'client', component: FormulaireClientComponent},
-    {path: 'site', component: FormulaireSiteComponent},
-    {path: 'detailChantier/:id', component: DetailChantierComponent},
+    {path: 'nouveau-demande-de-chantier', component: FormulaireDemandeChantierComponent},
+    {path: 'nouveau-chantier', component: FormulaireNouveauChantierComponent},
+    {path: 'nouveau-client', component: FormulaireClientComponent},
+    {path: 'nouveau-site', component: FormulaireSiteComponent},
+
+    {path: 'liste-chantiers', component: ListChantiersComponent},
+    {path: 'details-chantier/:id', component: DetailChantierComponent},
 ];
 
 @NgModule({
