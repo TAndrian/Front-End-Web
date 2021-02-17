@@ -18,6 +18,9 @@ export class ListDemandeDeChantierComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.demandeDeChantierService.getAllDemandeDeChantiers().subscribe(data => {
+            this.demandesDeChantier = data;
+        })
     }
 
 }

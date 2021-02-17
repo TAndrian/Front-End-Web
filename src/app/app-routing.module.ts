@@ -15,21 +15,21 @@ import {ListDemandeDeChantierComponent} from './affichage/list-demande-de-chanti
 import {NouvelUtilisateurComponent} from './gestion-utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
 
 const routes: Routes = [
-    {path: 'demandeDeChantier', component: FormulaireDemandeChantierComponent},
-    {path: 'nouvelUtilisateur', component: NouvelUtilisateurComponent},
-    {path: 'nouveauDemandeDeChantier', component: FormulaireDemandeChantierComponent},
-    {path: 'nouveauChantier', component: FormulaireNouveauChantierComponent},
-    {path: 'nouveauClient', component: FormulaireClientComponent},
-    {path: 'nouveauSite', component: FormulaireSiteComponent},    {path: 'client', component: FormulaireClientComponent},
+    {path: 'demande-de-cantier', component: FormulaireDemandeChantierComponent},
+    {path: 'nouvel-utilisateur', component: NouvelUtilisateurComponent},
+    {path: 'nouvelle-demande-de-chantier', component: FormulaireDemandeChantierComponent},
+    {path: 'nouveau-chantier', component: FormulaireNouveauChantierComponent},
+    {path: 'nouveau-client', component: FormulaireClientComponent},
+    {path: 'nouveau-site', component: FormulaireSiteComponent},    {path: 'client', component: FormulaireClientComponent},
     {path: 'site', component: FormulaireSiteComponent},
-    {path: 'detailChantier/:id', component: DetailChantierComponent},
-    {path: 'detailClient/:id', component: DetailClientComponent},
-    {path: 'detailSite/:id', component: DetailSiteComponent},
-    {path: 'detailDemandeDeChantier/:id', component: DetailDemandeDeChantierComponent},
-    {path: 'listeChantier', component: ListChantiersComponent},
-    {path: 'listeClient', component: ListClientsComponent},
-    {path: 'listeSite', component: ListSitesComponent},
-    {path: 'listeDemandeDeChantier', component: ListDemandeDeChantierComponent},
+    {path: 'detail-chantier/:id', component: DetailChantierComponent},
+    {path: 'detail-client/:id', component: DetailClientComponent},
+    {path: 'detail-site/:id', component: DetailSiteComponent},
+    {path: 'detail-demande-de-chantier/:id', component: DetailDemandeDeChantierComponent},
+    {path: 'liste-chantier', component: ListChantiersComponent},
+    {path: 'liste-client', component: ListClientsComponent},
+    {path: 'liste-site', component: ListSitesComponent},
+    {path: 'liste-demande-de-chantier', component: ListDemandeDeChantierComponent},
 ];
 
 @NgModule({

@@ -9,6 +9,7 @@ import {SharedModule} from './shared/shared.module';
 import {FormulairesModule} from './formulaires/formulaires.module';
 import {AffichageModule} from './affichage/affichage.module';
 import {GestionUtilisateursModule} from './gestion-utilisateurs/gestion-utilisateurs.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import {GestionUtilisateursModule} from './gestion-utilisateurs/gestion-utilisat
     ],
     imports: [
         BrowserModule,
+        RouterModule,
         AppRoutingModule,
         StudentModule,
         BrowserAnimationsModule,

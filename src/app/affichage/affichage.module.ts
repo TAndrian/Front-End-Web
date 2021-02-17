@@ -9,6 +9,8 @@ import {DetailSiteComponent} from './detail-site/detail-site.component';
 import {ListSitesComponent} from './list-sites/list-sites.component';
 import {DetailDemandeDeChantierComponent} from './detail-demande-de-chantier/detail-demande-de-chantier.component';
 import {ListDemandeDeChantierComponent} from './list-demande-de-chantier/list-demande-de-chantier.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import {ListDemandeDeChantierComponent} from './list-demande-de-chantier/list-de
     ],
     imports: [
         CommonModule,
-        SharedMaterialModule
+        SharedMaterialModule,
+        AppRoutingModule,
+        RouterModule
     ],
     exports: [
         DetailChantierComponent,

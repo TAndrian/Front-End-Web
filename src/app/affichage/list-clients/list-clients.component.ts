@@ -16,6 +16,9 @@ export class ListClientsComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.clientService.getAllClients().subscribe(data => {
+            this.clients = data;
+        })
     }
 
 }

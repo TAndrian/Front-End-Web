@@ -5,7 +5,8 @@ import {Site} from '../../shared/model/site';
 @Component({
     selector: 'app-list-sites',
     templateUrl: './list-sites.component.html',
-    styleUrls: ['./list-sites.component.css']
+    styleUrls: ['./list-sites.component.css'],
+
 })
 export class ListSitesComponent implements OnInit {
     sites: Site[];
@@ -15,7 +16,12 @@ export class ListSitesComponent implements OnInit {
     ) {
     }
 
+
+
     ngOnInit(): void {
+        this.siteService.getAllSites().subscribe(data => {
+            this.sites = data;
+        })
     }
 
 }
