@@ -27,11 +27,11 @@ export class ClientService {
         return this.http.get<Client>(environment.apiUrl + 'client/get/' + id);
     }
 
-    /*
-      getAllClients(): Observable<any> {
-        return this.http.get(environment.apiUrl + 'client/get');
-      }
-    */
+    
+    getAllClients(): Observable<any> {
+    return this.http.get(environment.apiUrl + 'client/get');
+    }
+    
     updateClientById(id: string, client: Client): Observable<any> {
         return this.http.put(environment.apiUrl + 'client/update/' + id, client, this.options);
     }
