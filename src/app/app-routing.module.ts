@@ -15,10 +15,12 @@ import {ListDemandeDeChantierComponent} from './affichage/list-demande-de-chanti
 import {NouvelUtilisateurComponent} from './gestion-utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
 
 const routes: Routes = [
-    {path: '', component: ListChantiersComponent},
     {path: 'demandeDeChantier', component: FormulaireDemandeChantierComponent},
+    {path: 'nouvelUtilisateur', component: NouvelUtilisateurComponent},
+    {path: 'nouveauDemandeDeChantier', component: FormulaireDemandeChantierComponent},
     {path: 'nouveauChantier', component: FormulaireNouveauChantierComponent},
-    {path: 'client', component: FormulaireClientComponent},
+    {path: 'nouveauClient', component: FormulaireClientComponent},
+    {path: 'nouveauSite', component: FormulaireSiteComponent},    {path: 'client', component: FormulaireClientComponent},
     {path: 'site', component: FormulaireSiteComponent},
     {path: 'detailChantier/:id', component: DetailChantierComponent},
     {path: 'detailClient/:id', component: DetailClientComponent},
@@ -28,7 +30,6 @@ const routes: Routes = [
     {path: 'listeClient', component: ListClientsComponent},
     {path: 'listeSite', component: ListSitesComponent},
     {path: 'listeDemandeDeChantier', component: ListDemandeDeChantierComponent},
-    {path: 'nouvelUtilisateur', component: NouvelUtilisateurComponent},
 ];
 
 @NgModule({
