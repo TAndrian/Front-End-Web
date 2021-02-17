@@ -1,16 +1,59 @@
-<mat-list>
-    <mat-list-item *ngFor="let demandeDeChantier of demandesDeChantier">
-        <p> Nom du site : {{demandeDeChantier.site.nomSite}}</p>
-        <p> Adresse : {{demandeDeChantier.adresse}}</p>
-        <p> Nom du client : {{demandeDeChantier.client.nom}} {{demandeDeChantier.client.prenom}}</p>
-        <p *ngIf="demandeDeChantier.regularite"> Jours de régularités
-            : {{affichageUtilsService.getJours(demandeDeChantier.joursRegularite)}}</p>
-        <p> Informations internes : {{demandeDeChantier.informationsInterne}}</p>
-        <p> Nombre de personne : {{demandeDeChantier.nombreEmployes}}</p>
-        <p> Description : {{demandeDeChantier.description}}</p>
-        <p> Matériel : {{demandeDeChantier.materiel}}</p>
-        <p> Estimation du temps : {{demandeDeChantier.estimationTemps}}</p>
-    </mat-list-item>
-</mat-list>
+<div class="titre-list-demandes">
+</div>
+<div class="outils-wrapper">
+    <div class="left-content">
+        <mat-card>
+            <div class="left-buttons-filtre">
+                <button color="primary" mat-raised-button>Lieu</button>
+                <button color="primary" mat-raised-button>Durée</button>
+                <button color="primary" mat-raised-button>Matériel</button>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<div class="list-de-demandes-wrapper">
+    <mat-toolbar>
+        <input matInput placeholder="rechercher" value="Cherche">
+        <button aria-label="Example icon-button with menu icon" class="example-icon" mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <div class="list">
+        <mat-card *ngFor="let item of obs | async">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Demande {{item.id }}
+                    </mat-panel-title>
+                    <button (click)="toDetaileChantier" mat-icon-button>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </mat-expansion-panel-header>
+                <div>
+                    <p> Nom du site : {{item.site.nomSite}}</p>
+                    <p> Adresse : {{item.adresse}}</p>
+                    <p> Nom du client : {{item.client.nom}} {{item.client.prenom}}</p>
+                    <p *ngIf="item.regularite"> Jours de régularités
+                         : {{item.getJours(item.joursRegularite)}}</p>
+                    <p> Informations internes : {{item.informationsInterne}}</p>
+                    <p> Nombre de ouvrier : {{item.nombreEmployes}}</p>
+                    <p> Description : {{item.description}}</p>
+                    <p> Matériel : {{item.materiel}}</p>
+                    <p> Estimation du temps : {{item.estimationTemps}}</p>
+                </div>
+            </mat-expansion-panel>
+        </mat-card>
+    </div>
+    <mat-toolbar>
+        <mat-paginator [length]="length"
+                       [pageSizeOptions]="[5, 10, 25, 100]"
+                      >
+        </mat-paginator>
+    </mat-toolbar>
+
+
+</div>
 <button mat-raised-button routerLink="/nouvelle-demande-de-chantier"> Ajouter </button>
+
 

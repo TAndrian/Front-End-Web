@@ -1,10 +1,52 @@
-<mat-list>
-    <mat-list-item *ngFor="let site of sites">
-        <p> Nom : {{site.nomSite}}</p>
-        <p> Adresse : {{site.adresse}}</p>
-        <p> Mail : {{site.mail}}</p>
-        <p> Chef : {{site.nomChef}} {{site.prenomChef}}</p>
-        <p> Telephone : {{site.telephone}}</p>
-    </mat-list-item>
-</mat-list>
+<div class="titre-list-sites">
+</div>
+<div class="outils-wrapper">
+    <div class="left-content">
+        <mat-card>
+            <div class="left-buttons-filtre">
+                <button color="primary" mat-raised-button>Lieu</button>
+                <button color="primary" mat-raised-button>Durée</button>
+                <button color="primary" mat-raised-button>Matériel</button>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<div class="list-de-sites-wrapper">
+    <mat-toolbar>
+        <input matInput placeholder="rechercher" value="Cherche">
+        <button aria-label="Example icon-button with menu icon" class="example-icon" mat-icon-button>
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <div class="list">
+        <mat-card *ngFor="let item of obs | async">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Site {{item.id }}
+                    </mat-panel-title>
+                    <button (click)="toDetaileSite" mat-icon-button>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </mat-expansion-panel-header>
+                <div>
+        <p> Nom : {{item.nomSite}}</p>
+        <p> Adresse : {{item.adresse}}</p>
+        <p> Mail : {{item.mail}}</p>
+        <p> Chef : {{item.nomChef}} {{item.prenomChef}}</p>
+        <p> Telephone : {{item.telephone}}</p>
+    </div>
+</mat-expansion-panel>
+</mat-card>
+</div>
+<mat-toolbar>
+<mat-paginator [length]="length"
+           [pageSizeOptions]="[5, 10, 25, 100]"
+          >
+</mat-paginator>
+</mat-toolbar>
 <button mat-raised-button routerLink="/nouveau-site"> Ajouter </button>
+
+</div>
+

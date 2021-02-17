@@ -32,12 +32,12 @@
                     </button>
                 </mat-expansion-panel-header>
                 <div>
-                    Adress: {{item.adresse}}
-                    Site: {{item.site}}
-                    Chef du site: {{item.site.nomChef}}
-                    Nom de chantier: {{item.nomChantier}}
-                    Début-fin: {{item.dateDebutEffectif}} - {{item.dateFinEffectif}}
-                    Etat: {{item.statusChantier}}
+                        <p>Adress: {{item.adresse}}</p>
+                        <p>Site: {{item.site}}</p>
+                        <p>Chef du site: {{item.site.nomChef}}</p>
+                        <p>Nom de chantier: {{item.nomChantier}}</p>
+                        <p>Début-fin: {{item.dateDebutEffectif}} - {{item.dateFinEffectif}} </p>
+                        <p>Etat: {{item.statusChantier}}</p>
                 </div>
             </mat-expansion-panel>
         </mat-card>
@@ -45,7 +45,7 @@
     <mat-toolbar>
         <mat-paginator [length]="length"
                        [pageSizeOptions]="[5, 10, 25, 100]"
-                       [pageSize]="2">
+                      >
         </mat-paginator>
     </mat-toolbar>
 
