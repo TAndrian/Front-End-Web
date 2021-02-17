@@ -10,7 +10,6 @@ import {Client} from '../../shared/model/client';
 })
 export class DetailClientComponent implements OnInit {
   @Input() client: Client;
-
   constructor(
       private route: ActivatedRoute,
       private clientService: ClientService
@@ -18,7 +17,7 @@ export class DetailClientComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id !== null){
+    if (id !== null && this.client == null){
       this.clientService.getClientById(id).subscribe(
           (res: Client) => this.client = res
       );

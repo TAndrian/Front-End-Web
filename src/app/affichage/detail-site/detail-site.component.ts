@@ -19,7 +19,7 @@ export class DetailSiteComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id !== null){
+    if (id !== null && this.site == null){
       this.siteService.getSiteById(id).subscribe(
           (res: Site) => this.site = res
       );

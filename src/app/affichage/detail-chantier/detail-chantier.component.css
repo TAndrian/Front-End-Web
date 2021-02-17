@@ -26,10 +26,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-mat-card-title{
-    text-align: center;
-    font-size: 14px;
-}
+
 .mat-card-title-custom{
   margin: 0 auto !important;
 }
