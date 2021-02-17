@@ -12,7 +12,7 @@ export class DemandeDeChantier {
                 public particularite: string,
                 public description: string,
                 public informationsInterne: string,
-                //TOUT CE QUI EST REGULARITE EST OPTIONNEL
+                // TOUT CE QUI EST REGULARITE EST OPTIONNEL
                 public dateDebutRegularite?: Date,
                 public dateFinRegularite?: Date,
                 public joursRegularite?: Set<JourSemaineType>) {

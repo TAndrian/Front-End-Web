@@ -1,0 +1,27 @@
+<mat-card>
+    <div class="mat-custom-header">
+        <mat-card-title>Demande De Chantier</mat-card-title>
+    </div>
+    <mat-card-content>
+        <p> Adresse : {{demandeDeChantier.adresse}}</p>
+        <p> Description : {{demandeDeChantier.description}}</p>
+        <p> Demande de chantier : {{demandeDeChantier.materiel}}</p>
+       {{demandeDeChantier.site}}
+        <p> Estimation de temps : {{demandeDeChantier.estimationTemps}}</p>
+        <p> Informations internes : {{demandeDeChantier.informationsInterne}}</p>
+        <p> Nombre d'employés : {{demandeDeChantier.nombreEmployes}}</p>
+        <p> Particularité : {{demandeDeChantier.particularite}}</p>
+    </mat-card-content>
+</mat-card>
+<mat-card *ngIf="demandeDeChantier.regularite">
+    <div class="mat-custom-header">
+        <mat-card-title>Régularité</mat-card-title>
+    </div>
+    <mat-card-content>
+        <p>Jour(s) de travaux : {{this.affichageUtilsService.getJours(demandeDeChantier.joursRegularite)}}</p>
+        <p>Date de début : {{demandeDeChantier.dateFinRegularite | date:'short'}}</p>
+        <p>Date de fin : {{demandeDeChantier.dateDebutRegularite | date:'short'}}</p>
+    </mat-card-content>
+</mat-card>
+<app-detail-client [client]="demandeDeChantier.client"></app-detail-client>
+<app-detail-site [site]="demandeDeChantier.site"></app-detail-site>
