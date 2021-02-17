@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {SharedModule} from './shared/shared.module';
 import {FormulairesModule} from './formulaires/formulaires.module';
 import {AffichageModule} from './affichage/affichage.module';
+import {GestionUtilisateursModule} from './gestion-utilisateurs/gestion-utilisateurs.module';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import {AffichageModule} from './affichage/affichage.module';
         HttpClientModule,
         SharedModule,
         FormulairesModule,
-        AffichageModule
+        AffichageModule,
+        GestionUtilisateursModule
     ],
     providers: [],
     bootstrap: [AppComponent]

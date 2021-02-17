@@ -1,0 +1,17 @@
+<h1>Nouveau Client</h1>
+<form [formGroup]="utilisateurForm">
+    <mat-form-field>
+        <mat-label>Nom :</mat-label>
+        <input formControlName="userName" matInput type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Mot de passe :</mat-label>
+        <input formControlName="password" matInput type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Role :</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let option of rolesTypeKeys" [value]=option>{{prettifyRole(option)}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

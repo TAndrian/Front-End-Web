@@ -22,7 +22,7 @@ export class FormulaireClientComponent implements OnInit {
         mail: new FormControl(''),
         infoComplementaire: new FormControl(''),
 
-    })
+    });
     client: Client;
 
     constructor(private clientService: ClientService) {

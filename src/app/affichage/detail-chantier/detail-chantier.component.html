@@ -6,7 +6,7 @@
         <h1>{{chantier.nomChantier}} </h1>
         <span>{{chantier.adresse}}</span>
 
-        <p>Statut :<span class="etat-actuel"> {{getStatus(chantier.statusChantier)}}</span></p>
+        <p>Statut :<span class="etat-actuel"> {{affichageUtilService.getStatus(chantier.statusChantier)}}</span></p>
     </div>
 
     <div class="left-buttons-detail-chantier">
@@ -17,30 +17,12 @@
 </div>
 <div class="detail-chantier-wrapper">
     <div class="left-content">
-        <mat-card>
-            <div class="mat-custom-header">
-                <mat-card-title>Site</mat-card-title>
-            </div>
-            <mat-card-content>
-                <p>Nom : {{chantier.site.nomSite}}</p>
-                <p>Chef : {{chantier.site.nomChef}} {{chantier.site.prenomChef}}</p>
-                <p>Lieu : {{chantier.site.adresse}}</p>
-                <p>Contact : {{chantier.site.mail}}</p>
-            </mat-card-content>
-        </mat-card>
-        <mat-card>
-            <div class="mat-custom-header">
-                <mat-card-title>
-                    Client
-                </mat-card-title>
-            </div>
-            <mat-card-content>
-                <p>Nom : {{chantier.client.nom}} {{chantier.client.prenom}}</p>
-                <p>Contact : {{chantier.client.mail}}</p>
-            </mat-card-content>
-        </mat-card>
+        <app-detail-site [site]="chantier.site"></app-detail-site>
+        <app-detail-client [client]="chantier.client"></app-detail-client>
         <mat-card *ngIf="chantier.regularite">
-            <div class="mat-custom-header"><mat-card-title>Régulier</mat-card-title></div>
+            <div class="mat-custom-header">
+                <mat-card-title>Régulier</mat-card-title>
+            </div>
             <mat-card-content>
                 <p>Date de début : {{(chantier.dateDebutRegularite | date:'short')}}</p>
                 <p>Date de fin : {{(chantier.dateFinRegularite | date:'short')}}</p>
@@ -50,10 +32,10 @@
                         <p>date prévu pour la fin{{(rapport.dateFinTheorique | date:'short')}}</p>
                         <p> date effective du début :{{(rapport.dateDebutEffectif | date:'short')}}</p>
                         <p> date effective de la fin {{(rapport.dateFinEffectif | date:'short')}}</p>
-                        statut : {{getStatus(rapport.statut)}}
+                        statut : {{this.affichageUtilService.getStatus(rapport.statut)}}
                     </li>
                 </ul>
-                <p>Jour(s) de travaux : {{getJours(chantier.joursRegularite)}}</p>
+                <p>Jour(s) de travaux : {{this.affichageUtilService.getJours(chantier.joursRegularite)}}</p>
             </mat-card-content>
         </mat-card>
     </div>
@@ -62,7 +44,7 @@
             <div class="mat-custom-header">
                 <mat-card-title>Détails du chantier</mat-card-title>
             </div>
-            <mat-card-content  class="detail-chantier-card-content">
+            <mat-card-content class="detail-chantier-card-content">
                 <div class="detail-chantier-principal-content">
                     <span>Description : </span>
                     <p>{{chantier.description}}</p>
@@ -71,7 +53,7 @@
                         <mat-list-item *ngFor="let problem of chantier.problemes">
                             <div class="probleme-desc">
                                 <p>{{problem.description}}</p>
-                                <img mat-card-image src="{{problem.imageUrl}}" alt="non disponible"/>
+                                <img alt="non disponible" mat-card-image src="{{problem.imageUrl}}"/>
                             </div>
 
                         </mat-list-item>
@@ -89,8 +71,10 @@
                 <div class="date">
                     <p>date prévu pour le début : {{chantier.dateDebutTheorique | date:'short'}}</p>
                     <p>date prévu pour la fin : {{chantier.dateFinTheorique | date:'short'}}</p>
-                    <p>date effective du début : {{(chantier.dateDebutEffectif!==null)?(chantier.dateDebutEffectif | date:'short'):'en attente'}}</p>
-                    <p>date effective de la fin : {{(chantier.dateFinEffectif!==null)?(chantier.dateFinEffectif | date:'short') :'en attente'}}</p>
+                    <p>date effective du début
+                        : {{(chantier.dateDebutEffectif !== null) ? (chantier.dateDebutEffectif | date:'short') : 'en attente'}}</p>
+                    <p>date effective de la fin
+                        : {{(chantier.dateFinEffectif !== null) ? (chantier.dateFinEffectif | date:'short') : 'en attente'}}</p>
                 </div>
 
             </mat-card-content>

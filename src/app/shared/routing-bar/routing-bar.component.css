@@ -1,0 +1,10 @@
+.mat-toolbar {
+    min-height: 30px !important; 
+    height: 30px !important;
+  }
+  a{
+    font-size: medium ;
+  }
+  a:not(:last-of-type) {
+    margin-right: 15px;
+  }

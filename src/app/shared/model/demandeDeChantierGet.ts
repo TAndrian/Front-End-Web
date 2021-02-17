@@ -1,6 +1,6 @@
-import {Client} from "./client";
-import {JourSemaineType} from "./jourSemaineType";
-import {Site} from "./site";
+import {Client} from './client';
+import {JourSemaineType} from './jourSemaineType';
+import {Site} from './site';
 
 /* Modèle pour le chantier*/
 export class DemandeDeChantierGet {
@@ -15,7 +15,7 @@ export class DemandeDeChantierGet {
                 public particularite: string,
                 public description: string,
                 public informationsInterne: string,
-                //TOUT CE QUI EST REGULARITE EST OPTIONNEL
+                // TOUT CE QUI EST REGULARITE EST OPTIONNEL
                 public dateDebutRegularite?: Date,
                 public dateFinRegularite?: Date,
                 public joursRegularite?: Set<JourSemaineType>) {
