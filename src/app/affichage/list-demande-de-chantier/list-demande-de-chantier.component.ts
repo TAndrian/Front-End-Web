@@ -24,7 +24,7 @@ export class ListDemandeDeChantierComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     length: number;
     obs: Observable<any[]>;
-    dataSource: MatTableDataSource<DemandeDeChantierGet> = new MatTableDataSource<DemandeDeChantierGet>(demandes);
+    dataSource: MatTableDataSource<DemandeDeChantierGet> = new MatTableDataSource<DemandeDeChantierGet>();
 
     demandesDeChantier: DemandeDeChantierGet[];
 
@@ -37,12 +37,13 @@ export class ListDemandeDeChantierComponent implements OnInit {
 
     ngOnInit(): void {
         this.demandeDeChantierService.getAllDemandeDeChantiers().subscribe(data => {
-            this.demandesDeChantier = data;
+            this.changeDetectorRef.detectChanges();
+            this.dataSource.data = data;
+            this.dataSource.paginator = this.paginator;
+            this.obs = this.dataSource.connect();
+            this.length = data.length;
         })
-        this.changeDetectorRef.detectChanges();
-        this.dataSource.paginator = this.paginator;
-        this.obs = this.dataSource.connect();
-        this.length = demandes.length;
+
     }
 
     getAllDemandes() {

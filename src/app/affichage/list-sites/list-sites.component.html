@@ -24,7 +24,7 @@
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Site {{item.id }}
+                        {{item.nomSite}}
                     </mat-panel-title>
                     <button (click)="toDetaileSite" mat-icon-button>
                         <mat-icon>keyboard_arrow_right</mat-icon>
@@ -46,7 +46,7 @@
           >
 </mat-paginator>
 </mat-toolbar>
-<button mat-raised-button routerLink="/nouveau-site"> Ajouter </button>
+<button mat-raised-button routerLink="/nouveau-site"> Nouveau Site </button>
 
 </div>
 

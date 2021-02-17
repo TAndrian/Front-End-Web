@@ -25,7 +25,7 @@
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Chantier {{item.id }}
+                        {{item.nomChantier}}
                     </mat-panel-title>
                     <button (click)="toDetaileChantier" mat-icon-button>
                         <mat-icon>keyboard_arrow_right</mat-icon>
@@ -49,5 +49,5 @@
         </mat-paginator>
     </mat-toolbar>
 
-
+    <button mat-raised-button routerLink="/nouveau-chantier"> Nouveau Chantier </button>
 </div>

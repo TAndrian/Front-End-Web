@@ -20,7 +20,7 @@ export class ListSitesComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     length: number;
     obs: Observable<any[]>;
-    dataSource: MatTableDataSource<Site> = new MatTableDataSource<Site>(sites);
+    dataSource: MatTableDataSource<Site> = new MatTableDataSource<Site>();
 
     sites: Site[];
     
@@ -30,27 +30,14 @@ export class ListSitesComponent implements OnInit {
     ) {
     }
 
-
-
     ngOnInit(): void {
         this.siteService.getAllSites().subscribe(data => {
-            this.sites = data;
+            this.changeDetectorRef.detectChanges();
+            this.dataSource.data = data;
+            this.dataSource.paginator = this.paginator;
+            this.obs = this.dataSource.connect();
+            this.length = data.length;
         })
-        this.changeDetectorRef.detectChanges();
-        this.dataSource.paginator = this.paginator;
-        this.obs = this.dataSource.connect();
-        this.length = sites.length;
-    }
-
-    getAllSites() {
-        //this.chantierService.getAllChantiers().subcribe((res:any)=>{
-        //  this.chantiers = res
-        //})
-
-
-    }
-
-    toDetaileSite() {
     }
 
 }

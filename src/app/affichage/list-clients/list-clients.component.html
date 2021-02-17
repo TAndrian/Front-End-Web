@@ -11,13 +11,13 @@
         </mat-card>
     </div>
 </div>
-<button mat-raised-button routerLink="/nouveau-client"> Ajouter </button>
+
 
 <div class="list-de-clients-wrapper">
     <mat-toolbar>
         <input matInput placeholder="rechercher" value="Cherche">
         <button aria-label="Example icon-button with menu icon" class="example-icon" mat-icon-button>
-            <mat-icon>Search</mat-icon>
+            <mat-icon>search</mat-icon>
         </button>
     </mat-toolbar>
 
@@ -26,7 +26,7 @@
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Client {{item.id }}
+                        {{item.nom}} {{item.prenom}}
                     </mat-panel-title>
                     <button (click)="toDetaileClient" mat-icon-button>
                         <mat-icon>keyboard_arrow_right</mat-icon>
@@ -49,6 +49,8 @@
                        >
         </mat-paginator>
     </mat-toolbar>
-
+    <button mat-raised-button routerLink="/nouveau-client"> Nouveau Client </button>
 
 </div>
+
+

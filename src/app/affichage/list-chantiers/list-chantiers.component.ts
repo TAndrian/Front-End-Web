@@ -31,27 +31,20 @@ export class ListChantiersComponent implements OnInit {
     //chantiers: ChantierGet[]
     length: number;
     obs: Observable<any[]>;
-    dataSource: MatTableDataSource<ChantierGet> = new MatTableDataSource<ChantierGet>(chantiers);
+    dataSource: MatTableDataSource<ChantierGet> = new MatTableDataSource<ChantierGet>();
 
     constructor(private chantierService: ChantierService, private changeDetectorRef: ChangeDetectorRef) {
     }
 
     ngOnInit(): void {
-        this.changeDetectorRef.detectChanges();
-        this.dataSource.paginator = this.paginator;
-        this.obs = this.dataSource.connect();
-        this.length = chantiers.length;
-    }
+        this.chantierService.getAllChantiers().subscribe(data => {
+            this.changeDetectorRef.detectChanges();
+            this.dataSource.data = data;
+            this.dataSource.paginator = this.paginator;
+            this.obs = this.dataSource.connect();
+            this.length = data.length;  
+        });
 
-    getAllChantiers() {
-        //this.chantierService.getAllChantiers().subcribe((res:any)=>{
-        //  this.chantiers = res
-        //})
-
-
-    }
-
-    toDetaileChantier() {
     }
 
 

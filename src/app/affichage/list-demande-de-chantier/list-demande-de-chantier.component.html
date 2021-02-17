@@ -24,7 +24,7 @@
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Demande {{item.id }}
+                        Demande {{item.id }} du Site {{item.site.nomSite}}
                     </mat-panel-title>
                     <button (click)="toDetaileChantier" mat-icon-button>
                         <mat-icon>keyboard_arrow_right</mat-icon>
@@ -51,9 +51,9 @@
                       >
         </mat-paginator>
     </mat-toolbar>
-
+    <button mat-raised-button routerLink="/nouvelle-demande-de-chantier"> Nouvelle Demande de Chantier </button>
 
 </div>
-<button mat-raised-button routerLink="/nouvelle-demande-de-chantier"> Ajouter </button>
+
 
 

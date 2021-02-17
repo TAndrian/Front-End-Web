@@ -6,7 +6,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
 const client: Client = new Client("Rennes", "Jean", "Pierre", "AAAAAA", "");
-const clients: Client[] = [client];
+var clients: Client[];
 
 @Component({
     selector: 'app-list-clients',
@@ -18,7 +18,7 @@ export class ListClientsComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     length: number;
     obs: Observable<any[]>;
-    dataSource: MatTableDataSource<Client> = new MatTableDataSource<Client>(clients);
+    dataSource: MatTableDataSource<Client> = new MatTableDataSource<Client>();
 
     clients: Client[];
 
@@ -29,12 +29,13 @@ export class ListClientsComponent implements OnInit {
 
     ngOnInit(): void {
         this.clientService.getAllClients().subscribe(data => {
-            this.clients = data;
+            this.changeDetectorRef.detectChanges();
+            this.dataSource.data = data;
+            this.dataSource.paginator = this.paginator;
+            this.obs = this.dataSource.connect();
+            this.length = data.length;
         })
-        this.changeDetectorRef.detectChanges();
-        this.dataSource.paginator = this.paginator;
-        this.obs = this.dataSource.connect();
-        this.length = clients.length;
+
     }
 
 }
