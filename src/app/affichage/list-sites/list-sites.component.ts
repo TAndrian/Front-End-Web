@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SiteService} from '../../core/services/site.service';
+import {Site} from '../../shared/model/site';
 
 @Component({
   selector: 'app-list-sites',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-sites.component.css']
 })
 export class ListSitesComponent implements OnInit {
-
-  constructor() { }
+  sites: Site[];
+  constructor(
+      private siteService: SiteService
+  ) { }
 
   ngOnInit(): void {
   }

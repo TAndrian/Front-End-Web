@@ -1,1 +1,8 @@
-<p>list-clients works!</p>
+<mat-list>
+    <mat-list-item *ngFor="let client of clients ">
+        <p> Nom, prénom : {{client.nom}} {{client.prenom}}</p>
+        <p> Adresse : {{client.adresse}}</p>
+        <p> Mail : {{client.mail}}</p>
+        <p> Informations Complémentaires : {{client.infoComplementaire}}</p>
+    </mat-list-item>
+</mat-list>

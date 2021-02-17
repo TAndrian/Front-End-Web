@@ -1,1 +1,13 @@
-<p>list-demande-de-chantier works!</p>
+<mat-list>
+    <mat-list-item *ngFor="let demandeDeChantier of demandesDeChantier">
+        <p> Nom du site : {{demandeDeChantier.site.nomSite}}</p>
+        <p> Adresse : {{demandeDeChantier.adresse}}</p>
+        <p> Nom du client : {{demandeDeChantier.client.nom}} {{demandeDeChantier.client.prenom}}</p>
+        <p *ngIf="demandeDeChantier.regularite"> Jours de régularités : {{affichageUtilsService.getJours(demandeDeChantier.joursRegularite)}}</p>
+        <p> Informations internes : {{demandeDeChantier.informationsInterne}}</p>
+        <p> Nombre de personne : {{demandeDeChantier.nombreEmployes}}</p>
+        <p> Description : {{demandeDeChantier.description}}</p>
+        <p> Matériel : {{demandeDeChantier.materiel}}</p>
+        <p> Estimation du temps : {{demandeDeChantier.estimationTemps}}</p>
+    </mat-list-item>
+</mat-list>

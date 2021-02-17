@@ -1,1 +1,9 @@
-<p>list-sites works!</p>
+<mat-list>
+    <mat-list-item *ngFor="let site of sites">
+        <p> Nom : {{site.nomSite}}</p>
+        <p> Adresse : {{site.adresse}}</p>
+        <p> Mail : {{site.mail}}</p>
+        <p> Chef : {{site.nomChef}} {{site.prenomChef}}</p>
+        <p> Telephone : {{site.telephone}}</p>
+    </mat-list-item>
+</mat-list>
