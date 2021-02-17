@@ -1,10 +1,53 @@
-<mat-list>
-    <mat-list-item *ngFor="let client of clients ">
-        <p> Nom, prénom : {{client.nom}} {{client.prenom}}</p>
-        <p> Adresse : {{client.adresse}}</p>
-        <p> Mail : {{client.mail}}</p>
-        <p> Informations Complémentaires : {{client.infoComplementaire}}</p>
-    </mat-list-item>
-</mat-list>
-<button mat-raised-button> Ajouter </button>
+<div class="titre-list-clients">
+</div>
+<div class="outils-wrapper">
+    <div class="left-content">
+        <mat-card>
+            <div class="left-buttons-filtre">
+                <button color="primary" mat-raised-button>Lieu</button>
+                <button color="primary" mat-raised-button>Durée</button>
+                <button color="primary" mat-raised-button>Matériel</button>
+            </div>
+        </mat-card>
+    </div>
+</div>
 
+<div class="list-de-clients-wrapper">
+    <mat-toolbar>
+        <input matInput placeholder="rechercher" value="Cherche">
+        <button aria-label="Example icon-button with menu icon" class="example-icon" mat-icon-button>
+            <mat-icon>Search</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <div class="list">
+        <mat-card *ngFor="let item of obs | async">
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Client {{item.id }}
+                    </mat-panel-title>
+                    <button (click)="toDetaileClient" mat-icon-button>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </mat-expansion-panel-header>
+                <div>
+                        <p>Nom: {{item.nom}}</p>
+                        <p>Prénom: {{item.prenom}}</p>
+                        <p>Adresse: {{item.adresse}}</p>
+                        <p>Téléphone: {{item.telephone}}</p>
+                        <p>Mail: {{item.mail}}</p>
+                        <p>Information complémentaire: {{item.infoComplementaire}}</p>
+                </div>
+            </mat-expansion-panel>
+        </mat-card>
+    </div>
+    <mat-toolbar>
+        <mat-paginator [length]="length"
+                       [pageSizeOptions]="[5, 10, 25, 100]"
+                       >
+        </mat-paginator>
+    </mat-toolbar>
+
+
+</div>

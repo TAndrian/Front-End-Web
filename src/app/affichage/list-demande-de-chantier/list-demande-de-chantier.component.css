@@ -1,0 +1,21 @@
+.titre-list-demandes {
+    margin-left: auto;
+    margin-right: auto;
+    height: 20%;
+}
+
+.outils-wrapper {
+    width: 20%;
+    position: absolute;
+    left: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list-de-demandes-wrapper {
+    width: 65%;
+    position: absolute;
+    left: 30%;
+    flex-direction: column;
+    justify-content: space-between;
+}

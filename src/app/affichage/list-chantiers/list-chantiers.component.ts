@@ -28,6 +28,7 @@ export class ListChantiersComponent implements OnInit {
 
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
+    //chantiers: ChantierGet[]
     length: number;
     obs: Observable<any[]>;
     dataSource: MatTableDataSource<ChantierGet> = new MatTableDataSource<ChantierGet>(chantiers);

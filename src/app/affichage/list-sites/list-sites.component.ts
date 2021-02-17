@@ -1,6 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {SiteService} from '../../core/services/site.service';
 import {Site} from '../../shared/model/site';
+import {Observable} from 'rxjs';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+
+const site: Site = new Site("Rennes", "Jean", "Pierre", "AAAAAA", "", "");
+const sites: Site[] = [site];
 
 @Component({
     selector: 'app-list-sites',
@@ -8,14 +14,34 @@ import {Site} from '../../shared/model/site';
     styleUrls: ['./list-sites.component.css']
 })
 export class ListSitesComponent implements OnInit {
-    sites: Site[];
 
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+    length: number;
+    obs: Observable<any[]>;
+    dataSource: MatTableDataSource<Site> = new MatTableDataSource<Site>(sites);
     constructor(
-        private siteService: SiteService
+        private siteService: SiteService,
+        private changeDetectorRef: ChangeDetectorRef
     ) {
     }
 
     ngOnInit(): void {
+        this.changeDetectorRef.detectChanges();
+        this.dataSource.paginator = this.paginator;
+        this.obs = this.dataSource.connect();
+        this.length = sites.length;
+    }
+
+    getAllSites() {
+        //this.chantierService.getAllChantiers().subcribe((res:any)=>{
+        //  this.chantiers = res
+        //})
+
+
+    }
+
+    toDetaileSite() {
     }
 
 }
