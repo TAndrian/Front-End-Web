@@ -1,17 +1,29 @@
 <h1>Nouveau Site</h1>
 <form [formGroup]="siteForm">
+    <fieldset>
+        <legend>Informations lié au site</legend>
     <mat-form-field>
         <mat-label>Nom du Site:</mat-label>
         <input formControlName="nomSite" matInput type="text">
     </mat-form-field>
-    <mat-form-field>
-        <mat-label>Nom du Chef :</mat-label>
-        <input formControlName="nomChef" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Prénom du Chef :</mat-label>
-        <input formControlName="prenomChef" matInput type="text">
-    </mat-form-field>
+        <mat-form-field>
+            <mat-label>Telephone Associé:</mat-label>
+            <input formControlName="telephone" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+    <fieldset>
+        <legend>Chef de site</legend>
+        <mat-form-field>
+            <mat-label>Nom du Chef :</mat-label>
+            <input formControlName="nomChef" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Prénom du Chef :</mat-label>
+            <input formControlName="prenomChef" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+<fieldset>
+    <legend>Coordonnées</legend>
     <mat-form-field>
         <mat-label>Adresse :</mat-label>
         <input formControlName="adresse" matInput type="text">
@@ -32,9 +44,8 @@
         <mat-label>E-Mail :</mat-label>
         <input formControlName="mail" matInput type="email">
     </mat-form-field>
-    <mat-form-field>
-        <mat-label>Telephone Associé:</mat-label>
-        <input formControlName="telephone" matInput type="text">
-    </mat-form-field>
+</fieldset>
+
+
 </form>
-<button (click)="onSubmit()" color="primary" mat-raised-button>Valider</button>
+<button (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Valider</button>

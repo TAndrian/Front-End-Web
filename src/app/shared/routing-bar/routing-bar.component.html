@@ -1,6 +1,36 @@
-<mat-toolbar color="secondary">
+<mat-toolbar color=accent>
     <nav>
-        <a [routerLink]="['/nouvelle-demande-de-chantier']" routerLinkActive="active">Nouvelle Demande de Chantier</a>
+        <ul>
+            <li>
+                Chantier
+                <ul>
+                    <li><a [routerLink]="['/nouveau-chantier']" routerLinkActive="active">Nouveau Chantier</a></li>
+                    <li><a [routerLink]="['/liste-chantier']" routerLinkActive="active">Liste des Chantiers</a></li>
+                </ul>
+            </li>
+            <li>
+                Demande de chantier
+                <ul>
+                    <li><a [routerLink]="['/nouvelle-demande-de-chantier']" routerLinkActive="active">Nouvelle Demande de Chantier</a></li>
+                    <li><a [routerLink]="['/liste-demande-de-chantier']" routerLinkActive="active">Liste des Demande de Chantier</a></li>
+                </ul>
+            </li>
+            <li>
+                Site
+                <ul>
+                    <li><a [routerLink]="['/nouveau-site']" routerLinkActive="active">Nouveau Site</a></li>
+                    <li><a [routerLink]="['/liste-site']" routerLinkActive="active">Liste des Sites</a></li>
+                </ul>
+            </li>
+            <li>
+                Client
+                <ul>
+                    <li><a [routerLink]="['/nouveau-client']" routerLinkActive="active">Nouveau Client</a></li>
+                    <li><a [routerLink]="['/liste-client']" routerLinkActive="active">Liste des Clients</a></li>
+                </ul>
+            </li>
+        </ul>
+      <!--  <a [routerLink]="['/nouvelle-demande-de-chantier']" routerLinkActive="active">Nouvelle Demande de Chantier</a>
         <a [routerLink]="['/nouveau-chantier']" routerLinkActive="active">Nouveau Chantier</a>
         <a [routerLink]="['/nouveau-site']" routerLinkActive="active">Nouveau Site</a>
         <a [routerLink]="['/nouveau-client']" routerLinkActive="active">Nouveau Client</a>
@@ -8,6 +38,6 @@
         <a [routerLink]="['/liste-demande-de-chantier']" routerLinkActive="active">Liste des Demande de Chantier</a>
         <a [routerLink]="['/liste-chantier']" routerLinkActive="active">Liste des Chantiers</a>
         <a [routerLink]="['/liste-site']" routerLinkActive="active">Liste des Sites</a>
-        <a [routerLink]="['/liste-client']" routerLinkActive="active">Liste des Clients</a>
+        <a [routerLink]="['/liste-client']" routerLinkActive="active">Liste des Clients</a>-->
     </nav>
 </mat-toolbar>

@@ -4,7 +4,7 @@ import {AppRoutingModule} from '../../app-routing.module'
 @Component({
   selector: 'app-routing-bar',
   templateUrl: './routing-bar.component.html',
-  styleUrls: ['./routing-bar.component.css']
+  styleUrls: ['./routing-bar.component.scss']
 })
 export class RoutingBarComponent implements OnInit {
 

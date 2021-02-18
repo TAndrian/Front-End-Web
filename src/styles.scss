@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import 'src/custom-theme';
 html, body {
     height: 100%;
 }
@@ -45,4 +45,27 @@ mat-card-content {
 mat-card-title {
     text-align: center;
     font-size: 14px !important;
+}
+.filled-button{
+    color: white !important;
+}
+ul{
+    list-style-type: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    gap: 15px;
+}
+fieldset{
+    text-align: left;
+    display: flex;
+    gap: 20px;
+    color: mat-color($theme-primary);
+    border-color: $light-primary-text;
+}
+button{
+    height: 45px;
 }

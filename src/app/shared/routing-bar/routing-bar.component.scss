@@ -1,0 +1,58 @@
+.mat-toolbar {
+    min-height: 40px !important;
+    height: 40px !important;
+  padding: 0;
+  }
+@import 'src/custom-theme';
+a{
+  font-size: medium ;
+  text-decoration: none;
+  color: white;
+}
+a:not(:last-of-type) {
+  margin-right: 15px;
+  color: white !important;
+}
+a:visited{
+  color: white !important;
+}
+nav{
+  width: 100%;
+  ul{
+    width: 100%;
+    color: white;
+    display: flex;
+    padding: 0;
+    li{
+      text-align: center;
+      width: 100%;
+      ul{
+        width: 25vw;
+        display: flex;
+        z-index: 2;
+        flex-direction: column;
+        position: absolute;
+        background: mat-color($theme-accent);
+        visibility: hidden;
+        transition: opacity 480ms ease-in-out;
+        opacity: 0;
+        li{
+        a:visited{
+
+        }
+        }
+      }
+    }
+    li:hover{
+      ul{
+        opacity: 1;
+       visibility: visible;
+        li{
+          a{
+
+          }
+        }
+      }
+    }
+  }
+}

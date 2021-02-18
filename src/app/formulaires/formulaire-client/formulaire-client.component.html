@@ -1,36 +1,46 @@
 <h1>Nouveau Client</h1>
 <form [formGroup]="clientForm">
-    <mat-form-field>
-        <mat-label>Nom :</mat-label>
-        <input formControlName="nom" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Prenom :</mat-label>
-        <input formControlName="prenom" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Adresse :</mat-label>
-        <input formControlName="adresse" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Complément :</mat-label>
-        <input formControlName="complement" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Code Postal :</mat-label>
-        <input formControlName="codePostal" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Ville :</mat-label>
-        <input formControlName="ville" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>E-Mail :</mat-label>
-        <input formControlName="mail" matInput type="email">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Informations Complementaires :</mat-label>
-        <input formControlName="infoComplementaire" matInput type="text">
-    </mat-form-field>
+    <fieldset>
+        <legend>Client</legend>
+        <mat-form-field>
+            <mat-label>Nom :</mat-label>
+            <input formControlName="nom" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Prenom :</mat-label>
+            <input formControlName="prenom" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+    <fieldset>
+        <legend>Coordonnées</legend>
+        <mat-form-field>
+            <mat-label>Adresse :</mat-label>
+            <input formControlName="adresse" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Complément :</mat-label>
+            <input formControlName="complement" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Code Postal :</mat-label>
+            <input formControlName="codePostal" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Ville :</mat-label>
+            <input formControlName="ville" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>E-Mail :</mat-label>
+            <input formControlName="mail" matInput type="email">
+        </mat-form-field>
+    </fieldset>
+    <fieldset>
+        <legend>Informations</legend>
+        <mat-form-field>
+            <mat-label>Informations Complementaires :</mat-label>
+            <input formControlName="infoComplementaire" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+
 </form>
-<button (click)="onSubmit()" color="primary" mat-raised-button>Valider</button>
+<button (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Valider</button>

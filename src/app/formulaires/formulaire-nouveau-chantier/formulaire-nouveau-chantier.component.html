@@ -2,21 +2,28 @@
     Nouveau Chantier
 </h1>
 <form [formGroup]="nouveauChantierForm">
-    <mat-form-field>
-        <mat-label>Site :</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let site of sites" value="site.id">{{site.nomSite}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Ouvriers :</mat-label>
-        <input formControleName="ouvriers" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Materiel :</mat-label>
-        <input formControlName="materiel" matInput type="text">
-    </mat-form-field>
-    <mat-card>
+    <fieldset>
+        <legend>Site</legend>
+        <mat-form-field>
+            <mat-label>Site :</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let site of sites" value="site.id">{{site.nomSite}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </fieldset>
+    <fieldset>
+        <legend>Matériel & Ouvrier(s)</legend>
+        <mat-form-field>
+            <mat-label>Ouvriers :</mat-label>
+            <input formControleName="ouvriers" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Materiel :</mat-label>
+            <input formControlName="materiel" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+    <fieldset>
+        <legend>Coordonnées</legend>
         <mat-form-field>
             <mat-label>Adresse :</mat-label>
             <input formControlName="adresse" matInput type="text">
@@ -33,49 +40,56 @@
             <mat-label>Ville :</mat-label>
             <input formControlName="ville" matInput type="text">
         </mat-form-field>
-    </mat-card>
-    <mat-form-field>
-        <mat-label>Date Debut-Fin Théorique :</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-            <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date">
-            <input formControlName="dateFinTheorique" matEndDate placeholder="End date">
-        </mat-date-range-input>
-        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Estimation Temps :</mat-label>
-        <input formControleName="estimationTemps" matInput type="number">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Particularité :</mat-label>
-        <input formControlName="particularite" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Téléphone associée :</mat-label>
-        <input formControlName="telephone" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Status de Chantier :</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let state of status" value="state.id">{{state}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Nom du chantier :</mat-label>
-        <input formControlName="nomChantier" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Informations internes :</mat-label>
-        <input formControlName="informationsInternes" matInput type="text">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Description :</mat-label>
-        <input formControlName="description" matInput type="text">
-    </mat-form-field>
-    <mat-card>
-        <mat-label>Client :</mat-label>
-        <button color="primary" mat-raised-button>Nouveau client</button>
+    </fieldset>
+    <fieldset>
+        <legend>Dates prévues</legend>
+        <mat-form-field>
+            <mat-label>Date Debut-Fin Théorique :</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date">
+                <input formControlName="dateFinTheorique" matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Estimation Temps :</mat-label>
+            <input formControleName="estimationTemps" matInput type="number">
+        </mat-form-field>
+    </fieldset>
+    <fieldset>
+        <legend>Informations du chantier</legend>
+        <mat-form-field>
+            <mat-label>Particularité :</mat-label>
+            <input formControlName="particularite" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Téléphone associée :</mat-label>
+            <input formControlName="telephone" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status de Chantier :</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let state of status" value="state.id">{{state}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Nom du chantier :</mat-label>
+            <input formControlName="nomChantier" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Informations internes :</mat-label>
+            <input formControlName="informationsInternes" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description :</mat-label>
+            <input formControlName="description" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+
+    <fieldset>
+        <legend>Client :</legend>
+        <button class="filled-button" color="primary" mat-raised-button>Nouveau client</button>
             <mat-form-field>
                 <mat-label>Filtrer les clients :</mat-label>
                 <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
@@ -86,31 +100,34 @@
                         [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
                 </mat-select>
             </mat-form-field>
-    </mat-card>
+    </fieldset>
 </form>
 <mat-checkbox (change)="resetJours()" [(ngModel)]="regularite">Regularite</mat-checkbox>
 <br>
 <div *ngIf="regularite">
     <form [formGroup]="nouveauChantierForm">
-        <mat-form-field>
-            <mat-label>Date Debut-Fin Régularité :</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-                <input formControlName="dateDebutRegularite" matStartDate placeholder="Start date">
-                <input formControlName="dateFinRegularite" matEndDate placeholder="End date">
-            </mat-date-range-input>
-            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-        </mat-form-field>
-        <div>
-            <mat-checkbox (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
-            <mat-checkbox (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
-            <mat-checkbox (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi</mat-checkbox>
-            <mat-checkbox (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
-            <mat-checkbox (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi</mat-checkbox>
-            <mat-checkbox (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
-            <mat-checkbox (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche</mat-checkbox>
-        </div>
+        <fieldset>
+            <legend>Régularité</legend>
+            <mat-form-field>
+                <mat-label>Date Debut-Fin Régularité :</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input formControlName="dateDebutRegularite" matStartDate placeholder="Start date">
+                    <input formControlName="dateFinRegularite" matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <div>
+                <mat-checkbox (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche</mat-checkbox>
+            </div>
+        </fieldset>
     </form>
 </div>
 
-<button (click)="onSubmit()" color="primary" mat-raised-button>Ajouter</button>
+<button (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Ajouter</button>
