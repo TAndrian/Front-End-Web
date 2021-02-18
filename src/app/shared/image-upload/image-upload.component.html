@@ -1,0 +1,12 @@
+<label class="btn btn-default">
+<input type="file" (change)="selectFile($event)" />
+</label>
+<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload() " mat-raised-button>
+Upload
+</button>
+<!--
+<mat-form-field>
+    <ngx-mat-file-input [formControl]="fileControl" multiple=false accept=".png, .jpg, .jpeg">
+    </ngx-mat-file-input>
+ </mat-form-field>
+-->
