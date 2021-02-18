@@ -27,11 +27,11 @@ export class ChantierService {
         return this.http.get<ChantierGet>(environment.apiUrl + 'get/chantier/get/' + id);
     }
 
-    
+
     getAllChantiers(): Observable<ChantierGet[]> {
         return this.http.get<ChantierGet[]>(environment.apiUrl + 'chantier/get');
     }
-    
+
     updateChantierById(id: string, chantier: Chantier): Observable<any> {
         return this.http.put(environment.apiUrl + 'chantier/update/' + id, JSON.stringify(chantier), this.options);
     }

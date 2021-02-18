@@ -10,7 +10,7 @@ import {MatTableDataSource} from '@angular/material/table';
 
 const client: Client = new Client("Rennes", "Jean", "Pierre", "AAAAAA", "");
 const site: Site = new Site("Rennes", "Jean", "Pierre", "AAAAAA", "", "");
-const demande: DemandeDeChantierGet = new DemandeDeChantierGet(1, site, client, 3, "","", false, 4, "", "", "" );
+const demande: DemandeDeChantierGet = new DemandeDeChantierGet(1, site, client, 3, "", "", false, 4, "", "", "");
 const demandes: DemandeDeChantierGet[] = [demande];
 
 
@@ -56,6 +56,6 @@ export class ListDemandeDeChantierComponent implements OnInit {
 
     toDetaileDemande() {
     }
-    
+
 
 }

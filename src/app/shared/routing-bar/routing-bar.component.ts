@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {AppRoutingModule} from '../../app-routing.module'
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-routing-bar',
-  templateUrl: './routing-bar.component.html',
-  styleUrls: ['./routing-bar.component.scss']
+    selector: 'app-routing-bar',
+    templateUrl: './routing-bar.component.html',
+    styleUrls: ['./routing-bar.component.scss']
 })
 export class RoutingBarComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
 }

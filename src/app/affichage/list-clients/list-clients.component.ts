@@ -14,7 +14,7 @@ var clients: Client[];
     styleUrls: ['./list-clients.component.css']
 })
 export class ListClientsComponent implements OnInit {
-    
+
     @ViewChild(MatPaginator) paginator: MatPaginator;
     length: number;
     obs: Observable<any[]>;
@@ -22,7 +22,7 @@ export class ListClientsComponent implements OnInit {
 
     clients: Client[];
 
-    
+
     constructor(private changeDetectorRef: ChangeDetectorRef,
                 private clientService: ClientService) {
     }

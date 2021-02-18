@@ -23,7 +23,7 @@ export class ListSitesComponent implements OnInit {
     dataSource: MatTableDataSource<Site> = new MatTableDataSource<Site>();
 
     sites: Site[];
-    
+
     constructor(
         private siteService: SiteService,
         private changeDetectorRef: ChangeDetectorRef

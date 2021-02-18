@@ -20,7 +20,7 @@ const routes: Routes = [
     {path: 'nouvelle-demande-de-chantier', component: FormulaireDemandeChantierComponent},
     {path: 'nouveau-chantier', component: FormulaireNouveauChantierComponent},
     {path: 'nouveau-client', component: FormulaireClientComponent},
-    {path: 'nouveau-site', component: FormulaireSiteComponent},    {path: 'client', component: FormulaireClientComponent},
+    {path: 'nouveau-site', component: FormulaireSiteComponent}, {path: 'client', component: FormulaireClientComponent},
     {path: 'site', component: FormulaireSiteComponent},
     {path: 'detail-chantier/:id', component: DetailChantierComponent},
     {path: 'detail-client/:id', component: DetailClientComponent},

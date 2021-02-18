@@ -4,8 +4,8 @@ import {AppBarComponent} from './app-bar/app-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {FiltreNomPrenomPipe} from './filtre-nom-prenom.pipe';
-import { RoutingBarComponent } from './routing-bar/routing-bar.component';
-import { RouterModule } from '@angular/router';
+import {RoutingBarComponent} from './routing-bar/routing-bar.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({

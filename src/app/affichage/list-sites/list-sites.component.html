@@ -31,22 +31,22 @@
                     </button>
                 </mat-expansion-panel-header>
                 <div>
-        <p> Nom : {{item.nomSite}}</p>
-        <p> Adresse : {{item.adresse}}</p>
-        <p> Mail : {{item.mail}}</p>
-        <p> Chef : {{item.nomChef}} {{item.prenomChef}}</p>
-        <p> Telephone : {{item.telephone}}</p>
+                    <p> Nom : {{item.nomSite}}</p>
+                    <p> Adresse : {{item.adresse}}</p>
+                    <p> Mail : {{item.mail}}</p>
+                    <p> Chef : {{item.nomChef}} {{item.prenomChef}}</p>
+                    <p> Telephone : {{item.telephone}}</p>
+                </div>
+            </mat-expansion-panel>
+        </mat-card>
     </div>
-</mat-expansion-panel>
-</mat-card>
-</div>
-<mat-toolbar>
-<mat-paginator [length]="length"
-           [pageSizeOptions]="[5, 10, 25, 100]"
-          >
-</mat-paginator>
-</mat-toolbar>
-<button mat-raised-button routerLink="/nouveau-site"> Nouveau Site </button>
+    <mat-toolbar>
+        <mat-paginator [length]="length"
+                       [pageSizeOptions]="[5, 10, 25, 100]"
+        >
+        </mat-paginator>
+    </mat-toolbar>
+    <button mat-raised-button routerLink="/nouveau-site"> Nouveau Site</button>
 
 </div>
 

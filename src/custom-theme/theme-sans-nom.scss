@@ -8,11 +8,11 @@
 // have to load a single css file for Angular Material in your app.
 
 // Fonts
-@import 'https://fonts.googleapis.com/css?family=Material+Icons';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons+Outlined';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 $fontConfig: (
-        display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
+        display-4: mat-typography-level(112px, 212px, 300, 'Roboto', -0.0134em),
         display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
         display-2: mat-typography-level(45px, 48px, 400, 'Roboto', 0.0000em),
         display-1: mat-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
@@ -85,7 +85,7 @@ $mat-dark-theme-foreground: (
 
 // Background config
 // Light bg
-$light-background:    #eeeeee;
+$light-background:    #ffe5e5;
 $light-bg-darker-5:   darken($light-background, 5%);
 $light-bg-darker-10:  darken($light-background, 10%);
 $light-bg-darker-20:  darken($light-background, 20%);
@@ -119,8 +119,8 @@ $dark-bg-lighter-5:   lighten($dark-background, 5%);
 $dark-bg-lighter-10:  lighten($dark-background, 10%);
 $dark-bg-lighter-20:  lighten($dark-background, 20%);
 $dark-bg-lighter-30:  lighten($dark-background, 30%);
-$light-bg-alpha-4:    rgba(#eeeeee, 0.04);
-$light-bg-alpha-12:   rgba(#eeeeee, 0.12);
+$light-bg-alpha-4:    rgba(#ffe5e5, 0.04);
+$light-bg-alpha-12:   rgba(#ffe5e5, 0.12);
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -147,21 +147,21 @@ $mat-dark-theme-background: (
 // Theme Config
 
 body {
-  --primary-color: #42a3e5;
-  --primary-lighter-color: #c6e3f7;
-  --primary-darker-color: #2b88da;
-  --text-primary-color: #{$dark-primary-text};
+  --primary-color: #113860;
+  --primary-lighter-color: #b8c3cf;
+  --primary-darker-color: #0a2444;
+  --text-primary-color: #{$light-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$light-primary-text};
 }
 
 $mat-primary: (
-        main: #42a3e5,
-        lighter: #c6e3f7,
-        darker: #2b88da,
-        200: #42a3e5, // For slide toggle,
+        main: #113860,
+        lighter: #b8c3cf,
+        darker: #0a2444,
+        200: #113860, // For slide toggle,
         contrast : (
-                main: $dark-primary-text,
+                main: $light-primary-text,
                 lighter: $dark-primary-text,
                 darker: $light-primary-text,
         )
@@ -169,23 +169,23 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #8fbf40;
-  --accent-lighter-color: #ddecc6;
-  --accent-darker-color: #72a92a;
+  --accent-color: #8c87b1;
+  --accent-lighter-color: #dddbe8;
+  --accent-darker-color: #6f6a98;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
-  --text-accent-darker-color: #{$dark-primary-text};
+  --text-accent-darker-color: #{$light-primary-text};
 }
 
 $mat-accent: (
-        main: #8fbf40,
-        lighter: #ddecc6,
-        darker: #72a92a,
-        200: #8fbf40, // For slide toggle,
+        main: #8c87b1,
+        lighter: #dddbe8,
+        darker: #6f6a98,
+        200: #8c87b1, // For slide toggle,
         contrast : (
                 main: $dark-primary-text,
                 lighter: $dark-primary-text,
-                darker: $dark-primary-text,
+                darker: $light-primary-text,
         )
 );
 $theme-accent: mat-palette($mat-accent, main, lighter, darker);
@@ -239,7 +239,7 @@ $altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
 
 .material-icons {
   font-size: 24px;
-  font-family: 'Material Icons', 'Material Icons';
+  font-family: 'Material Icons Outlined', 'Material Icons';
   .mat-badge-content {
     font-family: 'Roboto';
   }

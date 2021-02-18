@@ -90,16 +90,16 @@
     <fieldset>
         <legend>Client :</legend>
         <button class="filled-button" color="primary" mat-raised-button>Nouveau client</button>
-            <mat-form-field>
-                <mat-label>Filtrer les clients :</mat-label>
-                <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-select>
+        <mat-form-field>
+            <mat-label>Filtrer les clients :</mat-label>
+            <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select>
                 <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
-                        [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+                            [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
+            </mat-select>
+        </mat-form-field>
     </fieldset>
 </form>
 <mat-checkbox (change)="resetJours()" [(ngModel)]="regularite">Regularite</mat-checkbox>
@@ -120,11 +120,14 @@
             <div>
                 <mat-checkbox (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
                 <mat-checkbox (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi
+                </mat-checkbox>
                 <mat-checkbox (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi
+                </mat-checkbox>
                 <mat-checkbox (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche</mat-checkbox>
+                <mat-checkbox (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche
+                </mat-checkbox>
             </div>
         </fieldset>
     </form>

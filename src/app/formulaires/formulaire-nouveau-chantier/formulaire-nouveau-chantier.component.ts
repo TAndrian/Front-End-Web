@@ -8,7 +8,6 @@ import {SiteService} from 'src/app/core/services/site.service';
 import {Chantier} from 'src/app/shared/model/chantier';
 import {HttpResponse} from '@angular/common/http';
 import {JourSemaineType} from 'src/app/shared/model/jourSemaineType';
-import {StatusType} from 'src/app/shared/model/statusType';
 
 @Component({
     selector: 'app-formulaire-nouveau-chantier',
@@ -38,7 +37,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
 
             informationsInternes: new FormControl(''),
             description: new FormControl(''),
-            
+
             dateDebutRegularite: new FormControl(),
             dateFinRegularite: new FormControl(),
         }
@@ -47,7 +46,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     sites: Site[] = [];
     clients: Client[] = [];
     regularite: boolean = false;
-    status: string[] = [];  
+    status: string[] = [];
     jourSemaineType: typeof JourSemaineType = JourSemaineType;
     joursRegularite: Set<JourSemaineType> = new Set();
 
@@ -56,7 +55,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     constructor(private chantierService: ChantierService,
                 private clientService: ClientService,
                 private siteService: SiteService) {
-        this.status.push("DEMARRE","ENATTENTE", "ENCOURS", "TERMINE"); 
+        this.status.push("DEMARRE", "ENATTENTE", "ENCOURS", "TERMINE");
         //  this.sites.push(new Site('Beaulieu', 'Linh', 'François', 'rue du bélieré', '', ''));
         //  this.clients.push(new Client(1, 'Saint', 'Bernard', '', '', ''));
         //  this.clients.push(new Client(2, 'Castex', 'Jean', '', '', ''));
@@ -70,7 +69,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     }
 
     change(jour: JourSemaineType): void {
-        if (this.joursRegularite.has(jour)){
+        if (this.joursRegularite.has(jour)) {
             this.joursRegularite.delete(jour);
         } else if (jour) {
             this.joursRegularite.add(jour);
@@ -82,7 +81,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
         const client = this.nouveauChantierForm.controls.client.value;
         const ouvriers = this.nouveauChantierForm.controls.ouvriers.value;
         const materiel = this.nouveauChantierForm.controls.materiel.value;
-        
+
         const adresse = this.nouveauChantierForm.controls.adresse.value + ', '
             + this.nouveauChantierForm.controls.complement.value + ', '
             + this.nouveauChantierForm.controls.codePostal.value + ', '
@@ -110,7 +109,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
             chantier = new Chantier(
                 site.id, client.id, null, null, adresse, ouvriers, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
-                regularite, joursRegularite, dateDebutRegularite, dateFinRegularite); 
+                regularite, joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
             chantier = new Chantier(
                 site.id, client.id, null, null, adresse, ouvriers, materiel, dateDebutTheorique, dateFinTheorique,

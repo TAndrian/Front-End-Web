@@ -12,7 +12,9 @@
     </div>
 </div>
 
-
+<!--
+<button mat-button (click)="accordion.openAll()">Expand All</button>
+-->
 <div class="list-de-clients-wrapper">
     <mat-toolbar>
         <input matInput placeholder="rechercher" value="Cherche">
@@ -23,7 +25,7 @@
 
     <div class="list">
         <mat-card *ngFor="let item of obs | async">
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel [expanded]=true hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         {{item.nom}} {{item.prenom}}
@@ -33,12 +35,12 @@
                     </button>
                 </mat-expansion-panel-header>
                 <div>
-                        <p>Nom: {{item.nom}}</p>
-                        <p>Prénom: {{item.prenom}}</p>
-                        <p>Adresse: {{item.adresse}}</p>
-                        <p>Téléphone: {{item.telephone}}</p>
-                        <p>Mail: {{item.mail}}</p>
-                        <p>Information complémentaire: {{item.infoComplementaire}}</p>
+                    <p>Nom: {{item.nom}}</p>
+                    <p>Prénom: {{item.prenom}}</p>
+                    <p>Adresse: {{item.adresse}}</p>
+                    <p>Téléphone: {{item.telephone}}</p>
+                    <p>Mail: {{item.mail}}</p>
+                    <p>Information complémentaire: {{item.infoComplementaire}}</p>
                 </div>
             </mat-expansion-panel>
         </mat-card>
@@ -46,10 +48,10 @@
     <mat-toolbar>
         <mat-paginator [length]="length"
                        [pageSizeOptions]="[5, 10, 25, 100]"
-                       >
+        >
         </mat-paginator>
     </mat-toolbar>
-    <button mat-raised-button routerLink="/nouveau-client"> Nouveau Client </button>
+    <button mat-raised-button routerLink="/nouveau-client"> Nouveau Client</button>
 
 </div>
 

@@ -63,8 +63,8 @@ export class FormulaireDemandeChantierComponent implements OnInit {
         //  this.testAPI();
 
         //----METHODES A IMPLEMENTER------
-          this.getClients();
-         this.getSites();
+        this.getClients();
+        this.getSites();
     }
 
     resetJours(): void {
@@ -98,24 +98,23 @@ export class FormulaireDemandeChantierComponent implements OnInit {
         //this.demandeDeChantierService.deleteDemandeDeChantierById('3');
     }
 
-    
-      getClients() : void {
-        this.clientService.getAllClients().subscribe(data => {
-          data.forEach(element => {
-            this.clients.push(element);
-          });
-        })
-      }
-    
 
-    
-      getSites() : void {
-        this.siteService.getAllSites().subscribe(data => {
-          data.forEach(element => {
-            this.sites.push(element);
-          });
+    getClients(): void {
+        this.clientService.getAllClients().subscribe(data => {
+            data.forEach(element => {
+                this.clients.push(element);
+            });
         })
-      }
+    }
+
+
+    getSites(): void {
+        this.siteService.getAllSites().subscribe(data => {
+            data.forEach(element => {
+                this.sites.push(element);
+            });
+        })
+    }
 
     onSubmit(): void {
 

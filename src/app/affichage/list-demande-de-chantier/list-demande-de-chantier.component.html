@@ -35,7 +35,7 @@
                     <p> Adresse : {{item.adresse}}</p>
                     <p> Nom du client : {{item.client.nom}} {{item.client.prenom}}</p>
                     <p *ngIf="item.regularite"> Jours de régularités
-                         : {{item.getJours(item.joursRegularite)}}</p>
+                        : {{item.getJours(item.joursRegularite)}}</p>
                     <p> Informations internes : {{item.informationsInterne}}</p>
                     <p> Nombre de ouvrier : {{item.nombreEmployes}}</p>
                     <p> Description : {{item.description}}</p>
@@ -48,10 +48,10 @@
     <mat-toolbar>
         <mat-paginator [length]="length"
                        [pageSizeOptions]="[5, 10, 25, 100]"
-                      >
+        >
         </mat-paginator>
     </mat-toolbar>
-    <button mat-raised-button routerLink="/nouvelle-demande-de-chantier"> Nouvelle Demande de Chantier </button>
+    <button mat-raised-button routerLink="/nouvelle-demande-de-chantier"> Nouvelle Demande de Chantier</button>
 
 </div>
 

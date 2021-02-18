@@ -42,7 +42,7 @@ export class ListChantiersComponent implements OnInit {
             this.dataSource.data = data;
             this.dataSource.paginator = this.paginator;
             this.obs = this.dataSource.connect();
-            this.length = data.length;  
+            this.length = data.length;
         });
 
     }

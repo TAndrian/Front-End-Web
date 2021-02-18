@@ -28,11 +28,11 @@ export class DemandeDeChantierService {
         return this.http.get<DemandeDeChantierGet>(environment.apiUrl + 'get/demandedechantier/get/' + id);
     }
 
-    
+
     getAllDemandeDeChantiers(): Observable<DemandeDeChantierGet[]> {
-    return this.http.get<DemandeDeChantierGet[]>(environment.apiUrl + 'demandedechantier/get');
+        return this.http.get<DemandeDeChantierGet[]>(environment.apiUrl + 'demandedechantier/get');
     }
-    
+
     updateDemandeDeChantierById(id: string, demandeDeChantier: DemandeDeChantier): Observable<any> {
         return this.http.put(environment.apiUrl + 'demandedechantier/update/' + id, JSON.stringify(demandeDeChantier), this.options);
     }
