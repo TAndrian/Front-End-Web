@@ -43,7 +43,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
             dateFinRegularite: new FormControl(),
         }
     );
-    states = [];
+    states = [StatusType.DEMARRE, StatusType.ENCOURS, StatusType.ENATTENTE, StatusType.TERMINE];
     sites: Site[] = [];
     clients: Client[] = [];
     regularite: boolean = false;
@@ -55,12 +55,11 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     constructor(private chantierService: ChantierService,
                 private clientService: ClientService,
                 private siteService: SiteService) {
-        this.states = Object.values(StatusType).filter(
-            f => Number(f) || f === 0
-        );
     }
 
     ngOnInit(): void {
+        this.getClients();
+        this.getSites();
     }
 
     resetJours(): void {
@@ -140,7 +139,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
                 regularite, joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
             chantier = new Chantier(
-                site.id, client.id, null, null, adresse, ouvriers, materiel, dateDebutTheorique, dateFinTheorique,
+                site.id, client.id, null, null, adresse, null, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 regularite);
         }
@@ -148,7 +147,10 @@ export class FormulaireNouveauChantierComponent implements OnInit {
             (res: HttpResponse<any>) => {
                 console.log(res.headers.get('Location'));
             }
+
+            
         );
+        console.log(statusChantier.value);
 
     }
 

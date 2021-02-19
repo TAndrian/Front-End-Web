@@ -22,32 +22,35 @@
 
     <div class="list">
         <mat-card *ngFor="let item of obs | async">
-            <!--<mat-expansion-panel hideToggle>
+            <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
-                    <mat-panel-title>-->
-            <mat-card-header>
-                        {{item.nomChantier}}
-<!--
+                    <mat-panel-title>
+         <!--   <mat-card-header>-->
+                        {{item.id}}
+
                     </mat-panel-title>
--->
+
                     <button (click)="toDetaileChantier" mat-icon-button>
                         <mat-icon>keyboard_arrow_right</mat-icon>
                     </button>
-<!--
+                    <button (click)="toDeleteChantier(item.id)" mat-icon-button>
+                        <mat-icon>clear</mat-icon>
+                    </button>
+
                 </mat-expansion-panel-header>
--->            </mat-card-header>
+        <!--    </mat-card-header>-->  
 
             <mat-card-content>
                     <p>Adress: {{item.adresse}}</p>
                     <p>Site: {{item.site}}</p>
-                    <p>Chef du site: {{item.site.nomChef}}</p>
+                 <p>Chef du site: {{item.site.nomChef}}</p>
                     <p>Nom de chantier: {{item.nomChantier}}</p>
                     <p>Début-fin: {{item.dateDebutEffectif}} - {{item.dateFinEffectif}} </p>
                     <p>Etat: {{item.statusChantier}}</p>
                 </mat-card-content>
-<!--
+
             </mat-expansion-panel>
--->
+
         </mat-card>
     </div>
     <mat-toolbar>

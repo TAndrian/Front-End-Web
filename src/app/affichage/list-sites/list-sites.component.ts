@@ -4,9 +4,7 @@ import {Site} from '../../shared/model/site';
 import {Observable} from 'rxjs';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-
-const site: Site = new Site("Rennes", "Jean", "Pierre", "AAAAAA", "", "");
-const sites: Site[] = [site];
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-list-sites',
@@ -22,22 +20,34 @@ export class ListSitesComponent implements OnInit {
     obs: Observable<any[]>;
     dataSource: MatTableDataSource<Site> = new MatTableDataSource<Site>();
 
-    sites: Site[];
-
     constructor(
+        private route: ActivatedRoute,
         private siteService: SiteService,
         private changeDetectorRef: ChangeDetectorRef
     ) {
     }
 
     ngOnInit(): void {
+        this.creatTableSource();
+        this.route.params.subscribe( () => this.creatTableSource());
+    }
+
+    creatTableSource(): void {
         this.siteService.getAllSites().subscribe(data => {
             this.changeDetectorRef.detectChanges();
             this.dataSource.data = data;
             this.dataSource.paginator = this.paginator;
             this.obs = this.dataSource.connect();
             this.length = data.length;
-        })
+        });
+    }
+
+    toDeleteSite(id: number): void {
+        this.siteService.deleteSiteById(id.toString()).subscribe(data => 
+        {
+        this.dataSource.data.splice(data,1);
+        this.dataSource.paginator = this.paginator;
+        });
     }
 
 }

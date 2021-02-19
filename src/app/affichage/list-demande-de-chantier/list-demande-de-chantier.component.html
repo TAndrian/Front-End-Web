@@ -26,8 +26,11 @@
                     <mat-panel-title>
                         Demande {{item.id }} du Site {{item.site.nomSite}}
                     </mat-panel-title>
-                    <button (click)="toDetaileChantier" mat-icon-button>
+                    <button (click)="toDetaileDemande" mat-icon-button>
                         <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                    <button (click)="toDeleteDemande(item.id)" mat-icon-button>
+                        <mat-icon>clear</mat-icon>
                     </button>
                 </mat-expansion-panel-header>
                 <div>

@@ -6,8 +6,8 @@
         <legend>Site</legend>
         <mat-form-field>
             <mat-label>Site :</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let site of sites" value="site.id">{{site.nomSite}}</mat-option>
+            <mat-select formControlName="site">
+                <mat-option *ngFor="let site of sites" [value]=site>{{site.nomSite}}</mat-option>
             </mat-select>
         </mat-form-field>
     </fieldset>
@@ -69,8 +69,9 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Status de Chantier :</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let option of states" [value]=option>{{status(option)}}</mat-option>            </mat-select>
+            <mat-select formControlName="statusChantier">
+                <mat-option *ngFor="let option of states" [value]=option>{{status(option)}}</mat-option> 
+            </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Nom du chantier :</mat-label>
@@ -132,4 +133,4 @@
     </form>
 </div>
 
-<button (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Ajouter</button>
+<button (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button routerLink="/liste-chantier">Ajouter</button>

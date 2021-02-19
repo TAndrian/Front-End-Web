@@ -51,11 +51,7 @@ export class FormulaireDemandeChantierComponent implements OnInit {
     constructor(private demandeDeChantierService: DemandeDeChantierService,
                 private clientService: ClientService,
                 private siteService: SiteService) {
-        //Faudrait implementer les "getAllClients" et "getAllSites" niveau back ;)
-
-        //  this.sites.push(new Site('Beaulieu', 'Linh', 'François', 'rue du bélieré', '', ''));
-        //  this.clients.push(new Client('Saint', 'Bernard', '', '', ''));
-        //  this.clients.push(new Client('Castex', 'Jean', '', '', ''));
+        
     }
 
 

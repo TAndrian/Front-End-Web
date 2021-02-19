@@ -7,12 +7,7 @@ import {AffichageUtilsService} from '../affichage-utils.service';
 import {Observable} from 'rxjs';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-
-const client: Client = new Client("Rennes", "Jean", "Pierre", "AAAAAA", "");
-const site: Site = new Site("Rennes", "Jean", "Pierre", "AAAAAA", "", "");
-const demande: DemandeDeChantierGet = new DemandeDeChantierGet(1, site, client, 3, "", "", false, 4, "", "", "");
-const demandes: DemandeDeChantierGet[] = [demande];
-
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-list-demande-de-chantier',
@@ -26,35 +21,38 @@ export class ListDemandeDeChantierComponent implements OnInit {
     obs: Observable<any[]>;
     dataSource: MatTableDataSource<DemandeDeChantierGet> = new MatTableDataSource<DemandeDeChantierGet>();
 
-    demandesDeChantier: DemandeDeChantierGet[];
-
     constructor(
+        private route: ActivatedRoute,
         private demandeDeChantierService: DemandeDeChantierService,
-        public affichageUtilsService: AffichageUtilsService,
         private changeDetectorRef: ChangeDetectorRef
     ) {
     }
 
     ngOnInit(): void {
+        this.creatTableSource();
+        this.route.params.subscribe( () => this.creatTableSource());
+
+    }
+
+    toDetaileDemande() {
+    }
+
+    creatTableSource(): void {
         this.demandeDeChantierService.getAllDemandeDeChantiers().subscribe(data => {
             this.changeDetectorRef.detectChanges();
             this.dataSource.data = data;
             this.dataSource.paginator = this.paginator;
             this.obs = this.dataSource.connect();
             this.length = data.length;
-        })
-
+        });
     }
 
-    getAllDemandes() {
-        //this.chantierService.getAllChantiers().subcribe((res:any)=>{
-        //  this.chantiers = res
-        //})
-
-
-    }
-
-    toDetaileDemande() {
+    toDeleteDemande(id: number): void {
+        this.demandeDeChantierService.deleteDemandeDeChantierById(id.toString()).subscribe(data => 
+        {console.log("delete");
+        this.dataSource.data.splice(data,1);
+        this.dataSource.paginator = this.paginator;
+        });
     }
 
 

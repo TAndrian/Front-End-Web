@@ -29,6 +29,9 @@
                     <button (click)="toDetaileSite" mat-icon-button>
                         <mat-icon>keyboard_arrow_right</mat-icon>
                     </button>
+                    <button (click)="toDeleteSite(item.id)" mat-icon-button>
+                        <mat-icon>clear</mat-icon>
+                    </button>
                 </mat-expansion-panel-header>
                 <div>
                     <p> Nom : {{item.nomSite}}</p>
