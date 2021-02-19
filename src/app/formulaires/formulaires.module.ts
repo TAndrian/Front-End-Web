@@ -14,6 +14,8 @@ import {FormulaireClientComponent} from './formulaire-client/formulaire-client.c
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {RouterModule} from '@angular/router';
+import {AppRoutingModule} from '../app-routing.module';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         NgxMatFileInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        RouterModule,
+        AppRoutingModule
     ],
     exports: [
         FormulaireDemandeChantierComponent,

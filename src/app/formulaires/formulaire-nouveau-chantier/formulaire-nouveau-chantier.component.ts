@@ -8,6 +8,7 @@ import {SiteService} from 'src/app/core/services/site.service';
 import {Chantier} from 'src/app/shared/model/chantier';
 import {HttpResponse} from '@angular/common/http';
 import {JourSemaineType} from 'src/app/shared/model/jourSemaineType';
+import {StatusType} from 'src/app/shared/model/statusType';
 
 @Component({
     selector: 'app-formulaire-nouveau-chantier',
@@ -42,11 +43,10 @@ export class FormulaireNouveauChantierComponent implements OnInit {
             dateFinRegularite: new FormControl(),
         }
     );
-
+    states = [];
     sites: Site[] = [];
     clients: Client[] = [];
     regularite: boolean = false;
-    status: string[] = [];
     jourSemaineType: typeof JourSemaineType = JourSemaineType;
     joursRegularite: Set<JourSemaineType> = new Set();
 
@@ -55,10 +55,9 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     constructor(private chantierService: ChantierService,
                 private clientService: ClientService,
                 private siteService: SiteService) {
-        this.status.push("DEMARRE", "ENATTENTE", "ENCOURS", "TERMINE");
-        //  this.sites.push(new Site('Beaulieu', 'Linh', 'François', 'rue du bélieré', '', ''));
-        //  this.clients.push(new Client(1, 'Saint', 'Bernard', '', '', ''));
-        //  this.clients.push(new Client(2, 'Castex', 'Jean', '', '', ''));
+        this.states = Object.values(StatusType).filter(
+            f => Number(f) || f === 0
+        );
     }
 
     ngOnInit(): void {
@@ -73,6 +72,35 @@ export class FormulaireNouveauChantierComponent implements OnInit {
             this.joursRegularite.delete(jour);
         } else if (jour) {
             this.joursRegularite.add(jour);
+        }
+    }
+
+    getClients(): void {
+        this.clientService.getAllClients().subscribe(data => {
+            data.forEach(element => {
+                this.clients.push(element);
+            });
+        })
+    }
+
+    getSites(): void {
+        this.siteService.getAllSites().subscribe(data => {
+            data.forEach(element => {
+                this.sites.push(element);
+            });
+        })
+    }
+
+    status(state: StatusType): string {
+        switch (state) {
+            case StatusType.DEMARRE:
+                return 'Démarre';
+            case StatusType.ENATTENTE:
+                return 'En attente';
+            case StatusType.ENCOURS:
+                return 'En cours';
+            case StatusType.TERMINE:
+                return 'Terminé';
         }
     }
 

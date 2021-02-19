@@ -62,7 +62,7 @@
     </fieldset>
     <fieldset>
         <legend>Client</legend>
-        <button class="filled-button" color="primary" mat-raised-button>Nouveau client</button>
+        <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">Nouveau client</button>
         <mat-form-field>
             <mat-label>Filtrer les clients :</mat-label>
             <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
