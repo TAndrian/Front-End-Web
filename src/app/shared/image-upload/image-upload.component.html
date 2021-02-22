@@ -5,8 +5,10 @@
 Upload
 </button>
 <!--
-<mat-form-field>
-    <ngx-mat-file-input [formControl]="fileControl" multiple=false accept=".png, .jpg, .jpeg">
-    </ngx-mat-file-input>
- </mat-form-field>
+IMPLEMENTATION:
+changer "display" pour la fonction que  l'on souhaite utiliser pour mettre à jour les
+images.
+
+<app-image-upload (imageIdEvent)='display($event)'></app-image-upload>
+<app-image-display [imageId]=8 ></app-image-display>
 -->

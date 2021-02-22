@@ -12,7 +12,7 @@ export class ImageDisplayComponent implements OnInit {
   @Input() alt:string;
 
   imageUrl="";
-  altImage="L'image demandé n'as pas chargé, où n'existe pas dans la base de données";
+  altImage="L'image demandé n'as pas chargé, ou n'existe pas dans la base de données";
 
   constructor(private imageService: ImageService) { }
 

@@ -1,6 +1,6 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Output , EventEmitter } from '@angular/core';
+
 import { ImageService } from 'src/app/core/services/image.service';
 
 @Component({
@@ -12,6 +12,10 @@ export class ImageUploadComponent implements OnInit {
 
   constructor(private imageService: ImageService) { }
 
+  @Output() imageIdEvent = new EventEmitter<string>();
+
+  imageId: string;
+
   selectedFiles: FileList;
   currentFile: File;
   message = '';
@@ -22,7 +26,13 @@ export class ImageUploadComponent implements OnInit {
 
   upload() : void{
     this.currentFile = this.selectedFiles.item(0);
-    this.imageService.addImage(this.currentFile).subscribe();
+    this.imageService.addImage(this.currentFile).subscribe((data: HttpResponse<any>) => {
+
+      this.imageId = data.headers.get('location').split('/')[2];
+      this.imageIdEvent.emit(this.imageId);
+    
+    });
+    
     this.selectedFiles = undefined;
   }
 
