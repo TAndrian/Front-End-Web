@@ -24,7 +24,7 @@ export class ChantierService {
     }
 
     getChantierById(id: string): Observable<ChantierGet> {
-        return this.http.get<ChantierGet>(environment.apiUrl + 'get/chantier/get/' + id);
+        return this.http.get<ChantierGet>(environment.apiUrl + 'chantier/get/' + id);
     }
 
 

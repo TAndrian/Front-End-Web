@@ -34,9 +34,6 @@ export class ListDemandeDeChantierComponent implements OnInit {
 
     }
 
-    toDetaileDemande() {
-    }
-
     creatTableSource(): void {
         this.demandeDeChantierService.getAllDemandeDeChantiers().subscribe(data => {
             this.changeDetectorRef.detectChanges();

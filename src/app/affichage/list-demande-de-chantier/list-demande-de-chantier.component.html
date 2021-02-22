@@ -26,7 +26,7 @@
                     <mat-panel-title>
                         Demande {{item.id }} du Site {{item.site.nomSite}}
                     </mat-panel-title>
-                    <button (click)="toDetaileDemande" mat-icon-button>
+                    <button mat-icon-button [routerLink]="['/detail-demande-de-chantier',item.id]">
                         <mat-icon>keyboard_arrow_right</mat-icon>
                     </button>
                     <button (click)="toDeleteDemande(item.id)" mat-icon-button>

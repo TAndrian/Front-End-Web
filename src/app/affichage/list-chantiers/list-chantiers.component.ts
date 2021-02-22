@@ -31,9 +31,6 @@ export class ListChantiersComponent implements OnInit {
         this.route.params.subscribe( () => this.creatTableSource());
     }
 
-    toDetaileChantier() {
-    }
-
     creatTableSource(): void {
         this.chantierService.getAllChantiers().subscribe(data => {
             this.changeDetectorRef.detectChanges();

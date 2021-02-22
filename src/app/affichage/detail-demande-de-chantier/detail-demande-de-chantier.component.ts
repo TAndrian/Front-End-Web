@@ -21,9 +21,11 @@ export class DetailDemandeDeChantierComponent implements OnInit {
 
     ngOnInit(): void {
         const id = this.route.snapshot.paramMap.get('id');
+        if (id !== null && this.demandeDeChantier == null) {
         this.demandeDeChantierService.getDemandeDeChantierById(id).subscribe(
             (res: DemandeDeChantierGet) => this.demandeDeChantier = res
         );
+        }
     }
 
 }

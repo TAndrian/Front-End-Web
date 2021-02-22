@@ -30,7 +30,7 @@
 
                     </mat-panel-title>
 
-                    <button (click)="toDetaileChantier" mat-icon-button>
+                    <button mat-icon-button [routerLink]="['/detail-chantier',item.id]">
                         <mat-icon>keyboard_arrow_right</mat-icon>
                     </button>
                     <button (click)="toDeleteChantier(item.id)" mat-icon-button>

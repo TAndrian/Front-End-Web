@@ -25,7 +25,7 @@ export class DemandeDeChantierService {
     }
 
     getDemandeDeChantierById(id: string): Observable<DemandeDeChantierGet> {
-        return this.http.get<DemandeDeChantierGet>(environment.apiUrl + 'get/demandedechantier/get/' + id);
+        return this.http.get<DemandeDeChantierGet>(environment.apiUrl + 'demandedechantier/get/' + id);
     }
 
 

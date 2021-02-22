@@ -30,7 +30,7 @@
                     <mat-panel-title>
                         {{item.nom}} {{item.prenom}}
                     </mat-panel-title>
-                    <button (click)="toDetaileClient" mat-icon-button>
+                    <button mat-icon-button [routerLink]="['/detail-client',item.id]">
                         <mat-icon>keyboard_arrow_right</mat-icon>
                     </button>
                     <button (click)="toDeleteClient(item.id)" mat-icon-button>

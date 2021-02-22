@@ -26,7 +26,7 @@
                     <mat-panel-title>
                         {{item.nomSite}}
                     </mat-panel-title>
-                    <button (click)="toDetaileSite" mat-icon-button>
+                    <button (click)="toDetaileSite" mat-icon-button [routerLink]="['/detail-site',item.id]">
                         <mat-icon>keyboard_arrow_right</mat-icon>
                     </button>
                     <button (click)="toDeleteSite(item.id)" mat-icon-button>
