@@ -14,6 +14,7 @@ import {FormulaireClientComponent} from './formulaire-client/formulaire-client.c
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { FormulaireConnexionComponent } from './formulaire-connexion/formulaire-connexion.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         FormulaireDemandeChantierComponent,
         FormulaireNouveauChantierComponent,
         FormulaireSiteComponent,
-        FormulaireClientComponent
+        FormulaireClientComponent,
+        FormulaireConnexionComponent
     ],
     imports: [
         CommonModule,
@@ -35,13 +37,14 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         NgxMatFileInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatCheckboxModule
+        MatCheckboxModule,
     ],
     exports: [
         FormulaireDemandeChantierComponent,
         FormulaireNouveauChantierComponent,
         FormulaireSiteComponent,
-        FormulaireClientComponent
+        FormulaireClientComponent,
+        FormulaireConnexionComponent
     ]
 })
 export class FormulairesModule {
