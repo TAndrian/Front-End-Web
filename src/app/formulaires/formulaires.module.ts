@@ -7,7 +7,7 @@ import {FormulaireDemandeChantierComponent} from './formulaire-demande-chantier/
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {SharedModule} from '../shared/shared.module';
-import {FormulaireNouveauChantierComponent} from './formulaire-nouveau-chantier/formulaire-nouveau-chantier.component';
+import {FormulaireNouveauChantierComponent} from './formulaire-fiche-intervention/formulaire-nouveau-chantier.component';
 import {NgxMatFileInputModule} from '@angular-material-components/file-input';
 import {FormulaireSiteComponent} from './formulaire-site/formulaire-site.component';
 import {FormulaireClientComponent} from './formulaire-client/formulaire-client.component';

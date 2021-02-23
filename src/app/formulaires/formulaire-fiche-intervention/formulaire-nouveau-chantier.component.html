@@ -1,13 +1,25 @@
 <h1>
-    Nouveau Chantier
+    Fiche d'intervention
 </h1>
-<form [formGroup]="nouveauChantierForm">
+<form [formGroup]="nouveauChantierForm" *ngIf="chantier != undefined">
     <fieldset>
-        <legend>Site</legend>
+        <legend>Référence intervention</legend>
         <mat-form-field>
             <mat-label>Site :</mat-label>
-            <mat-select formControlName="site">
-                <mat-option *ngFor="let site of sites" [value]=site>{{site.nomSite}}</mat-option>
+            <mat-select [(value)]="selectedSite.id">
+                <mat-option  *ngFor="let site of sites" (click)="changeSite(site)" [value]=site.id>{{site.nomSite}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">Nouveau client</button>
+        <mat-form-field>
+            <mat-label>Filtrer les clients :</mat-label>
+            <input [(ngModel)]="filtreClient" [ngModelOptions]="{standalone: true}" matInput type="search">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select [(value)]="selectedClient.id">
+                <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
+                            (click)="changeClient(client)"
+                            [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
             </mat-select>
         </mat-form-field>
     </fieldset>
@@ -15,30 +27,30 @@
         <legend>Matériel & Ouvrier(s)</legend>
         <mat-form-field>
             <mat-label>Ouvriers :</mat-label>
-            <input formControleName="ouvriers" matInput type="text">
+            <input formControlName="ouvriers" matInput type="text" [ngModel]="(chantier.ouvriers != null)?chantier.ouvriers:''">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Materiel :</mat-label>
-            <input formControlName="materiel" matInput type="text">
+            <input formControlName="materiel" matInput type="text" [ngModel]="(chantier.materiel != null)?chantier.materiel:''">
         </mat-form-field>
     </fieldset>
     <fieldset>
-        <legend>Coordonnées</legend>
+        <legend>Lieu d'intervention</legend>
         <mat-form-field>
             <mat-label>Adresse :</mat-label>
-            <input formControlName="adresse" matInput type="text">
+            <input formControlName="adresse" matInput type="text" [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[0]:''">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Complément :</mat-label>
-            <input formControlName="complement" matInput type="text">
+            <input formControlName="complement" matInput type="text"  [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[1]:''">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Code Postal :</mat-label>
-            <input formControlName="codePostal" matInput type="text">
+            <input formControlName="codePostal" matInput type="text"  [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[2]:''">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Ville :</mat-label>
-            <input formControlName="ville" matInput type="text">
+            <input formControlName="ville" matInput type="text"  [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[3]:''">
         </mat-form-field>
     </fieldset>
     <fieldset>
@@ -46,15 +58,15 @@
         <mat-form-field>
             <mat-label>Date Debut-Fin Théorique :</mat-label>
             <mat-date-range-input [rangePicker]="picker">
-                <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date">
-                <input formControlName="dateFinTheorique" matEndDate placeholder="End date">
+                <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date" [ngModel]="chantier.dateDebutTheorique">
+                <input formControlName="dateFinTheorique" matEndDate placeholder="End date" [ngModel]="chantier.dateFinTheorique">
             </mat-date-range-input>
             <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Estimation Temps :</mat-label>
-            <input formControleName="estimationTemps" matInput type="number">
+            <input formControleName="estimationTemps" matInput type="number" [ngModel]="chantier.estimationTemps!=null?chantier.estimationTemps:''">
         </mat-form-field>
     </fieldset>
     <fieldset>
@@ -65,7 +77,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Téléphone associée :</mat-label>
-            <input formControlName="telephone" matInput type="text">
+            <input formControlName="telephone" matInput type="text" value="{{chantier.telephone!=null?chantier.telephone:''}}">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Status de Chantier :</mat-label>
@@ -75,7 +87,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Nom du chantier :</mat-label>
-            <input formControlName="nomChantier" matInput type="text">
+            <input formControlName="nomChantier" matInput type="text"  [ngModel]="(chantier.nomChantier != null)?chantier.nomChantier:''">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Informations internes :</mat-label>
@@ -83,26 +95,11 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Description :</mat-label>
-            <input formControlName="description" matInput type="text">
-        </mat-form-field>
-    </fieldset>
-
-    <fieldset>
-        <legend>Client :</legend>
-        <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">Nouveau client</button>
-        <mat-form-field>
-            <mat-label>Filtrer les clients :</mat-label>
-            <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-select>
-                <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
-                            [value]=client.id>{{client.nom}} {{client.prenom}}</mat-option>
-            </mat-select>
+            <input formControlName="description" matInput type="text" [ngModel]="(chantier.description != null)?chantier.description:''">
         </mat-form-field>
     </fieldset>
 </form>
-<mat-checkbox (change)="resetJours()" [(ngModel)]="regularite">Regularite</mat-checkbox>
+<mat-checkbox (change)="resetJours()" [(ngModel)]="regularite" [ngModelOptions]="{standalone: true}">Regularite</mat-checkbox>
 <br>
 <div *ngIf="regularite">
     <form [formGroup]="nouveauChantierForm">

@@ -9,6 +9,10 @@ import {Chantier} from 'src/app/shared/model/chantier';
 import {HttpResponse} from '@angular/common/http';
 import {JourSemaineType} from 'src/app/shared/model/jourSemaineType';
 import {StatusType} from 'src/app/shared/model/statusType';
+import {DemandeDeChantierGet} from '../../shared/model/demandeDeChantierGet';
+import {ChantierGet} from '../../shared/model/chantierGet';
+import {ActivatedRoute} from '@angular/router';
+import {MatOptionSelectionChange} from '@angular/material/core';
 
 @Component({
     selector: 'app-formulaire-nouveau-chantier',
@@ -17,8 +21,6 @@ import {StatusType} from 'src/app/shared/model/statusType';
 })
 export class FormulaireNouveauChantierComponent implements OnInit {
     nouveauChantierForm = new FormGroup({
-            site: new FormControl(''),
-            client: new FormControl(''),
             ouvriers: new FormControl(''),
             materiel: new FormControl(''),
 
@@ -46,20 +48,35 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     states = [StatusType.DEMARRE, StatusType.ENCOURS, StatusType.ENATTENTE, StatusType.TERMINE];
     sites: Site[] = [];
     clients: Client[] = [];
-    regularite: boolean = false;
+    regularite = false;
     jourSemaineType: typeof JourSemaineType = JourSemaineType;
     joursRegularite: Set<JourSemaineType> = new Set();
-
+    chantier: ChantierGet;
     filtreClient = '';
+    selectedSite: Site;
+    selectedClient: Client;
+
 
     constructor(private chantierService: ChantierService,
                 private clientService: ClientService,
-                private siteService: SiteService) {
+                private siteService: SiteService,
+                private route: ActivatedRoute,
+    ) {
     }
 
     ngOnInit(): void {
         this.getClients();
         this.getSites();
+        const id = this.route.snapshot.paramMap.get('id');
+        this.chantierService.getChantierById(id).subscribe(
+            (res: ChantierGet) =>
+            {
+             this.chantier = res;
+             this.selectedSite =  this.chantier.site;
+             this.selectedClient =  this.chantier.client;
+            }
+
+        );
     }
 
     resetJours(): void {
@@ -79,7 +96,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
             data.forEach(element => {
                 this.clients.push(element);
             });
-        })
+        });
     }
 
     getSites(): void {
@@ -87,7 +104,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
             data.forEach(element => {
                 this.sites.push(element);
             });
-        })
+        });
     }
 
     status(state: StatusType): string {
@@ -104,8 +121,8 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     }
 
     onSubmit(): void {
-        const site = this.nouveauChantierForm.controls.site.value;
-        const client = this.nouveauChantierForm.controls.client.value;
+        const site = this.selectedSite;
+        const client = this.selectedClient;
         const ouvriers = this.nouveauChantierForm.controls.ouvriers.value;
         const materiel = this.nouveauChantierForm.controls.materiel.value;
 
@@ -131,27 +148,33 @@ export class FormulaireNouveauChantierComponent implements OnInit {
         const dateFinRegularite = this.nouveauChantierForm.controls.dateFinRegularite.value;
         const joursRegularite = this.joursRegularite;
 
-        var chantier: Chantier;
+        let chantier: Chantier;
         if (this.regularite) {
             chantier = new Chantier(
                 site.id, client.id, null, null, adresse, ouvriers, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
-                regularite, joursRegularite, dateDebutRegularite, dateFinRegularite);
+                regularite, true,  joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
             chantier = new Chantier(
                 site.id, client.id, null, null, adresse, null, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
-                regularite);
+                true, regularite);
         }
         this.chantierService.addChantier(chantier).subscribe(
             (res: HttpResponse<any>) => {
                 console.log(res.headers.get('Location'));
             }
 
-            
+
         );
         console.log(statusChantier.value);
 
     }
 
+    changeSite(site: Site): void {
+        this.selectedSite = site;
+    }
+    changeClient(client: Client): void {
+        this.selectedClient = client;
+    }
 }

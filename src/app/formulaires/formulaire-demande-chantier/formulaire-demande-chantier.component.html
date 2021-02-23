@@ -3,31 +3,28 @@
 </h1>
 <form [formGroup]="demandeDeChantierForm">
     <fieldset>
-        <legend>Site</legend>
+        <legend>Référence intervention</legend>
         <mat-form-field>
             <mat-label>Site :</mat-label>
             <mat-select formControlName="site">
                 <mat-option *ngFor="let site of sites" [value]=site>{{site.nomSite}}</mat-option>
             </mat-select>
         </mat-form-field>
-    </fieldset>
-    <fieldset>
-        <legend>Ouvriers, matériel et temps nécessaires</legend>
+        <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">Nouveau client</button>
         <mat-form-field>
-            <mat-label>Nombre Employés :</mat-label>
-            <input formControleName="nombreEmployes" matInput type="number">
+            <mat-label>Filtrer les clients :</mat-label>
+            <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Materiel :</mat-label>
-            <input formControlName="materiel" matInput type="text">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Estimation Temps :</mat-label>
-            <input formControleName="estimationTemps" matInput type="number">
+            <mat-label>Client :</mat-label>
+            <mat-select formControlName="client">
+                <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
+                            [value]=client>{{client.nom}} {{client.prenom}}</mat-option>
+            </mat-select>
         </mat-form-field>
     </fieldset>
     <fieldset>
-        <legend>Coordonnées</legend>
+        <legend>Lieu d'intervention</legend>
         <mat-form-field>
             <mat-label>Adresse :</mat-label>
             <input formControlName="adresse" matInput type="text">
@@ -47,71 +44,24 @@
     </fieldset>
     <fieldset>
         <legend>Informations supplémentaires</legend>
-        <mat-form-field>
+        <mat-form-field class="text-area-field" style="width: 250px">
+            <mat-label>Description du chantier :</mat-label>
+            <textarea formControlName="description" matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="3" type="text"></textarea>
+        </mat-form-field>
+        <mat-form-field class="text-area-field" style="width: 250px">
             <mat-label>Particularité :</mat-label>
-            <input formControlName="particularite" matInput type="text">
+                <textarea formControlName="particularite" matInput
+                          cdkTextareaAutosize
+                          cdkAutosizeMinRows="3" type="text"></textarea>
         </mat-form-field>
-        <mat-form-field>
-            <mat-label>Description :</mat-label>
-            <input formControlName="description" matInput type="text">
-        </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="text-area-field" style="width: 250px">
             <mat-label>Informations internes :</mat-label>
-            <input formControlName="informationsInterne" matInput type="text">
+            <textarea formControlName="informationsInterne" matInput
+                      cdkTextareaAutosize
+                      cdkAutosizeMinRows="3" type="text"></textarea>
         </mat-form-field>
     </fieldset>
-    <fieldset>
-        <legend>Client</legend>
-        <button class="filled-button" color="primary" mat-raised-button routerLink="/nouveau-client">Nouveau client</button>
-        <mat-form-field>
-            <mat-label>Filtrer les clients :</mat-label>
-            <input [(ngModel)]="filtreClient" formControlName="client" matInput type="search">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Client :</mat-label>
-            <mat-select formControlName="client">
-                <mat-option *ngFor="let client of (clients | filtreNomPrenom:['nom','prenom']:filtreClient)"
-                            [value]=client>{{client.nom}} {{client.prenom}}</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </fieldset>
-
 </form>
-
-<mat-checkbox (change)="resetJours()" [(ngModel)]="regularite">Regularite</mat-checkbox>
-<br>
-<div *ngIf="regularite">
-    <form [formGroup]="demandeDeChantierForm">
-        <fieldset>
-            <legend>Régularité</legend>
-            <mat-form-field appearance="fill">
-                <mat-label>Date du début de la regularité</mat-label>
-                <input [matDatepicker]="pickerDebut" formControlName="dateDebutRegularite"
-                       matInput>
-                <mat-datepicker-toggle [for]="pickerDebut" matSuffix></mat-datepicker-toggle>
-                <mat-datepicker #pickerDebut></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Date de fin de la regularité</mat-label>
-                <input [matDatepicker]="pickerFin" formControlName="dateFinRegularite"
-                       matInput>
-                <mat-datepicker-toggle [for]="pickerFin" matSuffix></mat-datepicker-toggle>
-                <mat-datepicker #pickerFin></mat-datepicker>
-            </mat-form-field>
-            <div>
-                <mat-checkbox (change)="change(jourSemaineType.LUNDI)" formNameArray="joursArray">Lundi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.MARDI)" formNameArray="joursArray">Mardi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.MERCREDI)" formNameArray="joursArray">Mercredi
-                </mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.JEUDI)" formNameArray="joursArray">Jeudi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.VENDREDI)" formNameArray="joursArray">Vendredi
-                </mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.SAMEDI)" formNameArray="joursArray">Samedi</mat-checkbox>
-                <mat-checkbox (change)="change(jourSemaineType.DIMANCHE)" formNameArray="joursArray">Dimanche
-                </mat-checkbox>
-            </div>
-        </fieldset>
-
-    </form>
-</div>
-<button (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button routerLink="/liste-demande-de-chantier">Ajouter</button>
+<button (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Ajouter</button>

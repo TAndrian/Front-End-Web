@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {FormulaireNouveauChantierComponent} from './formulaires/formulaire-nouveau-chantier/formulaire-nouveau-chantier.component';
+import {FormulaireNouveauChantierComponent} from './formulaires/formulaire-fiche-intervention/formulaire-nouveau-chantier.component';
 import {FormulaireClientComponent} from './formulaires/formulaire-client/formulaire-client.component';
 import {FormulaireSiteComponent} from './formulaires/formulaire-site/formulaire-site.component';
 import {FormulaireDemandeChantierComponent} from './formulaires/formulaire-demande-chantier/formulaire-demande-chantier.component';
@@ -15,10 +15,10 @@ import {ListDemandeDeChantierComponent} from './affichage/list-demande-de-chanti
 import {NouvelUtilisateurComponent} from './gestion-utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
 
 const routes: Routes = [
-    {path: 'demande-de-cantier', component: FormulaireDemandeChantierComponent},
+    {path: 'demande-de-chantier', component: FormulaireDemandeChantierComponent},
     {path: 'nouvel-utilisateur', component: NouvelUtilisateurComponent},
     {path: 'nouvelle-demande-de-chantier', component: FormulaireDemandeChantierComponent},
-    {path: 'nouveau-chantier', component: FormulaireNouveauChantierComponent},
+    {path: 'fiche-intervention/:id', component: FormulaireNouveauChantierComponent},
     {path: 'nouveau-client', component: FormulaireClientComponent},
     {path: 'nouveau-site', component: FormulaireSiteComponent}, {path: 'client', component: FormulaireClientComponent},
     {path: 'site', component: FormulaireSiteComponent},

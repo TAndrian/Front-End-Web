@@ -8,6 +8,7 @@ import {SiteService} from 'src/app/core/services/site.service';
 import {DemandeDeChantier} from 'src/app/shared/model/demandeDeChantier';
 import {HttpResponse} from '@angular/common/http';
 import {JourSemaineType} from 'src/app/shared/model/jourSemaineType';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -50,6 +51,7 @@ export class FormulaireDemandeChantierComponent implements OnInit {
 
     constructor(private demandeDeChantierService: DemandeDeChantierService,
                 private clientService: ClientService,
+                private router: Router,
                 private siteService: SiteService) {
         
     }
@@ -116,38 +118,24 @@ export class FormulaireDemandeChantierComponent implements OnInit {
 
         const site = this.demandeDeChantierForm.controls.site.value;
         const client = this.demandeDeChantierForm.controls.client.value;
-        const nombreEmployes = this.demandeDeChantierForm.controls.nombreEmployes.value;
-        const materiel = this.demandeDeChantierForm.controls.materiel.value;
 
         const adresse = this.demandeDeChantierForm.controls.adresse.value + ', '
             + this.demandeDeChantierForm.controls.complement.value + ', '
             + this.demandeDeChantierForm.controls.codePostal.value + ', '
             + this.demandeDeChantierForm.controls.ville.value;
 
-        const regularite = this.regularite;
         const estimationTemps = this.demandeDeChantierForm.controls.estimationTemps.value;
         const particularite = this.demandeDeChantierForm.controls.particularite.value;
         const description = this.demandeDeChantierForm.controls.description.value;
         const informationsInterne = this.demandeDeChantierForm.controls.informationsInterne.value;
 
-        const dateDebutRegularite = this.demandeDeChantierForm.controls.dateDebutRegularite.value;
-        const dateFinRegularite = this.demandeDeChantierForm.controls.dateFinRegularite.value;
-        const joursRegularite = this.joursRegularite;
-
-        var chantier: DemandeDeChantier;
-        if (this.regularite) {
-            chantier = new DemandeDeChantier(
-                site.id, client.id, nombreEmployes, materiel, adresse, regularite,
-                estimationTemps, particularite, description, informationsInterne,
-                dateDebutRegularite, dateFinRegularite, joursRegularite);
-        } else {
-            chantier = new DemandeDeChantier(
-                site.id, client.id, nombreEmployes, materiel, adresse, regularite,
+        let chantier: DemandeDeChantier;
+        chantier = new DemandeDeChantier(
+                site.id, client.id, null, null, adresse, null,
                 estimationTemps, particularite, description, informationsInterne);
-        }
         this.demandeDeChantierService.addDemandeDeChantier(chantier).subscribe(
             (res: HttpResponse<any>) => {
-                console.log(res.headers.get('Location'));
+                this.router.navigateByUrl('detail-demande-de-chantier/' + res.headers.get('location').split('/')[2]);
             }
         );
 

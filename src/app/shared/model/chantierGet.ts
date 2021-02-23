@@ -25,8 +25,8 @@ export class ChantierGet {
                 public description: string,
                 public dateDebutEffectif: Date,
                 public dateFinEffectif: Date,
+                public conducteurPresent: boolean,
                 public regularite: boolean,
-                //TOUT CE QUI EST REGULARITE EST OPTIONNEL
                 public joursRegularite?: Set<JourSemaineType>,
                 public dateDebutRegularite?: Date,
                 public dateFinRegularite?: Date,
