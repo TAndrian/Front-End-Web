@@ -11,6 +11,9 @@ import {DetailDemandeDeChantierComponent} from './detail-demande-de-chantier/det
 import {ListDemandeDeChantierComponent} from './list-demande-de-chantier/list-demande-de-chantier.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {RouterModule} from '@angular/router';
+import { StepperFicheInterventionComponent } from './stepper-fiche-intervention/stepper-fiche-intervention.component';
+import {FormulairesModule} from '../formulaires/formulaires.module';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -22,13 +25,16 @@ import {RouterModule} from '@angular/router';
         DetailSiteComponent,
         ListSitesComponent,
         DetailDemandeDeChantierComponent,
-        ListDemandeDeChantierComponent
+        ListDemandeDeChantierComponent,
+        StepperFicheInterventionComponent,
     ],
     imports: [
         CommonModule,
         SharedMaterialModule,
         AppRoutingModule,
-        RouterModule
+        RouterModule,
+        FormulairesModule,
+        MatStepperModule
     ],
     exports: [
         DetailChantierComponent,
@@ -38,7 +44,7 @@ import {RouterModule} from '@angular/router';
         DetailSiteComponent,
         ListSitesComponent,
         DetailDemandeDeChantierComponent,
-        ListDemandeDeChantierComponent
+        ListDemandeDeChantierComponent,
     ]
 })
 export class AffichageModule {

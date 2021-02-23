@@ -13,12 +13,13 @@ import {ListClientsComponent} from './affichage/list-clients/list-clients.compon
 import {ListSitesComponent} from './affichage/list-sites/list-sites.component';
 import {ListDemandeDeChantierComponent} from './affichage/list-demande-de-chantier/list-demande-de-chantier.component';
 import {NouvelUtilisateurComponent} from './gestion-utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
+import {StepperFicheInterventionComponent} from './affichage/stepper-fiche-intervention/stepper-fiche-intervention.component';
 
 const routes: Routes = [
     {path: 'demande-de-chantier', component: FormulaireDemandeChantierComponent},
     {path: 'nouvel-utilisateur', component: NouvelUtilisateurComponent},
     {path: 'nouvelle-demande-de-chantier', component: FormulaireDemandeChantierComponent},
-    {path: 'fiche-intervention/:id', component: FormulaireNouveauChantierComponent},
+    {path: 'fiche-intervention/:id', component: StepperFicheInterventionComponent},
     {path: 'nouveau-client', component: FormulaireClientComponent},
     {path: 'nouveau-site', component: FormulaireSiteComponent}, {path: 'client', component: FormulaireClientComponent},
     {path: 'site', component: FormulaireSiteComponent},

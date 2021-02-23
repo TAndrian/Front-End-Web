@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Site} from '../../shared/model/site';
 import {Client} from '../../shared/model/client';
@@ -51,7 +51,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     regularite = false;
     jourSemaineType: typeof JourSemaineType = JourSemaineType;
     joursRegularite: Set<JourSemaineType> = new Set();
-    chantier: ChantierGet;
+    @Input() chantier: ChantierGet;
     filtreClient = '';
     selectedSite: Site;
     selectedClient: Client;
@@ -67,16 +67,8 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     ngOnInit(): void {
         this.getClients();
         this.getSites();
-        const id = this.route.snapshot.paramMap.get('id');
-        this.chantierService.getChantierById(id).subscribe(
-            (res: ChantierGet) =>
-            {
-             this.chantier = res;
-             this.selectedSite =  this.chantier.site;
-             this.selectedClient =  this.chantier.client;
-            }
-
-        );
+        this.selectedSite =  this.chantier.site;
+        this.selectedClient =  this.chantier.client;
     }
 
     resetJours(): void {

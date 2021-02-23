@@ -1,0 +1,18 @@
+<h1>
+    Fiche d'intervention
+</h1>
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="">
+        <ng-template matStepLabel>Estimation</ng-template>
+        <app-formulaire-nouveau-chantier *ngIf="chantier != undefined" [chantier]="chantier"></app-formulaire-nouveau-chantier>
+    </mat-step>
+    <mat-step [stepControl]="">
+        <ng-template matStepLabel>Traitement par le commercial</ng-template>
+        <app-formulaire-nouveau-chantier *ngIf="chantier != undefined" [chantier]="chantier"></app-formulaire-nouveau-chantier>
+        <h2>Coucou je suis le commercial</h2>
+    </mat-step>
+    <mat-step [stepControl]="">
+        <ng-template matStepLabel>Validation au planning</ng-template>
+        <app-formulaire-nouveau-chantier *ngIf="chantier != undefined" [chantier]="chantier"></app-formulaire-nouveau-chantier>
+    </mat-step>
+</mat-horizontal-stepper>

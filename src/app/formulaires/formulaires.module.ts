@@ -17,6 +17,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from '../app-routing.module';
 import {MatStepperModule} from '@angular/material/stepper';
+import {AffichageModule} from '../affichage/affichage.module';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import {MatStepperModule} from '@angular/material/stepper';
         FormulaireDemandeChantierComponent,
         FormulaireNouveauChantierComponent,
         FormulaireSiteComponent,
-        FormulaireClientComponent
+        FormulaireClientComponent,
     ],
     imports: [
         CommonModule,
@@ -41,13 +42,13 @@ import {MatStepperModule} from '@angular/material/stepper';
         MatCheckboxModule,
         RouterModule,
         AppRoutingModule,
-        MatStepperModule
+        MatStepperModule,
     ],
     exports: [
         FormulaireDemandeChantierComponent,
         FormulaireNouveauChantierComponent,
         FormulaireSiteComponent,
-        FormulaireClientComponent
+        FormulaireClientComponent,
     ]
 })
 export class FormulairesModule {

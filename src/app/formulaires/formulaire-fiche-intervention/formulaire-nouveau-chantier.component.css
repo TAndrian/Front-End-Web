@@ -3,4 +3,13 @@ mat-card {
     display: flex;
     justify-content: space-between;
 }
-
+::ng-deep .mat-step-header .mat-step-icon {
+    color: white;
+}
+.jour-semaine{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 66%;
+    flex-wrap: wrap;
+}
