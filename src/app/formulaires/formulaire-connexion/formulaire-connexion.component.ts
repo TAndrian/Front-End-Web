@@ -56,10 +56,8 @@ export class FormulaireConnexionComponent implements OnInit {
 
     this.loading = true;
     this.authentificationService.login(username, password)
-      .pipe(
-        first())
             .subscribe(
-                data => {
+              data => {
                     this.router.navigate([this.returnUrl]);
                 },
                 error => {
