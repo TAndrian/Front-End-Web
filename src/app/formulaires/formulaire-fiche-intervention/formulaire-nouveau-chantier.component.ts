@@ -137,7 +137,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
         const particularite = this.nouveauChantierForm.controls.particularite.value;
 
         const telephone = this.nouveauChantierForm.controls.telephone.value;
-        const statusChantier = this.nouveauChantierForm.controls.statusChantier.value;
+        const statusChantier = (this.nouveauChantierForm.controls.statusChantier.value === '') ? StatusType.ENATTENTE : null;
         const nomChantier = this.nouveauChantierForm.controls.nomChantier.value;
 
         const regularite = this.regularite;
@@ -148,27 +148,24 @@ export class FormulaireNouveauChantierComponent implements OnInit {
         const dateFinRegularite = this.nouveauChantierForm.controls.dateFinRegularite.value;
         const joursRegularite = this.joursRegularite;
 
-        let chantier: Chantier;
+        let chantierUpdated: Chantier;
         if (this.regularite) {
-            chantier = new Chantier(
+            chantierUpdated = new Chantier(
                 site.id, client.id, null, null, adresse, ouvriers, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 regularite, true,  joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
-            chantier = new Chantier(
+            chantierUpdated = new Chantier(
                 site.id, client.id, null, null, adresse, null, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 true, regularite);
         }
-        this.chantierService.addChantier(chantier).subscribe(
+        this.chantierService.updateChantierById(this.chantier.id + '', chantierUpdated).subscribe(
             (res: HttpResponse<any>) => {
                 console.log(res.headers.get('Location'));
+                this.ngOnInit();
             }
-
-
         );
-        console.log(statusChantier.value);
-
     }
 
     changeSite(site: Site): void {

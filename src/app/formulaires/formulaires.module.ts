@@ -16,6 +16,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from '../app-routing.module';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {AppRoutingModule} from '../app-routing.module';
         MatNativeDateModule,
         MatCheckboxModule,
         RouterModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatStepperModule
     ],
     exports: [
         FormulaireDemandeChantierComponent,

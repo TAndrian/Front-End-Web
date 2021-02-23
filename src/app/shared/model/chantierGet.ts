@@ -30,7 +30,8 @@ export class ChantierGet {
                 public joursRegularite?: Set<JourSemaineType>,
                 public dateDebutRegularite?: Date,
                 public dateFinRegularite?: Date,
-                public rapportsRegulier?: Set<RapportChantierRegulier>
+                public rapportsRegulier?: Set<RapportChantierRegulier>,
+
     ) {
     }
 }
