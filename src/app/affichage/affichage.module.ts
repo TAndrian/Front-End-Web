@@ -14,6 +14,7 @@ import {RouterModule} from '@angular/router';
 import { StepperFicheInterventionComponent } from './stepper-fiche-intervention/stepper-fiche-intervention.component';
 import {FormulairesModule} from '../formulaires/formulaires.module';
 import {MatStepperModule} from '@angular/material/stepper';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -34,7 +35,9 @@ import {MatStepperModule} from '@angular/material/stepper';
         AppRoutingModule,
         RouterModule,
         FormulairesModule,
-        MatStepperModule
+        MatStepperModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         DetailChantierComponent,

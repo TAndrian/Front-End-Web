@@ -7,7 +7,7 @@ import {FormulaireDemandeChantierComponent} from './formulaire-demande-chantier/
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {SharedModule} from '../shared/shared.module';
-import {FormulaireNouveauChantierComponent} from './formulaire-fiche-intervention/formulaire-nouveau-chantier.component';
+import {FormulaireEstimationComponent} from './formulaire-estimation/formulaire-estimation.component';
 import {NgxMatFileInputModule} from '@angular-material-components/file-input';
 import {FormulaireSiteComponent} from './formulaire-site/formulaire-site.component';
 import {FormulaireClientComponent} from './formulaire-client/formulaire-client.component';
@@ -18,14 +18,18 @@ import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from '../app-routing.module';
 import {MatStepperModule} from '@angular/material/stepper';
 import {AffichageModule} from '../affichage/affichage.module';
+import {FormulaireCommercialComponent} from './formulaire-commercial/formulaire-commercial.component';
+import {FormulaireAdministrationComponent} from './formulaire-administration/formulaire-administration.component';
 
 
 @NgModule({
     declarations: [
         FormulaireDemandeChantierComponent,
-        FormulaireNouveauChantierComponent,
+        FormulaireEstimationComponent,
         FormulaireSiteComponent,
         FormulaireClientComponent,
+        FormulaireCommercialComponent,
+        FormulaireAdministrationComponent
     ],
     imports: [
         CommonModule,
@@ -46,9 +50,11 @@ import {AffichageModule} from '../affichage/affichage.module';
     ],
     exports: [
         FormulaireDemandeChantierComponent,
-        FormulaireNouveauChantierComponent,
+        FormulaireEstimationComponent,
         FormulaireSiteComponent,
         FormulaireClientComponent,
+        FormulaireAdministrationComponent,
+        FormulaireCommercialComponent
     ]
 })
 export class FormulairesModule {

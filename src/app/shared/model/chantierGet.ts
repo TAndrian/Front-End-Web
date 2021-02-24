@@ -14,6 +14,7 @@ export class ChantierGet {
                 public medias: Set<Media>,
                 public adresse: string,
                 public ouvriers: Set<string>,
+                public nbOuvriers: number,
                 public materiel: string,
                 public dateDebutTheorique: Date,
                 public dateFinTheorique: Date,

@@ -9,17 +9,16 @@ import {Chantier} from 'src/app/shared/model/chantier';
 import {HttpResponse} from '@angular/common/http';
 import {JourSemaineType} from 'src/app/shared/model/jourSemaineType';
 import {StatusType} from 'src/app/shared/model/statusType';
-import {DemandeDeChantierGet} from '../../shared/model/demandeDeChantierGet';
 import {ChantierGet} from '../../shared/model/chantierGet';
 import {ActivatedRoute} from '@angular/router';
 import {MatOptionSelectionChange} from '@angular/material/core';
 
 @Component({
-    selector: 'app-formulaire-nouveau-chantier',
-    templateUrl: './formulaire-nouveau-chantier.component.html',
-    styleUrls: ['./formulaire-nouveau-chantier.component.css']
+    selector: 'app-formulaire-estimation',
+    templateUrl: './formulaire-estimation.component.html',
+    styleUrls: ['./formulaire-estimation.component.css']
 })
-export class FormulaireNouveauChantierComponent implements OnInit {
+export class FormulaireEstimationComponent implements OnInit {
     nouveauChantierForm = new FormGroup({
             ouvriers: new FormControl(''),
             materiel: new FormControl(''),
@@ -52,6 +51,7 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     jourSemaineType: typeof JourSemaineType = JourSemaineType;
     joursRegularite: Set<JourSemaineType> = new Set();
     @Input() chantier: ChantierGet;
+    @Input() standalone = true;
     filtreClient = '';
     selectedSite: Site;
     selectedClient: Client;
@@ -143,12 +143,12 @@ export class FormulaireNouveauChantierComponent implements OnInit {
         let chantierUpdated: Chantier;
         if (this.regularite) {
             chantierUpdated = new Chantier(
-                site.id, client.id, null, null, adresse, ouvriers, materiel, dateDebutTheorique, dateFinTheorique,
+                site.id, client.id, null, null, adresse, ouvriers, null, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 regularite, true,  joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
             chantierUpdated = new Chantier(
-                site.id, client.id, null, null, adresse, null, materiel, dateDebutTheorique, dateFinTheorique,
+                site.id, client.id, null, null, adresse, null, null, materiel, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 true, regularite);
         }

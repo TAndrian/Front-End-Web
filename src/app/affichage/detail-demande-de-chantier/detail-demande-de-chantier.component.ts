@@ -36,7 +36,7 @@ export class DetailDemandeDeChantierComponent implements OnInit {
 
     createNewSheet(): void {
         const fiche = new Chantier(this.demandeDeChantier.site.id, this.demandeDeChantier.client.id, null, null, this.demandeDeChantier.adresse,
-            null, null, null, null, null,
+            null, null, null, null, null, null,
             null, null, null, this.demandeDeChantier.informationsInterne, this.demandeDeChantier.description,
             null, null, null, null);
         this.chantierService.addChantier(fiche).subscribe(

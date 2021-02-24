@@ -28,6 +28,8 @@ import {RouterModule} from '@angular/router';
         GestionUtilisateursModule
     ],
     providers: [],
+    exports: [
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
