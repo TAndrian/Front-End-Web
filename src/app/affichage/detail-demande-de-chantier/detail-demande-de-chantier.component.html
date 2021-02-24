@@ -1,14 +1,17 @@
-<mat-card>
-    <div class="mat-custom-header">
-        <mat-card-title>Demande De Chantier</mat-card-title>
-    </div>
-    <mat-card-content>
-        <p> Adresse : {{demandeDeChantier.adresse}}</p>
-        <p> Description : {{demandeDeChantier.description}}</p>
-        <p> Informations internes : {{demandeDeChantier.informationsInterne}}</p>
-        <p> Particularité : {{demandeDeChantier.particularite}}</p>
-    </mat-card-content>
-</mat-card>
-<app-detail-client [client]="demandeDeChantier.client"></app-detail-client>
-<app-detail-site [site]="demandeDeChantier.site"></app-detail-site>
-<button mat-raised-button color="primary" (click)="createNewSheet()"> Créer une nouvelle fiche d'intervention</button>
+<div *ngIf="demandeDeChantier != undefined">
+    <mat-card>
+        <div class="mat-custom-header">
+            <mat-card-title>Demande De Chantier</mat-card-title>
+        </div>
+        <mat-card-content>
+            <p> Adresse : {{demandeDeChantier.adresse}}</p>
+            <p> Description : {{demandeDeChantier.description}}</p>
+            <p> Informations internes : {{demandeDeChantier.informationsInterne}}</p>
+            <p> Particularité : {{demandeDeChantier.particularite}}</p>
+        </mat-card-content>
+    </mat-card>
+    <app-detail-client [client]="demandeDeChantier.client"></app-detail-client>
+    <app-detail-site [site]="demandeDeChantier.site"></app-detail-site>
+    <button mat-raised-button color="primary" (click)="createNewSheet()"> Créer une nouvelle fiche d'intervention</button>
+
+</div>

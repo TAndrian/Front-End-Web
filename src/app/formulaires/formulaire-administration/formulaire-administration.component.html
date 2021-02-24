@@ -13,8 +13,9 @@
     </fieldset>
     <fieldset>
         <legend>Ouvrier et matériel</legend>
-        <mat-form-field *ngFor="let i of numbers"><mat-label>Ouvrier :</mat-label><input formControlName="{{i.toString()}}" matInput type="text"></mat-form-field>
+        <mat-form-field *ngFor="let i of numbers" ><mat-label>Ouvrier :</mat-label><input formControlName="{{i.toString()}}" matInput type="text"></mat-form-field>
         <mat-form-field ><mat-label>Matériel :</mat-label><input formControlName="materiel" matInput type="text"></mat-form-field>
     </fieldset>
 </form>
-<app-formulaire-estimation [chantier]="chantier" [standalone]="false"></app-formulaire-estimation>
+<button class="filled-button" color="primary" mat-raised-button>Enregistrer</button>
+<app-formulaire-estimation [chantier]="chantier" [standalone]="true"></app-formulaire-estimation>
