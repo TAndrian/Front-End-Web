@@ -22,14 +22,10 @@
         </mat-form-field>
     </fieldset>
     <fieldset>
-        <legend>Matériel & Ouvrier(s)</legend>
+        <legend>Nombre d'ouvrier</legend>
         <mat-form-field>
             <mat-label>Nombre d'ouvriers :</mat-label>
-            <input formControlName="ouvriers" matInput type="number" [ngModel]="(chantier.ouvriers != null)?chantier.ouvriers:''">
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Materiel :</mat-label>
-            <input formControlName="materiel" matInput type="text" [ngModel]="(chantier.materiel != null)?chantier.materiel:''">
+            <input formControlName="nbOuvrier" matInput type="number" [ngModel]="(chantier.nbOuvrier != null)?chantier.nbOuvrier:''">
         </mat-form-field>
     </fieldset>
     <fieldset>
@@ -52,8 +48,8 @@
         </mat-form-field>
     </fieldset>
     <fieldset>
-        <legend>Dates prévues</legend>
-        <mat-form-field>
+        <legend>Estimation temps</legend>
+       <!-- <mat-form-field>
             <mat-label>Date Debut-Fin Théorique :</mat-label>
             <mat-date-range-input [rangePicker]="picker">
                 <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date" [ngModel]="chantier.dateDebutTheorique">
@@ -61,10 +57,10 @@
             </mat-date-range-input>
             <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
-        </mat-form-field>
+        </mat-form-field>-->
         <mat-form-field>
             <mat-label>Estimation Temps :</mat-label>
-            <input formControleName="estimationTemps" matInput type="number" [ngModel]="chantier.estimationTemps!=null?chantier.estimationTemps:''">
+            <input formControlName="estimationTemps" matInput type="number" [ngModel]="chantier.estimationTemps!=null?chantier.estimationTemps:''">
         </mat-form-field>
     </fieldset>
     <fieldset>

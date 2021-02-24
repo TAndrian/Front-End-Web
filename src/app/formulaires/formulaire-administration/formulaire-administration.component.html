@@ -1,1 +1,18 @@
+<fieldset>
+    <legend>Dates</legend>
+    <mat-form-field>
+        <mat-label>Date Debut-Fin Théorique :</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+            <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date" [ngModel]="chantier.dateDebutTheorique">
+            <input formControlName="dateFinTheorique" matEndDate placeholder="End date" [ngModel]="chantier.dateFinTheorique">
+        </mat-date-range-input>
+        <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+</fieldset>
+<fieldset>
+    <legend>Ouvrier et matériel</legend>
+    <mat-form-field *ngFor="let ouvrier of chantier.nbOuvrier; let i=index" formControlName="{{i}}"><mat-label>Ouvrier :</mat-label><input matInput type="text"></mat-form-field>
+    <mat-form-field formControlName="materiel"><mat-label>Matériel :</mat-label><input matInput type="text"></mat-form-field>
+</fieldset>
 <app-formulaire-estimation [chantier]="chantier" [standalone]="false"></app-formulaire-estimation>

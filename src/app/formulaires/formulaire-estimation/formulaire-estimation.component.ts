@@ -20,26 +20,20 @@ import {MatOptionSelectionChange} from '@angular/material/core';
 })
 export class FormulaireEstimationComponent implements OnInit {
     nouveauChantierForm = new FormGroup({
-            ouvriers: new FormControl(''),
-            materiel: new FormControl(''),
-
+            nbOuvrier: new FormControl(''),
             adresse: new FormControl(''),
             complement: new FormControl(''),
             codePostal: new FormControl(''),
             ville: new FormControl(''),
-
             dateDebutTheorique: new FormControl(),
             dateFinTheorique: new FormControl(),
             estimationTemps: new FormControl(''),
             particularite: new FormControl(''),
-
             telephone: new FormControl(''),
             statusChantier: new FormControl(''),
             nomChantier: new FormControl(''),
-
             informationsInternes: new FormControl(''),
             description: new FormControl(''),
-
             dateDebutRegularite: new FormControl(),
             dateFinRegularite: new FormControl(),
         }
@@ -115,9 +109,8 @@ export class FormulaireEstimationComponent implements OnInit {
     onSubmit(): void {
         const site = this.selectedSite;
         const client = this.selectedClient;
-        const ouvriers = this.nouveauChantierForm.controls.ouvriers.value === '' ? null : this.nouveauChantierForm.controls.ouvriers.value;
-        const materiel = this.nouveauChantierForm.controls.materiel.value === '' ? null : this.nouveauChantierForm.controls.materiel.value;
-
+        const nbOuvrier = this.nouveauChantierForm.controls.nbOuvrier.value === '' ? null : this.nouveauChantierForm.controls.nbOuvrier.value;
+        console.log(nbOuvrier);
         const adresse = this.nouveauChantierForm.controls.adresse.value + ','
             + this.nouveauChantierForm.controls.complement.value + ','
             + this.nouveauChantierForm.controls.codePostal.value + ','
@@ -143,12 +136,12 @@ export class FormulaireEstimationComponent implements OnInit {
         let chantierUpdated: Chantier;
         if (this.regularite) {
             chantierUpdated = new Chantier(
-                site.id, client.id, null, null, adresse, ouvriers, null, materiel, dateDebutTheorique, dateFinTheorique,
+                site.id, client.id, null, null, adresse, null, nbOuvrier , null, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 regularite, true, this.chantier.statusIntervention, null, null, null,  joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
             chantierUpdated = new Chantier(
-                site.id, client.id, null, null, adresse, null, null, materiel, dateDebutTheorique, dateFinTheorique,
+                site.id, client.id, null, null, adresse, null, nbOuvrier, null, dateDebutTheorique, dateFinTheorique,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 true, regularite,  this.chantier.statusIntervention, null, null, null);
         }

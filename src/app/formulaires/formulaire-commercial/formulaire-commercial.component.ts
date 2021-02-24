@@ -14,4 +14,7 @@ export class FormulaireCommercialComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit() {
+
+  }
 }
