@@ -7,6 +7,7 @@ import {ChantierGet} from '../../shared/model/chantierGet';
 import {Chantier} from '../../shared/model/chantier';
 import {ChantierService} from '../../core/services/chantier.service';
 import {HttpResponse} from '@angular/common/http';
+import { StatusIntervention } from '../../shared/model/statusIntervention';
 
 @Component({
     selector: 'app-detail-demande-de-chantier',
@@ -38,7 +39,7 @@ export class DetailDemandeDeChantierComponent implements OnInit {
         const fiche = new Chantier(this.demandeDeChantier.site.id, this.demandeDeChantier.client.id, null, null, this.demandeDeChantier.adresse,
             null, null, null, null, null, null,
             null, null, null, this.demandeDeChantier.informationsInterne, this.demandeDeChantier.description,
-            null, null, null, null);
+            null, null, null, null, StatusIntervention.ESTIMATION);
         this.chantierService.addChantier(fiche).subscribe(
             (res: HttpResponse<any>) => {
                 this.router.navigateByUrl('fiche-intervention/' + res.headers.get('location').split('/')[2]);
