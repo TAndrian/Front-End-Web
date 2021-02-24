@@ -115,29 +115,29 @@ export class FormulaireNouveauChantierComponent implements OnInit {
     onSubmit(): void {
         const site = this.selectedSite;
         const client = this.selectedClient;
-        const ouvriers = this.nouveauChantierForm.controls.ouvriers.value;
-        const materiel = this.nouveauChantierForm.controls.materiel.value;
+        const ouvriers = this.nouveauChantierForm.controls.ouvriers.value===''?null:this.nouveauChantierForm.controls.ouvriers.value;
+        const materiel = this.nouveauChantierForm.controls.materiel.value===''?null:this.nouveauChantierForm.controls.materiel.value;
 
-        const adresse = this.nouveauChantierForm.controls.adresse.value + ', '
-            + this.nouveauChantierForm.controls.complement.value + ', '
-            + this.nouveauChantierForm.controls.codePostal.value + ', '
+        const adresse = this.nouveauChantierForm.controls.adresse.value + ','
+            + this.nouveauChantierForm.controls.complement.value + ','
+            + this.nouveauChantierForm.controls.codePostal.value + ','
             + this.nouveauChantierForm.controls.ville.value;
 
-        const dateDebutTheorique = this.nouveauChantierForm.controls.dateDebutTheorique.value;
-        const dateFinTheorique = this.nouveauChantierForm.controls.dateFinTheorique.value;
-        const estimationTemps = this.nouveauChantierForm.controls.estimationTemps.value;
-        const particularite = this.nouveauChantierForm.controls.particularite.value;
+        const dateDebutTheorique = this.nouveauChantierForm.controls.dateDebutTheorique.value===''?null:this.nouveauChantierForm.controls.dateDebutTheorique.value;
+        const dateFinTheorique = this.nouveauChantierForm.controls.dateFinTheorique.value===''?null:this.nouveauChantierForm.controls.dateFinTheorique.value;
+        const estimationTemps = this.nouveauChantierForm.controls.estimationTemps.value===''?null:this.nouveauChantierForm.controls.estimationTemps.value;
+        const particularite = this.nouveauChantierForm.controls.particularite.value===''?null:this.nouveauChantierForm.controls.particularite.value;
 
-        const telephone = this.nouveauChantierForm.controls.telephone.value;
+        const telephone = this.nouveauChantierForm.controls.telephone.value===''?null:this.nouveauChantierForm.controls.telephone.value;
         const statusChantier = (this.nouveauChantierForm.controls.statusChantier.value === '') ? StatusType.ENATTENTE : null;
-        const nomChantier = this.nouveauChantierForm.controls.nomChantier.value;
+        const nomChantier = this.nouveauChantierForm.controls.nomChantier.value===''?null:this.nouveauChantierForm.controls.nomChantier.value;
 
         const regularite = this.regularite;
-        const description = this.nouveauChantierForm.controls.description.value;
-        const informationsInterne = this.nouveauChantierForm.controls.informationsInternes.value;
+        const description = this.nouveauChantierForm.controls.description.value===''?null:this.nouveauChantierForm.controls.description.value;
+        const informationsInterne = this.nouveauChantierForm.controls.informationsInternes.value===''?null:this.nouveauChantierForm.controls.informationsInternes.value;
 
-        const dateDebutRegularite = this.nouveauChantierForm.controls.dateDebutRegularite.value;
-        const dateFinRegularite = this.nouveauChantierForm.controls.dateFinRegularite.value;
+        const dateDebutRegularite = this.nouveauChantierForm.controls.dateDebutRegularite.value===''?null:this.nouveauChantierForm.controls.dateDebutRegularite.value;
+        const dateFinRegularite = this.nouveauChantierForm.controls.dateFinRegularite.value===''?null:this.nouveauChantierForm.controls.dateFinRegularite.value;
         const joursRegularite = this.joursRegularite;
 
         let chantierUpdated: Chantier;

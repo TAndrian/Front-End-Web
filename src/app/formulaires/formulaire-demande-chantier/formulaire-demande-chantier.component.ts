@@ -58,9 +58,7 @@ export class FormulaireDemandeChantierComponent implements OnInit {
 
 
     ngOnInit(): void {
-        //  this.testAPI();
-
-        //----METHODES A IMPLEMENTER------
+        // Recuperation des Clients et Sites à partir de la BDD
         this.getClients();
         this.getSites();
     }
@@ -78,24 +76,6 @@ export class FormulaireDemandeChantierComponent implements OnInit {
             console.log("Adding" + jour);
         }
     }
-
-    testAPI(): void {
-        this.clientService.getClientById("6").subscribe(data => {
-            this.clients.push(data);
-        })
-        this.siteService.getSiteById("2").subscribe(data => {
-            this.sites.push(data);
-        })
-
-        const ddc = new DemandeDeChantier(2, 7, 5, 'bois', 'dddd', true, 5, 'toto', 'toto', 'toto', new Date(), new Date(), new Set<JourSemaineType>());
-        //TODO: Quand on update, ça ne change pas les réferences
-        this.demandeDeChantierService.updateDemandeDeChantierById('7', ddc).subscribe(data => {
-                console.log(data);
-            }
-        );
-        //this.demandeDeChantierService.deleteDemandeDeChantierById('3');
-    }
-
 
     getClients(): void {
         this.clientService.getAllClients().subscribe(data => {
@@ -116,18 +96,19 @@ export class FormulaireDemandeChantierComponent implements OnInit {
 
     onSubmit(): void {
 
-        const site = this.demandeDeChantierForm.controls.site.value;
-        const client = this.demandeDeChantierForm.controls.client.value;
+        const site = this.demandeDeChantierForm.controls.site.value===''?null:this.demandeDeChantierForm.controls.site.value;
+        const client = this.demandeDeChantierForm.controls.client.value===''?null:this.demandeDeChantierForm.controls.client.value;
 
-        const adresse = this.demandeDeChantierForm.controls.adresse.value + ', '
-            + this.demandeDeChantierForm.controls.complement.value + ', '
-            + this.demandeDeChantierForm.controls.codePostal.value + ', '
+        const adresse = this.demandeDeChantierForm.controls.adresse.value + ','
+            + this.demandeDeChantierForm.controls.complement.value + ','
+            + this.demandeDeChantierForm.controls.codePostal.value + ','
             + this.demandeDeChantierForm.controls.ville.value;
 
-        const estimationTemps = this.demandeDeChantierForm.controls.estimationTemps.value;
-        const particularite = this.demandeDeChantierForm.controls.particularite.value;
-        const description = this.demandeDeChantierForm.controls.description.value;
-        const informationsInterne = this.demandeDeChantierForm.controls.informationsInterne.value;
+        
+        const estimationTemps = this.demandeDeChantierForm.controls.estimationTemps.value===''?null:this.demandeDeChantierForm.controls.estimationTemps.value;
+        const particularite = this.demandeDeChantierForm.controls.particularite.value===''?null:this.demandeDeChantierForm.controls.particularite.value;
+        const description = this.demandeDeChantierForm.controls.description.value===''?null:this.demandeDeChantierForm.controls.description.value;
+        const informationsInterne = this.demandeDeChantierForm.controls.informationsInterne.value===''?null:this.demandeDeChantierForm.controls.informationsInterne.value;
 
         let chantier: DemandeDeChantier;
         chantier = new DemandeDeChantier(

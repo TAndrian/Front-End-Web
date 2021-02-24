@@ -29,19 +29,19 @@ export class FormulaireClientComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        //this.testAPI();
+
     }
 
     onSubmit(): void {
 
-        const nom = this.clientForm.controls.nom.value;
-        const prenom = this.clientForm.controls.prenom.value;
-        const mail = this.clientForm.controls.mail.value;
-        const infoComplementaire = this.clientForm.controls.infoComplementaire.value;
+        const nom = this.clientForm.controls.nom.value===''?null:this.clientForm.controls.nom.value;
+        const prenom = this.clientForm.controls.prenom.value===''?null:this.clientForm.controls.prenom.value;
+        const mail = this.clientForm.controls.mail.value===''?null:this.clientForm.controls.mail.value;
+        const infoComplementaire = this.clientForm.controls.infoComplementaire.value===''?null:this.clientForm.controls.infoComplementaire.value;
 
-        const adresse = this.clientForm.controls.adresse.value + ', '
-            + this.clientForm.controls.complement.value + ', '
-            + this.clientForm.controls.codePostal.value + ', '
+        const adresse = this.clientForm.controls.adresse.value + ','
+            + this.clientForm.controls.complement.value + ','
+            + this.clientForm.controls.codePostal.value + ','
             + this.clientForm.controls.ville.value;
 
         var client = new Client(nom, prenom, adresse, mail, infoComplementaire)
@@ -52,21 +52,6 @@ export class FormulaireClientComponent implements OnInit {
                 console.log(res.headers.get('Location'));
             }
         );
-    }
-
-    /**
-     * Fonction pour tester les CRUD
-     */
-    testAPI(): void {
-
-        this.clientService.deleteClientById('4').subscribe();
-        var clientt = new Client("toto", "toto", "toto", "toto", "toto");
-        this.clientService.updateClientById('7', clientt).subscribe(data => {
-            console.log("Adresse: " + data.adresse);
-            this.client = data;
-        });
-
-        console.log("Client: " + this.client);
     }
 
 }
