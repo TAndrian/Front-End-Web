@@ -5,6 +5,7 @@ import {Probleme} from './probleme';
 import {RapportChantierRegulier} from './rapportChantierRegulier';
 import {Site} from './site';
 import {StatusType} from './statusType';
+import {StatusIntervention} from './statusIntervention';
 
 export class ChantierGet {
     constructor(public id: number,
@@ -14,7 +15,7 @@ export class ChantierGet {
                 public medias: Set<Media>,
                 public adresse: string,
                 public ouvriers: Set<string>,
-                public nbOuvriers: number,
+                public nbOuvrier: number,
                 public materiel: string,
                 public dateDebutTheorique: Date,
                 public dateFinTheorique: Date,
@@ -28,11 +29,14 @@ export class ChantierGet {
                 public dateFinEffectif: Date,
                 public conducteurPresent: boolean,
                 public regularite: boolean,
+                public statusIntervention?: StatusIntervention,
+                public volume?: string,
+                public poid?: string,
+                public accessibilite?: string,
                 public joursRegularite?: Set<JourSemaineType>,
                 public dateDebutRegularite?: Date,
                 public dateFinRegularite?: Date,
                 public rapportsRegulier?: Set<RapportChantierRegulier>,
-
     ) {
     }
 }

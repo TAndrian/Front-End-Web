@@ -1,7 +1,7 @@
 <h1>
     Fiche d'intervention
 </h1>
-<mat-horizontal-stepper labelPosition="bottom" [selectedIndex]="selectedStepIndex" #stepper>
+<mat-horizontal-stepper labelPosition="bottom" [selectedIndex]="this.selectedIndex" #stepper>
     <mat-step [stepControl]="" >
         <ng-template matStepLabel>Estimation</ng-template>
         <app-formulaire-estimation *ngIf="chantier != undefined" [chantier]="chantier"></app-formulaire-estimation>

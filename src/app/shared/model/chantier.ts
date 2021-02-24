@@ -3,6 +3,7 @@ import {Media} from './media';
 import {Probleme} from './probleme';
 import {RapportChantierRegulier} from './rapportChantierRegulier';
 import {StatusType} from './statusType';
+import {StatusIntervention} from './statusIntervention';
 
 export class Chantier {
     constructor(public siteId: number,
@@ -25,6 +26,10 @@ export class Chantier {
                 public dateFinEffectif: Date,
                 public conducteurPresent: boolean,
                 public regularite: boolean,
+                public statusIntervention?: StatusIntervention,
+                public volume?: string,
+                public poid?: string,
+                public accessibilite?: string,
                 // TOUT CE QUI EST REGULARITE EST OPTIONNEL
                 public joursRegularite?: Set<JourSemaineType>,
                 public dateDebutRegularite?: Date,
