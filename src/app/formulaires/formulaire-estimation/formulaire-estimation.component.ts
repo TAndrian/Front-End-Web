@@ -68,6 +68,7 @@ export class FormulaireEstimationComponent implements OnInit {
     }
 
     resetJours(): void {
+        this.regularite = !this.regularite;
         this.joursRegularite = new Set();
     }
 
