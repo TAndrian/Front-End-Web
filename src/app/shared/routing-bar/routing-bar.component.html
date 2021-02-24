@@ -2,11 +2,8 @@
     <nav>
         <ul>
             <li>
-                <div class="nav-header"><span>Chantier</span><mat-icon>keyboard_arrow_down</mat-icon></div>
-                <ul>
-                    <li><a [routerLink]="['/fiche-intervention']" routerLinkActive="active">Fiche d'intervention</a></li>
-                    <li><a [routerLink]="['/liste-chantier']" routerLinkActive="active">Liste des Fiches</a></li>
-                </ul>
+                <div class="nav-header" [routerLink]="['/liste-chantier']" routerLinkActive="active"><span>Liste des Fiches</span></div>
+               
             </li>
             <li>
                 <div class="nav-header"><span>Demande de chantier</span><mat-icon>keyboard_arrow_down</mat-icon></div>
