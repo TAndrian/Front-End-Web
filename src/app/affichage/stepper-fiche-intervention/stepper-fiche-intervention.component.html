@@ -5,15 +5,17 @@
     <mat-step [stepControl]="" >
         <ng-template matStepLabel>Estimation</ng-template>
         <app-formulaire-estimation *ngIf="chantier != undefined" [chantier]="chantier"></app-formulaire-estimation>
-        <button mat-raised-button color="primary" (click)="goForward(stepper)" >Validation par l'estimateur</button>
+        <button mat-raised-button color="primary" (click)="goForward(stepper)">Validation par l'estimateur</button>
     </mat-step>
     <mat-step [stepControl]="">
         <ng-template matStepLabel>Traitement par le commercial</ng-template>
         <app-formulaire-commercial *ngIf="chantier != undefined" [chantier]="chantier"></app-formulaire-commercial>
         <button mat-raised-button color="primary"  (click)="goForward(stepper)">Validation par le commercial</button>
+        <button mat-raised-button color="primary"  (click)="goBackward(stepper)">Retour</button>
     </mat-step>
     <mat-step [stepControl]="">
         <ng-template matStepLabel>Validation au planning</ng-template>
         <app-formulaire-administration *ngIf="chantier != undefined" [chantier]="chantier"></app-formulaire-administration>
+        <button mat-raised-button color="primary"  (click)="goBackward(stepper)">Retour</button>
     </mat-step>
 </mat-horizontal-stepper>

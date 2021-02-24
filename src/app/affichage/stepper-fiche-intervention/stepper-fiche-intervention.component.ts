@@ -26,14 +26,14 @@ export class StepperFicheInterventionComponent implements OnInit {
         (res: ChantierGet) =>
         {
           this.chantier = res;
-          switch (this.chantier.statusIntervention){
-            case StatusIntervention.ESTIMATION:
+          switch (this.chantier.statusIntervention.toString()){
+            case 'ESTIMATION':
               this.selectedIndex = 0;
               break;
-            case StatusIntervention.COMMERCIAL:
+            case 'COMMERCIAL':
               this.selectedIndex = 1;
               break;
-            case StatusIntervention.PLANNING:
+            case 'PLANNING':
               this.selectedIndex = 2;
               break;
           }
@@ -67,7 +67,13 @@ export class StepperFicheInterventionComponent implements OnInit {
         this.chantier.joursRegularite, this.chantier.dateDebutRegularite, this.chantier.dateFinRegularite, this.chantier.rapportsRegulier
     );
     this.chantierService.updateChantierById(this.chantier.id + '', chantierToUpdate).subscribe(
-        () => this.selectedIndex = this.chantier.statusIntervention[1]
+        () => {
+         this.ngOnInit();
+        }
     );
+  }
+
+  goBackward(stepper: MatHorizontalStepper): void {
+      stepper.previous();
   }
 }
