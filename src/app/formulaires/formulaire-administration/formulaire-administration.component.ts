@@ -10,18 +10,19 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class FormulaireAdministrationComponent implements OnInit {
   @Input() chantier: ChantierGet;
-  formAdministration = new FormGroup({
-        materiel: new FormControl(''),
-        conducteur: new FormControl(''),
-        dateDebutTheorique: new FormControl(''),
-        dateFinTheorique: new FormControl('')
-      }
-  );
+  formAdministration: FormGroup;
   numbers: number[] = [];
   constructor() {
   }
 
   ngOnInit(): void {
+      this.formAdministration = new FormGroup({
+              materiel: new FormControl((this.chantier.materiel != null) ? this.chantier.materiel : ''),
+              conducteur: new FormControl(''),
+              dateDebutTheorique: new FormControl((this.chantier.dateDebutTheorique != null) ? this.chantier.dateDebutTheorique : ''),
+              dateFinTheorique: new FormControl((this.chantier.dateFinTheorique != null) ? this.chantier.dateFinTheorique : ''),
+          }
+      );
       for (let i = 0; i < this.chantier.nbOuvrier; i++){
           this.numbers.push(i);
           this.formAdministration.addControl(String(i), new FormControl(''));

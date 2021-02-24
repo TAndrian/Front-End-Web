@@ -1,11 +1,11 @@
-<form [formGroup]="formAdministration">
+<form [formGroup]="formAdministration" *ngIf="chantier != undefined">
     <fieldset>
         <legend>Dates</legend>
         <mat-form-field>
             <mat-label>Date Debut-Fin Théorique :</mat-label>
             <mat-date-range-input [rangePicker]="picker">
-                <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date" [ngModel]="chantier.dateDebutTheorique">
-                <input formControlName="dateFinTheorique" matEndDate placeholder="End date" [ngModel]="chantier.dateFinTheorique">
+                <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date">
+                <input formControlName="dateFinTheorique" matEndDate placeholder="End date">
             </mat-date-range-input>
             <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
@@ -15,6 +15,8 @@
         <legend>Ouvrier et matériel</legend>
         <mat-form-field *ngFor="let i of numbers" ><mat-label>Ouvrier :</mat-label><input formControlName="{{i.toString()}}" matInput type="text"></mat-form-field>
         <mat-form-field ><mat-label>Matériel :</mat-label><input formControlName="materiel" matInput type="text"></mat-form-field>
+        <mat-label>Conducteur</mat-label>
+        <mat-checkbox formControlName="conducteur"></mat-checkbox>
     </fieldset>
 </form>
 <button class="filled-button" color="primary" mat-raised-button>Enregistrer</button>

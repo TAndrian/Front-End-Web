@@ -7,7 +7,7 @@ import {ChantierGet} from '../../shared/model/chantierGet';
 import {Chantier} from '../../shared/model/chantier';
 import {ChantierService} from '../../core/services/chantier.service';
 import {HttpResponse} from '@angular/common/http';
-import { StatusIntervention } from '../../shared/model/statusIntervention';
+import {StatusIntervention} from '../../shared/model/statusIntervention';
 
 @Component({
     selector: 'app-detail-demande-de-chantier',

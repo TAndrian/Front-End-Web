@@ -9,7 +9,7 @@ import {Chantier} from '../../shared/model/chantier';
 @Component({
   selector: 'app-stepper-fiche-intervention',
   templateUrl: './stepper-fiche-intervention.component.html',
-  styleUrls: ['./stepper-fiche-intervention.component.css']
+  styleUrls: ['./stepper-fiche-intervention.component.scss']
 })
 export class StepperFicheInterventionComponent implements OnInit {
 
