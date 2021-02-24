@@ -17,6 +17,9 @@
     background: white;
     height: 110px;*/
 }
-::ng-deep .mat-button-wrapper{
+
+button{
+    ::ng-deep .mat-button-wrapper{
         color: white !important;
+    }
 }
