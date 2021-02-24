@@ -1,0 +1,22 @@
+@import 'src/custom-theme/tezea-like-theme';
+
+::ng-deep .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+}
+::ng-deep .mat-step-header .mat-step-icon {
+    background-color: #cacaca;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: mat-color($theme-primary);
+}
+::ng-deep .mat-horizontal-stepper-header-container .ng-tns-c182-0{
+/*    position: fixed;
+    top: 80px;
+    width: 100%;
+    z-index: 2;
+    background: white;
+    height: 110px;*/
+}
+::ng-deep .mat-button-wrapper{
+        color: white !important;
+}
