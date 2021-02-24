@@ -19,25 +19,6 @@ import {MatOptionSelectionChange} from '@angular/material/core';
     styleUrls: ['./formulaire-estimation.component.css']
 })
 export class FormulaireEstimationComponent implements OnInit {
-    nouveauChantierForm = new FormGroup({
-            nbOuvrier: new FormControl(''),
-            adresse: new FormControl(''),
-            complement: new FormControl(''),
-            codePostal: new FormControl(''),
-            ville: new FormControl(''),
-            dateDebutTheorique: new FormControl(),
-            dateFinTheorique: new FormControl(),
-            estimationTemps: new FormControl(''),
-            particularite: new FormControl(''),
-            telephone: new FormControl(''),
-            statusChantier: new FormControl(''),
-            nomChantier: new FormControl(''),
-            informationsInternes: new FormControl(''),
-            description: new FormControl(''),
-            dateDebutRegularite: new FormControl(),
-            dateFinRegularite: new FormControl(),
-        }
-    );
     states = [StatusType.DEMARRE, StatusType.ENCOURS, StatusType.ENATTENTE, StatusType.TERMINE];
     sites: Site[] = [];
     clients: Client[] = [];
@@ -49,6 +30,7 @@ export class FormulaireEstimationComponent implements OnInit {
     filtreClient = '';
     selectedSite: Site;
     selectedClient: Client;
+    nouveauChantierForm: FormGroup;
 
 
     constructor(private chantierService: ChantierService,
@@ -63,6 +45,26 @@ export class FormulaireEstimationComponent implements OnInit {
         this.getSites();
         this.selectedSite =  this.chantier.site;
         this.selectedClient =  this.chantier.client;
+        this.nouveauChantierForm = new FormGroup({
+            nbOuvrier: new FormControl((this.chantier.nbOuvrier != null) ? this.chantier.nbOuvrier : 0),
+
+            adresse: new FormControl((this.chantier.adresse != null) ? this.chantier.adresse.split(',')[0] : ''),
+            complement: new FormControl((this.chantier.adresse != null) ? this.chantier.adresse.split(',')[1] : ''),
+            codePostal: new FormControl((this.chantier.adresse != null) ? this.chantier.adresse.split(',')[2] : ''),
+            ville: new FormControl((this.chantier.adresse != null) ? this.chantier.adresse.split(',')[3] : ''),
+
+            estimationTemps: new FormControl((this.chantier.estimationTemps != null) ? this.chantier.estimationTemps : 0),
+
+            telephone: new FormControl((this.chantier.telephone != null) ? this.chantier.telephone : ''),
+            statusChantier: new FormControl((this.chantier.statusChantier != null) ? this.chantier.statusChantier : ''),
+            nomChantier: new FormControl((this.chantier.nomChantier != null) ? this.chantier.nomChantier : ''),
+
+            informationsInterne: new FormControl((this.chantier.informationsInterne != null) ? this.chantier.informationsInterne : ''),
+            description: new FormControl((this.chantier.description != null) ? this.chantier.description : ''),
+
+            dateDebutRegularite: new FormControl(),
+            dateFinRegularite: new FormControl(),
+        });
     }
 
     resetJours(): void {
@@ -116,10 +118,7 @@ export class FormulaireEstimationComponent implements OnInit {
             + this.nouveauChantierForm.controls.codePostal.value + ','
             + this.nouveauChantierForm.controls.ville.value;
 
-        const dateDebutTheorique = this.nouveauChantierForm.controls.dateDebutTheorique.value === '' ? null : this.nouveauChantierForm.controls.dateDebutTheorique.value;
-        const dateFinTheorique = this.nouveauChantierForm.controls.dateFinTheorique.value === '' ? null : this.nouveauChantierForm.controls.dateFinTheorique.value;
         const estimationTemps = this.nouveauChantierForm.controls.estimationTemps.value === '' ? null : this.nouveauChantierForm.controls.estimationTemps.value;
-        const particularite = this.nouveauChantierForm.controls.particularite.value === '' ? null : this.nouveauChantierForm.controls.particularite.value;
 
         const telephone = this.nouveauChantierForm.controls.telephone.value === '' ? null : this.nouveauChantierForm.controls.telephone.value;
         const statusChantier = (this.nouveauChantierForm.controls.statusChantier.value === '') ? StatusType.ENATTENTE : null;
@@ -127,7 +126,7 @@ export class FormulaireEstimationComponent implements OnInit {
 
         const regularite = this.regularite;
         const description = this.nouveauChantierForm.controls.description.value === '' ? null : this.nouveauChantierForm.controls.description.value;
-        const informationsInterne = this.nouveauChantierForm.controls.informationsInternes.value === '' ? null : this.nouveauChantierForm.controls.informationsInternes.value;
+        const informationsInterne = this.nouveauChantierForm.controls.informationsInterne.value === '' ? null : this.nouveauChantierForm.controls.informationsInterne.value;
 
         const dateDebutRegularite = this.nouveauChantierForm.controls.dateDebutRegularite.value === '' ? null : this.nouveauChantierForm.controls.dateDebutRegularite.value;
         const dateFinRegularite = this.nouveauChantierForm.controls.dateFinRegularite.value === '' ? null : this.nouveauChantierForm.controls.dateFinRegularite.value;
@@ -136,12 +135,12 @@ export class FormulaireEstimationComponent implements OnInit {
         let chantierUpdated: Chantier;
         if (this.regularite) {
             chantierUpdated = new Chantier(
-                site.id, client.id, null, null, adresse, null, nbOuvrier , null, dateDebutTheorique, dateFinTheorique,
+                site.id, client.id, null, null, adresse, null, nbOuvrier , null, null, null,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 regularite, true, this.chantier.statusIntervention, null, null, null,  joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
             chantierUpdated = new Chantier(
-                site.id, client.id, null, null, adresse, null, nbOuvrier, null, dateDebutTheorique, dateFinTheorique,
+                site.id, client.id, null, null, adresse, null, nbOuvrier, null, null, null,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
                 true, regularite,  this.chantier.statusIntervention, null, null, null);
         }
@@ -149,6 +148,7 @@ export class FormulaireEstimationComponent implements OnInit {
             (res: HttpResponse<any>) => {
                 console.log(res.headers.get('Location'));
                 this.ngOnInit();
+                window.location.reload();
             }
         );
     }

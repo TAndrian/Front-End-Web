@@ -1,5 +1,4 @@
 <form [formGroup]="nouveauChantierForm" *ngIf="chantier != undefined">
-
     <fieldset>
         <legend>Référence intervention</legend>
         <mat-form-field>
@@ -25,53 +24,40 @@
         <legend>Nombre d'ouvrier</legend>
         <mat-form-field>
             <mat-label>Nombre d'ouvriers :</mat-label>
-            <input formControlName="nbOuvrier" matInput type="number" [ngModel]="(chantier.nbOuvrier != null)?chantier.nbOuvrier:''">
+            <input formControlName="nbOuvrier" matInput type="number">
         </mat-form-field>
     </fieldset>
     <fieldset>
         <legend>Lieu d'intervention</legend>
         <mat-form-field>
             <mat-label>Adresse :</mat-label>
-            <input formControlName="adresse" matInput type="text" [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[0]:''">
+            <input formControlName="adresse" matInput type="text">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Complément :</mat-label>
-            <input formControlName="complement" matInput type="text"  [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[1]:''">
+            <input formControlName="complement" matInput type="text">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Code Postal :</mat-label>
-            <input formControlName="codePostal" matInput type="text"  [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[2]:''">
+            <input formControlName="codePostal" matInput type="text">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Ville :</mat-label>
-            <input formControlName="ville" matInput type="text"  [ngModel]="(chantier.adresse != null)?chantier.adresse.split(',')[3]:''">
+            <input formControlName="ville" matInput type="text">
         </mat-form-field>
     </fieldset>
     <fieldset>
         <legend>Estimation temps</legend>
-       <!-- <mat-form-field>
-            <mat-label>Date Debut-Fin Théorique :</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-                <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date" [ngModel]="chantier.dateDebutTheorique">
-                <input formControlName="dateFinTheorique" matEndDate placeholder="End date" [ngModel]="chantier.dateFinTheorique">
-            </mat-date-range-input>
-            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-        </mat-form-field>-->
         <mat-form-field>
             <mat-label>Estimation Temps :</mat-label>
-            <input formControlName="estimationTemps" matInput type="number" [ngModel]="chantier.estimationTemps!=null?chantier.estimationTemps:''">
+            <input formControlName="estimationTemps" matInput type="number">
         </mat-form-field>
     </fieldset>
     <fieldset>
         <legend>Informations du chantier</legend>
         <mat-form-field>
-            <mat-label>Particularité :</mat-label>
-            <input formControlName="particularite" matInput type="text">
-        </mat-form-field>
-        <mat-form-field>
             <mat-label>Téléphone associée :</mat-label>
-            <input formControlName="telephone" matInput type="text" value="{{chantier.telephone!=null?chantier.telephone:''}}">
+            <input formControlName="telephone" matInput type="text">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Status de Chantier :</mat-label>
@@ -81,19 +67,20 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Nom du chantier :</mat-label>
-            <input formControlName="nomChantier" matInput type="text"  [ngModel]="(chantier.nomChantier != null)?chantier.nomChantier:''">
+            <input formControlName="nomChantier" matInput type="text">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Informations internes :</mat-label>
-            <input formControlName="informationsInternes" matInput type="text">
+            <input formControlName="informationsInterne" matInput type="text">
         </mat-form-field>
         <mat-form-field>
             <mat-label>Description :</mat-label>
-            <input formControlName="description" matInput type="text" [ngModel]="(chantier.description != null)?chantier.description:''">
+            <input formControlName="description" matInput type="text">
         </mat-form-field>
     </fieldset>
 </form>
-<mat-checkbox (change)="resetJours()" [(ngModel)]="regularite" [ngModelOptions]="{standalone: true}">Regularite</mat-checkbox>
+
+<mat-checkbox (change)="resetJours()">Regularite</mat-checkbox>
 <br>
 <div *ngIf="regularite">
     <form [formGroup]="nouveauChantierForm">

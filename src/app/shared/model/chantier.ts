@@ -12,7 +12,7 @@ export class Chantier {
                 public medias: Set<Media>,
                 public adresse: string,
                 public ouvriers: Set<string>,
-                public nbOuvriers: number,
+                public nbOuvrier: number,
                 public materiel: string,
                 public dateDebutTheorique: Date,
                 public dateFinTheorique: Date,

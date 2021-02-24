@@ -10,23 +10,22 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class FormulaireAdministrationComponent implements OnInit {
   @Input() chantier: ChantierGet;
-  nouveauChantierForm = new FormGroup({
+  formAdministration = new FormGroup({
         materiel: new FormControl(''),
         conducteur: new FormControl(''),
         dateDebutTheorique: new FormControl(''),
         dateFinTheorique: new FormControl('')
       }
   );
+  numbers: number[] = [];
   constructor() {
-    /*for (let i = 0; i < this.chantier.nbOuvrier; i++){
-      this.nouveauChantierForm.addControl(String(i), new FormControl(''));
-    }*/
   }
 
   ngOnInit(): void {
       for (let i = 0; i < this.chantier.nbOuvrier; i++){
-      this.nouveauChantierForm.addControl(String(i), new FormControl(''));
-    }
+          this.numbers.push(i);
+          this.formAdministration.addControl(String(i), new FormControl(''));
+      }
   }
 
 }
