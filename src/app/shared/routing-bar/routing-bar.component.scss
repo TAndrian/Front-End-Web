@@ -3,7 +3,9 @@
 */
 @import 'src/custom-theme/tezea-like-theme';
 
-
+*:focus{
+  outline: none;
+}
 .mat-toolbar {
   min-height: 40px !important;
   height: 40px !important;
@@ -24,6 +26,7 @@ a:not(:last-of-type) {
 a:visited {
   color: white !important;
 }
+
 
 nav {
   width: 100%;
@@ -91,3 +94,5 @@ nav {
   height: 100%;
   span{font-weight: 400 !important;}
 }
+
+
