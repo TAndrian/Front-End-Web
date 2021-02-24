@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { RoleType } from 'src/app/shared/model/roleType';
 import { User } from 'src/app/shared/model/user';
 import { environment } from 'src/environments/environment';
 
@@ -11,16 +10,20 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthentificationService {
   private currentUserSubject: BehaviorSubject<User>;
-  //private currentUser: Observable<User>;
+  private authentified: boolean = false;
 
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    //this.currentUser = this.currentUserSubject.asObservable();
+    
   }
 
   public get currentUserValue(): User{
     return this.currentUserSubject.value;
+  }
+
+  public get userState(): boolean{
+    return this.authentified
   }
 
   login(username: string, password: string): Observable<any> {
@@ -31,6 +34,7 @@ export class AuthentificationService {
               localStorage.setItem('currentUser', JSON.stringify(user));
               let u = new User(user["id"],user["username"], user["password"], user["role"], token["jwt"]);
               this.currentUserSubject.next(u);
+              this.authentified = true;
               return user;
             }))));
   }
@@ -38,7 +42,8 @@ export class AuthentificationService {
   logout(): void {
 
     localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+    this.currentUserSubject.next(null);
+    this.authentified = false; 
   }
 }
 /*pipe(map(token => {

@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 import { AuthentificationService } from '../services/authentification.service';
 import { throwError } from 'rxjs/internal/observable/throwError';
 import { catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {

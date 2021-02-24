@@ -15,6 +15,7 @@ import {ListDemandeDeChantierComponent} from './affichage/list-demande-de-chanti
 import {NouvelUtilisateurComponent} from './gestion-utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
 import { ConnexionComponent } from './authentification/components/connexion/connexion.component';
 import { AuthGuard } from './authentification/helpers/auth.guard';
+import { HomeComponent } from './shared/home/home.component';
 
 const routes: Routes = [
     {path: 'demande-de-cantier', component: FormulaireDemandeChantierComponent, canActivate: [AuthGuard]},
@@ -33,7 +34,8 @@ const routes: Routes = [
     {path: 'liste-client', component: ListClientsComponent, canActivate: [AuthGuard]},
     {path: 'liste-site', component: ListSitesComponent, canActivate: [AuthGuard]},
     {path: 'liste-demande-de-chantier', component: ListDemandeDeChantierComponent, canActivate: [AuthGuard]},
-    {path: 'connexion', component: ConnexionComponent}
+    {path: 'connexion', component: ConnexionComponent},
+    {path: '', component: HomeComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

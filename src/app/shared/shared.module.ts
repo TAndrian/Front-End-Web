@@ -6,14 +6,16 @@ import {SharedMaterialModule} from '../shared-material/shared-material.module';
 import {FiltreNomPrenomPipe} from './filtre-nom-prenom.pipe';
 import {RoutingBarComponent} from './routing-bar/routing-bar.component';
 import {RouterModule} from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
-    declarations: [AppBarComponent, FiltreNomPrenomPipe, RoutingBarComponent],
+    declarations: [AppBarComponent, FiltreNomPrenomPipe, RoutingBarComponent, HomeComponent],
     exports: [
         AppBarComponent,
         FiltreNomPrenomPipe,
-        RoutingBarComponent
+        RoutingBarComponent,
+        HomeComponent
     ],
     imports: [
         CommonModule,
