@@ -2,4 +2,8 @@
     min-height: 40px !important;
     height: 40px !important;
     color: white !important;
+    display: flex;
+    justify-content: space-between;
 }
+
+

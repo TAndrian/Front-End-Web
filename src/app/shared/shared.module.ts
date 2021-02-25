@@ -8,16 +8,18 @@ import { RoutingBarComponent } from './routing-bar/routing-bar.component';
 import { RouterModule } from '@angular/router';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { ImageDisplayComponent } from './image-display/image-display.component';
-import {NgxMatFileInputModule} from '@angular-material-components/file-input';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-    declarations: [AppBarComponent, FiltreNomPrenomPipe, RoutingBarComponent, ImageUploadComponent, ImageDisplayComponent],
+    declarations: [AppBarComponent, FiltreNomPrenomPipe, RoutingBarComponent, ImageUploadComponent, ImageDisplayComponent, HomeComponent],
     exports: [
         AppBarComponent,
         FiltreNomPrenomPipe,
         RoutingBarComponent,
         ImageUploadComponent,
-        ImageDisplayComponent
+        ImageDisplayComponent,
+        HomeComponent
     ],
     imports: [
         CommonModule,

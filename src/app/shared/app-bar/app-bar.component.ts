@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { AuthentificationService } from 'src/app/authentification/services/authentification.service';
 
 @Component({
     selector: 'app-bar',
@@ -8,10 +11,22 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AppBarComponent implements OnInit {
     @Input() title: string;
 
-    constructor() {
+    
+
+    constructor(private router: Router, public authentificationService: AuthentificationService) {
     }
 
     ngOnInit(): void {
+        
     }
+
+    onLogout(): void {
+        if (localStorage.getItem("currentUser")) {
+            this.authentificationService.logout();
+            this.router.navigate(['/connexion']);
+        }
+    }
+
+    
 
 }

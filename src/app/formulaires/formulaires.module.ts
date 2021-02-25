@@ -20,6 +20,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {AffichageModule} from '../affichage/affichage.module';
 import {FormulaireCommercialComponent} from './formulaire-commercial/formulaire-commercial.component';
 import {FormulaireAdministrationComponent} from './formulaire-administration/formulaire-administration.component';
+import { FormulaireConnexionComponent } from './formulaire-connexion/formulaire-connexion.component';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import {FormulaireAdministrationComponent} from './formulaire-administration/for
         FormulaireSiteComponent,
         FormulaireClientComponent,
         FormulaireCommercialComponent,
-        FormulaireAdministrationComponent
+        FormulaireAdministrationComponent,
+        FormulaireConnexionComponent
     ],
     imports: [
         CommonModule,
@@ -54,7 +57,8 @@ import {FormulaireAdministrationComponent} from './formulaire-administration/for
         FormulaireSiteComponent,
         FormulaireClientComponent,
         FormulaireAdministrationComponent,
-        FormulaireCommercialComponent
+        FormulaireCommercialComponent,
+        FormulaireConnexionComponent
     ]
 })
 export class FormulairesModule {

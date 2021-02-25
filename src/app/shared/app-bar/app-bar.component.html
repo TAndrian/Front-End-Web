@@ -1,6 +1,17 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button>
-        <mat-icon>home_work</mat-icon>
-    </button>
-    <span>{{title}}</span>
+    <div >
+        <button mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>{{title}}</span>
+    </div>
+    
+    <div *ngIf="authentificationService.userState">
+        <button mat-icon-button (click)="onLogout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </div>
+  
+    
+    
 </mat-toolbar>
