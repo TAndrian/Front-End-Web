@@ -1,6 +1,7 @@
-<div class="wrapper-button-detail-chantier">
+<div *ngIf="chantier != undefined">
+<div class="wrapper-button-detail-chantier" >
     <div class="right-buttons-detail-chantier">
-        <button class="filled-button" color="primary" mat-raised-button>Retour</button>
+        <button class="filled-button" color="primary" mat-raised-button [routerLink]="['/fiche-intervention',chantier.id]">Retour</button>
     </div>
     <div class="header-detail-chantier">
         <h1>{{chantier.nomChantier}} </h1>
@@ -9,11 +10,11 @@
         <p>Statut :<span class="etat-actuel"> {{affichageUtilService.getStatus(chantier.statusChantier)}}</span></p>
     </div>
 
-    <div class="left-buttons-detail-chantier">
+    <!--<div class="left-buttons-detail-chantier">
         <button class="filled-button" color="primary" mat-raised-button>Modifier</button>
         <button class="filled-button" color="primary" mat-raised-button>Créer nouveau chantier</button>
         <button class="filled-button" color="primary" mat-raised-button>Affecter à un mobile</button>
-    </div>
+    </div>-->
 </div>
 <div class="detail-chantier-wrapper">
     <div class="left-content">
@@ -95,4 +96,5 @@
         </mat-card>
 
     </div>
+</div>
 </div>

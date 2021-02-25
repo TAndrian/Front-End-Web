@@ -21,3 +21,4 @@
 </form>
 <button class="filled-button" color="primary" mat-raised-button>Enregistrer</button>
 <app-formulaire-estimation [chantier]="chantier" [standalone]="true"></app-formulaire-estimation>
+<button class="filled-button" color="primary" mat-raised-button [routerLink]="['/detail-chantier',chantier.id]">Résumé</button>
