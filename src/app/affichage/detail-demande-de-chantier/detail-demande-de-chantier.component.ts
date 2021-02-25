@@ -9,7 +9,6 @@ import {ChantierService} from '../../core/services/chantier.service';
 import {HttpResponse} from '@angular/common/http';
 import {StatusIntervention} from '../../shared/model/statusIntervention';
 
-
 @Component({
     selector: 'app-detail-demande-de-chantier',
     templateUrl: './detail-demande-de-chantier.component.html',
