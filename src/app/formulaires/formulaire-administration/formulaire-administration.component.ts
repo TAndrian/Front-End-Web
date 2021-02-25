@@ -1,7 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Chantier} from '../../shared/model/chantier';
 import {ChantierGet} from '../../shared/model/chantierGet';
 import {FormControl, FormGroup} from '@angular/forms';
+import {FormulaireEstimationComponent} from '../formulaire-estimation/formulaire-estimation.component';
+import {FormulaireCommercialComponent} from '../formulaire-commercial/formulaire-commercial.component';
 
 @Component({
   selector: 'app-formulaire-administration',
@@ -10,6 +12,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class FormulaireAdministrationComponent implements OnInit {
   @Input() chantier: ChantierGet;
+  @ViewChild(FormulaireCommercialComponent, {static: false}) child;
   formAdministration: FormGroup;
   numbers: number[] = [];
   constructor() {
@@ -17,11 +20,8 @@ export class FormulaireAdministrationComponent implements OnInit {
 
   ngOnInit(): void {
       this.formAdministration = new FormGroup({
-              materiel: new FormControl((this.chantier.materiel != null) ? this.chantier.materiel : ''),
               conducteur: new FormControl(''),
-              dateDebutTheorique: new FormControl((this.chantier.dateDebutTheorique != null) ? this.chantier.dateDebutTheorique : ''),
-              dateFinTheorique: new FormControl((this.chantier.dateFinTheorique != null) ? this.chantier.dateFinTheorique : ''),
-          }
+              }
       );
       for (let i = 0; i < this.chantier.nbOuvrier; i++){
           this.numbers.push(i);
@@ -29,4 +29,7 @@ export class FormulaireAdministrationComponent implements OnInit {
       }
   }
 
+    onSubmit(): void {
+        this.child.onSubmit();
+    }
 }

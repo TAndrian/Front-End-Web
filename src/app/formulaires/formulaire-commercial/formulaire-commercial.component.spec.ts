@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormulaireCommercialComponent } from './fiche-commercial.component';
+import { FormulaireCommercialComponent } from './formulaire-commercial.component';
 
 describe('FicheCommercialComponent', () => {
   let component: FormulaireCommercialComponent;

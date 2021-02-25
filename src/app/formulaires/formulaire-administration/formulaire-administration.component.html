@@ -1,23 +1,17 @@
+<h2>Section planning</h2>
 <form [formGroup]="formAdministration" *ngIf="chantier != undefined">
     <fieldset>
-        <legend>Dates</legend>
-        <mat-form-field>
-            <mat-label>Date Debut-Fin Théorique :</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-                <input formControlName="dateDebutTheorique" matStartDate placeholder="Start date">
-                <input formControlName="dateFinTheorique" matEndDate placeholder="End date">
-            </mat-date-range-input>
-            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
-        </mat-form-field>
-    </fieldset>
-    <fieldset>
-        <legend>Ouvrier et matériel</legend>
+        <legend>Noms des ouvriers</legend>
         <mat-form-field *ngFor="let i of numbers" ><mat-label>Ouvrier :</mat-label><input formControlName="{{i.toString()}}" matInput type="text"></mat-form-field>
-        <mat-form-field ><mat-label>Matériel :</mat-label><input formControlName="materiel" matInput type="text"></mat-form-field>
         <mat-label>Conducteur</mat-label>
         <mat-checkbox formControlName="conducteur"></mat-checkbox>
     </fieldset>
 </form>
-<button class="filled-button" color="primary" mat-raised-button>Enregistrer</button>
-<app-formulaire-estimation [chantier]="chantier" [standalone]="true"></app-formulaire-estimation>
+<br/>
+<br/>
+<mat-divider></mat-divider>
+<br/>
+<app-formulaire-commercial [standalone]="false" [chantier]="chantier"></app-formulaire-commercial>
+<div>
+    <button  (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Enregistrer</button>
+</div>

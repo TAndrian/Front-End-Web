@@ -1,3 +1,4 @@
+<h2>Section d'estimation</h2>
 <form [formGroup]="nouveauChantierForm" *ngIf="chantier != undefined">
     <fieldset>
         <legend>Référence intervention</legend>
@@ -21,10 +22,14 @@
         </mat-form-field>
     </fieldset>
     <fieldset>
-        <legend>Nombre d'ouvrier</legend>
+        <legend>Nombre d'ouvrier et matériel</legend>
         <mat-form-field>
             <mat-label>Nombre d'ouvriers :</mat-label>
             <input formControlName="nbOuvrier" matInput type="number">
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label>Matériel :</mat-label>
+            <input formControlName="materiel" matInput type="text">
         </mat-form-field>
     </fieldset>
     <fieldset>
@@ -111,4 +116,6 @@
     </form>
 </div>
 
-<button *ngIf="standalone" (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Enregistrer</button>
+<div *ngIf="standalone">
+    <button  (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Enregistrer</button>
+</div>
