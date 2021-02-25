@@ -8,16 +8,17 @@ import { FormulairesModule } from '../formulaires/formulaires.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { AuthentificationDialogueComponent } from './components/authentification-dialogue/authentification-dialogue.component';
 
 
 
 @NgModule({
-  declarations: [ConnexionComponent],
+  declarations: [ConnexionComponent, AuthentificationDialogueComponent],
   imports: [
     CommonModule,
     FormulairesModule
   ],
-  exports: [ConnexionComponent],
+  exports: [ConnexionComponent, AuthentificationDialogueComponent],
   providers: [
     UserService,
     AuthentificationService,

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { first } from 'rxjs/operators';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog'
 import { AlertService } from 'src/app/authentification/services/alert.service';
 import { AuthentificationService } from 'src/app/authentification/services/authentification.service';
+import { AuthentificationDialogueComponent } from 'src/app/authentification/components/authentification-dialogue/authentification-dialogue.component';
 
 @Component({
   selector: 'app-formulaire-connexion',
@@ -23,6 +24,7 @@ export class FormulaireConnexionComponent implements OnInit {
   returnUrl: string;
 
   constructor(
+    public dialog: MatDialog,
     private route: ActivatedRoute,
     private router: Router,
     private authentificationService: AuthentificationService,
@@ -32,6 +34,12 @@ export class FormulaireConnexionComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+
+  openDialog() {
+    this.dialog.open(AuthentificationDialogueComponent);
+  }
+
+  
 
   ngOnInit(): void {
 
@@ -58,12 +66,13 @@ export class FormulaireConnexionComponent implements OnInit {
     this.authentificationService.login(username, password)
             .subscribe(
               data => {
-                    this.router.navigate([this.returnUrl]);
+                  this.router.navigate([this.returnUrl]);
                 },
-                error => {
-                    this.alertService.error(error, false);
-                    this.loading = false;
-                });
+              error => {
+                  this.alertService.error(error, false);
+                  this.loading = false;
+                  this.openDialog();
+              });
 
   }
 
