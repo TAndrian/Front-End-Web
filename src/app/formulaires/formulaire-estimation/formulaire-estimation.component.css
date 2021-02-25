@@ -13,3 +13,7 @@ mat-card {
     width: 66%;
     flex-wrap: wrap;
 }
+filled-button{
+    position: fixed !important;
+    bottom: 20px;
+}

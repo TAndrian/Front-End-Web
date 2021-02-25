@@ -15,7 +15,7 @@ import { StepperFicheInterventionComponent } from './stepper-fiche-intervention/
 import {FormulairesModule} from '../formulaires/formulaires.module';
 import {MatStepperModule} from '@angular/material/stepper';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
     declarations: [
@@ -37,7 +37,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         FormulairesModule,
         MatStepperModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatGridListModule,
     ],
     exports: [
         DetailChantierComponent,

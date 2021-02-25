@@ -13,6 +13,6 @@
 <br/>
 <app-formulaire-commercial [standalone]="false" [chantier]="chantier"></app-formulaire-commercial>
 <div>
-    <button  (click)="onSubmit()" class="filled-button" color="primary" mat-raised-button>Enregistrer</button>
+    <button  (click)="onSubmit()" class="filled-button-saved" color="primary" mat-raised-button>Enregistrer</button>
 </div>
-<button class="filled-button" color="primary" mat-raised-button [routerLink]="['/detail-chantier',chantier.id]">Résumé</button>
+<button class="filled-button-validation" color="primary" mat-raised-button [routerLink]="['/detail-chantier',chantier.id]">Résumé</button>

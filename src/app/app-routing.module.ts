@@ -36,7 +36,7 @@ const routes: Routes = [
     {path: 'liste-demande-de-chantier', component: ListDemandeDeChantierComponent, canActivate: [AuthGuard]},
     {path: 'connexion', component: ConnexionComponent},
     {path: '', component: HomeComponent, canActivate: [AuthGuard]},
-    {path: 'fiche-intervention/:id', component: StepperFicheInterventionComponent},
+    {path: 'fiche-intervention/:id', component: StepperFicheInterventionComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

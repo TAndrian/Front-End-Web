@@ -22,4 +22,5 @@ button{
     ::ng-deep .mat-button-wrapper{
         color: white !important;
     }
+    background-color: mat-color($theme-accent) !important;
 }
