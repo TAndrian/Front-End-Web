@@ -1,0 +1,21 @@
+<form [formGroup]="connexionForm">
+    <fieldset>
+        <legend>Nom d'utilisateur</legend>
+        <mat-form-field>
+            <mat-label>Utilisateur :</mat-label>
+            <input formControlName="username" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+    <fieldset>
+        <legend>Mot de passe</legend>
+        <mat-form-field>
+            <mat-label>Mot de passe :</mat-label>
+            <input formControlName="password" matInput type="text">
+        </mat-form-field>
+    </fieldset>
+</form>
+
+<button [disabled]="loading" (click)="onSubmit()" class="btn btn-primary">
+    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+    Connexion
+</button>

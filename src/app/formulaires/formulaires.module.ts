@@ -16,6 +16,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from '../app-routing.module';
+import { FormulaireConnexionComponent } from './formulaire-connexion/formulaire-connexion.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {AppRoutingModule} from '../app-routing.module';
         FormulaireDemandeChantierComponent,
         FormulaireNouveauChantierComponent,
         FormulaireSiteComponent,
-        FormulaireClientComponent
+        FormulaireClientComponent,
+        FormulaireConnexionComponent
     ],
     imports: [
         CommonModule,
@@ -45,7 +47,8 @@ import {AppRoutingModule} from '../app-routing.module';
         FormulaireDemandeChantierComponent,
         FormulaireNouveauChantierComponent,
         FormulaireSiteComponent,
-        FormulaireClientComponent
+        FormulaireClientComponent,
+        FormulaireConnexionComponent
     ]
 })
 export class FormulairesModule {

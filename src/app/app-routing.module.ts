@@ -13,23 +13,29 @@ import {ListClientsComponent} from './affichage/list-clients/list-clients.compon
 import {ListSitesComponent} from './affichage/list-sites/list-sites.component';
 import {ListDemandeDeChantierComponent} from './affichage/list-demande-de-chantier/list-demande-de-chantier.component';
 import {NouvelUtilisateurComponent} from './gestion-utilisateurs/nouvel-utilisateur/nouvel-utilisateur.component';
+import { ConnexionComponent } from './authentification/components/connexion/connexion.component';
+import { AuthGuard } from './authentification/helpers/auth.guard';
+import { HomeComponent } from './shared/home/home.component';
 
 const routes: Routes = [
-    {path: 'demande-de-cantier', component: FormulaireDemandeChantierComponent},
-    {path: 'nouvel-utilisateur', component: NouvelUtilisateurComponent},
-    {path: 'nouvelle-demande-de-chantier', component: FormulaireDemandeChantierComponent},
-    {path: 'nouveau-chantier', component: FormulaireNouveauChantierComponent},
-    {path: 'nouveau-client', component: FormulaireClientComponent},
-    {path: 'nouveau-site', component: FormulaireSiteComponent}, {path: 'client', component: FormulaireClientComponent},
-    {path: 'site', component: FormulaireSiteComponent},
-    {path: 'detail-chantier/:id', component: DetailChantierComponent},
-    {path: 'detail-client/:id', component: DetailClientComponent},
-    {path: 'detail-site/:id', component: DetailSiteComponent},
-    {path: 'detail-demande-de-chantier/:id', component: DetailDemandeDeChantierComponent},
-    {path: 'liste-chantier', component: ListChantiersComponent},
-    {path: 'liste-client', component: ListClientsComponent},
-    {path: 'liste-site', component: ListSitesComponent},
-    {path: 'liste-demande-de-chantier', component: ListDemandeDeChantierComponent},
+    {path: 'demande-de-cantier', component: FormulaireDemandeChantierComponent, canActivate: [AuthGuard]},
+    {path: 'nouvel-utilisateur', component: NouvelUtilisateurComponent, canActivate: [AuthGuard]},
+    {path: 'nouvelle-demande-de-chantier', component: FormulaireDemandeChantierComponent, canActivate: [AuthGuard]},
+    {path: 'nouveau-chantier', component: FormulaireNouveauChantierComponent, canActivate: [AuthGuard]},
+    {path: 'nouveau-client', component: FormulaireClientComponent, canActivate: [AuthGuard]},
+    { path: 'nouveau-site', component: FormulaireSiteComponent, canActivate: [AuthGuard] },
+    { path: 'client', component: FormulaireClientComponent, canActivate: [AuthGuard]},
+    {path: 'site', component: FormulaireSiteComponent, canActivate: [AuthGuard]},
+    {path: 'detail-chantier/:id', component: DetailChantierComponent, canActivate: [AuthGuard]},
+    {path: 'detail-client/:id', component: DetailClientComponent, canActivate: [AuthGuard]},
+    {path: 'detail-site/:id', component: DetailSiteComponent, canActivate: [AuthGuard]},
+    {path: 'detail-demande-de-chantier/:id', component: DetailDemandeDeChantierComponent, canActivate: [AuthGuard]},
+    {path: 'liste-chantier', component: ListChantiersComponent, canActivate: [AuthGuard]},
+    {path: 'liste-client', component: ListClientsComponent, canActivate: [AuthGuard]},
+    {path: 'liste-site', component: ListSitesComponent, canActivate: [AuthGuard]},
+    {path: 'liste-demande-de-chantier', component: ListDemandeDeChantierComponent, canActivate: [AuthGuard]},
+    {path: 'connexion', component: ConnexionComponent},
+    {path: '', component: HomeComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
