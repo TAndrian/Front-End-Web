@@ -98,7 +98,7 @@ export class FormulaireDemandeChantierComponent implements OnInit {
 
         const site = this.demandeDeChantierForm.controls.site.value===''?null:this.demandeDeChantierForm.controls.site.value;
         const client = this.demandeDeChantierForm.controls.client.value===''?null:this.demandeDeChantierForm.controls.client.value;
-
+        
         const adresse = this.demandeDeChantierForm.controls.adresse.value + ','
             + this.demandeDeChantierForm.controls.complement.value + ','
             + this.demandeDeChantierForm.controls.codePostal.value + ','

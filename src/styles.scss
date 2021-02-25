@@ -79,3 +79,25 @@ button {
   height: 45px;
   margin: 5px !important;
 }
+
+.filled-button-validation {
+  color: white !important;
+  position: fixed !important;
+  bottom: 10px;
+  right: 30px;
+  background-color: mat-color($theme-accent) !important;
+}
+.filled-button-saved {
+  color: white !important;
+  position: fixed !important;
+  bottom: 10px;
+  left: 280px;
+  background-color: mat-color($theme-accent) !important;
+}
+.filled-button-retour {
+  color: white !important;
+  position: fixed !important;
+  bottom: 10px;
+  left: 30px;
+  background-color: mat-color($theme-accent) !important;
+}

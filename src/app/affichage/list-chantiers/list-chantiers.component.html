@@ -25,39 +25,38 @@
             <mat-expansion-panel hideToggle>
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-         <!--   <mat-card-header>-->
-                        {{item.id}}
-
+                        {{item.nomChantier}}
                     </mat-panel-title>
-
                     <button mat-icon-button [routerLink]="['/fiche-intervention',item.id]">
                         <mat-icon>keyboard_arrow_right</mat-icon>
                     </button>
                     <button (click)="toDeleteChantier(item.id)" mat-icon-button>
                         <mat-icon>clear</mat-icon>
                     </button>
-
                 </mat-expansion-panel-header>
-        <!--    </mat-card-header>-->  
-
-            <mat-card-content>
-                    <p>Adress: {{item.adresse}}</p>
-                    <p>Site: {{item.site}}</p>
-                 <p>Chef du site: {{item.site.nomChef}}</p>
-                    <p>Nom de chantier: {{item.nomChantier}}</p>
-                    <p>Début-fin: {{item.dateDebutEffectif}} - {{item.dateFinEffectif}} </p>
-                    <p>Etat: {{item.statusChantier}}</p>
+                <mat-card-content>
+                    <mat-grid-list cols="2" rowHeight="60px" rowWidth="120px">
+                        <mat-grid-tile>
+                            <ul>
+                                <li><b>Adress: </b> {{item.adresse}}</li>
+                                <li><b>Site: </b> {{item.site.nomSite}}</li>
+                                <li><b>Chef du site: </b> {{item.site.nomChef}}</li>
+                            </ul>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <ul>
+                                <li><b>Début-fin: </b> {{item.dateDebutEffectif}} - {{item.dateFinEffectif}} </li>
+                                <li><b>Etat: </b> {{item.statusChantier}}</li>
+                            </ul>
+                        </mat-grid-tile>
+                    </mat-grid-list>
                 </mat-card-content>
-
             </mat-expansion-panel>
-
         </mat-card>
     </div>
     <mat-toolbar>
-        <mat-paginator [length]="length"
-                       [pageSizeOptions]="[5, 10, 25, 100]"
-        >
+        <mat-paginator [length]="length" [pageSizeOptions]="[5, 10, 25, 100]">
         </mat-paginator>
     </mat-toolbar>
-    <button mat-raised-button routerLink="/nouveau-chantier"> Nouveau Chantier</button>
 </div>
+

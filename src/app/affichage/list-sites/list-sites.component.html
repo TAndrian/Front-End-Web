@@ -33,13 +33,23 @@
                         <mat-icon>clear</mat-icon>
                     </button>
                 </mat-expansion-panel-header>
-                <div>
-                    <p> Nom : {{item.nomSite}}</p>
-                    <p> Adresse : {{item.adresse}}</p>
-                    <p> Mail : {{item.mail}}</p>
-                    <p> Chef : {{item.nomChef}} {{item.prenomChef}}</p>
-                    <p> Telephone : {{item.telephone}}</p>
-                </div>
+                <mat-card-content>
+                    <mat-grid-list cols="2" rowHeight="60px" rowWidth="120px">
+                        <mat-grid-tile>
+                            <ul>
+                                <li><b>Nom: </b>{{item.nomSite}}</li>
+                                <li><b>Adresse: </b>{{item.adresse}}</li>
+                                <li><b>Mail: </b>{{item.mail}}</li>
+                            </ul>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <ul>
+                                <li><b>Chef: </b>{{item.nomChef}} {{item.prenomChef}}</li>
+                                <li><b>Telephone: </b>{{item.telephone}}</li>
+                            </ul>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-card-content>
             </mat-expansion-panel>
         </mat-card>
     </div>

@@ -35,7 +35,7 @@ export class ListSitesComponent implements OnInit {
     creatTableSource(): void {
         this.siteService.getAllSites().subscribe(data => {
             this.changeDetectorRef.detectChanges();
-            this.dataSource.data = data;
+            this.dataSource.data = data.reverse();
             this.dataSource.paginator = this.paginator;
             this.obs = this.dataSource.connect();
             this.length = data.length;

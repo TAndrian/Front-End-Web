@@ -33,18 +33,25 @@
                         <mat-icon>clear</mat-icon>
                     </button>
                 </mat-expansion-panel-header>
-                <div>
-                    <p> Nom du site : {{item.site.nomSite}}</p>
-                    <p> Adresse : {{item.adresse}}</p>
-                    <p> Nom du client : {{item.client.nom}} {{item.client.prenom}}</p>
-                    <p *ngIf="item.regularite"> Jours de régularités
-                        : {{item.getJours(item.joursRegularite)}}</p>
-                    <p> Informations internes : {{item.informationsInterne}}</p>
-                    <p> Nombre de ouvrier : {{item.nombreEmployes}}</p>
-                    <p> Description : {{item.description}}</p>
-                    <p> Matériel : {{item.materiel}}</p>
-                    <p> Estimation du temps : {{item.estimationTemps}}</p>
-                </div>
+                <mat-card-content>
+                    <mat-grid-list cols="2" rowHeight="80px" rowWidth="120px">
+                        <mat-grid-tile>
+                            <ul>
+                                <li><b>Nom du site: </b> {{item.site.nomSite}}</li>
+                                <li><b>Nom du client: </b>{{item.client.nom}} {{item.client.prenom}}</li>
+                                <li><b>Informations internes: </b>{{item.informationsInterne}}</li>
+                            </ul>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <ul>
+                                <li><b>Nombre de ouvrier: </b>{{item.nombreEmployes}}</li>
+                                <li><b>Description: </b> {{item.description}}</li>
+                                <li><b>Matériel: </b>{{item.materiel}}</li>
+                                <li><b>Estimation du temps: </b>{{item.estimationTemps}}</li>
+                            </ul>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-card-content>
             </mat-expansion-panel>
         </mat-card>
     </div>
