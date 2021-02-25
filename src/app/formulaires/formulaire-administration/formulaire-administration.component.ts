@@ -2,8 +2,8 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Chantier} from '../../shared/model/chantier';
 import {ChantierGet} from '../../shared/model/chantierGet';
 import {FormControl, FormGroup} from '@angular/forms';
-import {FormulaireEstimationComponent} from '../formulaire-estimation/formulaire-estimation.component';
 import {FormulaireCommercialComponent} from '../formulaire-commercial/formulaire-commercial.component';
+import { ChantierService } from 'src/app/core/services/chantier.service';
 
 @Component({
   selector: 'app-formulaire-administration',
@@ -15,7 +15,7 @@ export class FormulaireAdministrationComponent implements OnInit {
   @ViewChild(FormulaireCommercialComponent, {static: false}) child;
   formAdministration: FormGroup;
   numbers: number[] = [];
-  constructor() {
+  constructor(private chantierService: ChantierService) {
   }
 
   ngOnInit(): void {
@@ -28,8 +28,7 @@ export class FormulaireAdministrationComponent implements OnInit {
           this.formAdministration.addControl(String(i), new FormControl(''));
       }
   }
-
-    onSubmit(): void {
+   onSubmit(): void {
         this.child.onSubmit();
     }
 }
