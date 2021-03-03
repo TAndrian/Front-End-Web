@@ -44,7 +44,8 @@ export class ListChantiersComponent implements OnInit {
     toDeleteChantier(id: number): void {
         this.chantierService.deleteChantierById(id.toString()).subscribe(data => 
         {console.log("delete");
-        this.dataSource.data.splice(data,1);
+        //this.dataSource.data.splice(data,1);
+        window.location.reload();
         this.dataSource.paginator = this.paginator;
         });
     }

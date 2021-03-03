@@ -41,7 +41,8 @@ export class ListClientsComponent implements OnInit {
     toDeleteClient(id: number): void {
         this.clientService.deleteClientById(id.toString()).subscribe(data => 
         {
-        this.dataSource.data.splice(data,1);
+        //this.dataSource.data.splice(data,1);
+        window.location.reload();
         this.dataSource.paginator = this.paginator;
         });
     }

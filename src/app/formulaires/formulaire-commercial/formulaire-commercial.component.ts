@@ -27,13 +27,15 @@ export class FormulaireCommercialComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const dateDebutTheorique = this.formCommercial.controls.dateDebutTheorique.value === '' ? null : this.formCommercial.controls.dateDebutTheorique.value;
-    const dateFinTheorique = this.formCommercial.controls.dateFinTheorique.value === '' ? null : this.formCommercial.controls.dateFinTheorique.value;
+    const dateDebutTheorique: Date = this.formCommercial.controls.dateDebutTheorique.value === '' ? null : this.formCommercial.controls.dateDebutTheorique.value;
+    const dateFinTheorique: Date = this.formCommercial.controls.dateFinTheorique.value === '' ? null : this.formCommercial.controls.dateFinTheorique.value;
+
+    
     const chantierToUpdate = new Chantier(
         null, null, null, null, null, null, null, null, dateDebutTheorique, dateFinTheorique,
         null, null, null, null, null, null, null, null,
-        null, null,  null, null, null, null);
-    this.chantierService.updateChantierById(this.chantier.id + '', chantierToUpdate);
+        this.chantier.conducteurPresent, null,  null, null, null, null);
+    this.chantierService.updateChantierById(this.chantier.id + '', chantierToUpdate).subscribe();
     this.child.onSubmit();
   }
 }

@@ -11,7 +11,7 @@ export class Chantier {
                 public problemes: Set<Probleme>,
                 public medias: Set<Media>,
                 public adresse: string,
-                public ouvriers: Set<string>,
+                public ouvriers: string[],
                 public nbOuvrier: number,
                 public materiel: string,
                 public dateDebutTheorique: Date,

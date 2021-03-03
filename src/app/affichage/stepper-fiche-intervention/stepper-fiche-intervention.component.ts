@@ -57,7 +57,7 @@ export class StepperFicheInterventionComponent implements OnInit {
     }
     const chantierToUpdate = new Chantier(
       this.chantier.site.id, this.chantier.client.id, this.chantier.problemes, this.chantier.medias,
-        this.chantier.adresse, this.chantier.ouvriers, this.chantier.nbOuvrier,
+        this.chantier.adresse, Array.from(this.chantier.ouvriers), this.chantier.nbOuvrier,
         this.chantier.materiel, this.chantier.dateDebutTheorique, this.chantier.dateFinTheorique,
         this.chantier.estimationTemps, this.chantier.telephone, this.chantier.statusChantier,
         this.chantier.nomChantier, this.chantier.informationsInterne, this.chantier.description,

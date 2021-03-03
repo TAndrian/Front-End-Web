@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthentificationService {
   private currentUserSubject: BehaviorSubject<User>;
-  private authentified: boolean = false;
+  private authentified: boolean = localStorage.getItem('currentUser')!=undefined;
 
 
   constructor(private http: HttpClient) {
@@ -31,10 +31,11 @@ export class AuthentificationService {
       .pipe(mergeMap(token => 
         this.http.get<any>(environment.apiUrl + 'utilisateur/get/myself', { headers: new HttpHeaders().set('Authorization', 'Bearer ' + token["jwt"]) })
           .pipe(map(user => {
-              localStorage.setItem('currentUser', JSON.stringify(user));
+              
               let u = new User(user["id"],user["username"], user["password"], user["role"], token["jwt"]);
               this.currentUserSubject.next(u);
               this.authentified = true;
+              localStorage.setItem('currentUser', JSON.stringify(u));
               return user;
             }))));
   }

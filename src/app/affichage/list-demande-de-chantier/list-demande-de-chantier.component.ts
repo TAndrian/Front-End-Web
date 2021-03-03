@@ -47,7 +47,8 @@ export class ListDemandeDeChantierComponent implements OnInit {
     toDeleteDemande(id: number): void {
         this.demandeDeChantierService.deleteDemandeDeChantierById(id.toString()).subscribe(data => 
         {console.log("delete");
-        this.dataSource.data.splice(data,1);
+        //this.dataSource.data.splice(data,1);
+        window.location.reload();
         this.dataSource.paginator = this.paginator;
         });
     }

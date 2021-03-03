@@ -19,7 +19,7 @@ import {MatOptionSelectionChange} from '@angular/material/core';
     styleUrls: ['./formulaire-estimation.component.css']
 })
 export class FormulaireEstimationComponent implements OnInit {
-    states = [StatusType.DEMARRE, StatusType.ENCOURS, StatusType.ENATTENTE, StatusType.TERMINE];
+    states = [StatusType.ENCOURS, StatusType.ENATTENTE, StatusType.TERMINE];
     sites: Site[] = [];
     clients: Client[] = [];
     regularite = false;
@@ -57,7 +57,7 @@ export class FormulaireEstimationComponent implements OnInit {
             estimationTemps: new FormControl((this.chantier.estimationTemps != null) ? this.chantier.estimationTemps : 0),
 
             telephone: new FormControl((this.chantier.telephone != null) ? this.chantier.telephone : ''),
-            statusChantier: new FormControl((this.chantier.statusChantier != null) ? this.chantier.statusChantier : ''),
+            statusChantier: new FormControl((this.chantier.statusChantier != null) ? this.states[this.chantier.statusChantier] : ''),
             nomChantier: new FormControl((this.chantier.nomChantier != null) ? this.chantier.nomChantier : ''),
 
             informationsInterne: new FormControl((this.chantier.informationsInterne != null) ? this.chantier.informationsInterne : ''),
@@ -99,8 +99,6 @@ export class FormulaireEstimationComponent implements OnInit {
 
     status(state: StatusType): string {
         switch (state) {
-            case StatusType.DEMARRE:
-                return 'Démarre';
             case StatusType.ENATTENTE:
                 return 'En attente';
             case StatusType.ENCOURS:
@@ -114,7 +112,7 @@ export class FormulaireEstimationComponent implements OnInit {
         const site = this.selectedSite;
         const client = this.selectedClient;
         const nbOuvrier = this.nouveauChantierForm.controls.nbOuvrier.value === '' ? null : this.nouveauChantierForm.controls.nbOuvrier.value;
-        console.log(nbOuvrier);
+        
         const adresse = this.nouveauChantierForm.controls.adresse.value + ','
             + this.nouveauChantierForm.controls.complement.value + ','
             + this.nouveauChantierForm.controls.codePostal.value + ','
@@ -123,7 +121,7 @@ export class FormulaireEstimationComponent implements OnInit {
         const estimationTemps = this.nouveauChantierForm.controls.estimationTemps.value === '' ? null : this.nouveauChantierForm.controls.estimationTemps.value;
 
         const telephone = this.nouveauChantierForm.controls.telephone.value === '' ? null : this.nouveauChantierForm.controls.telephone.value;
-        const statusChantier = (this.nouveauChantierForm.controls.statusChantier.value === '') ? StatusType.ENATTENTE : null;
+        const statusChantier = (this.nouveauChantierForm.controls.statusChantier.value === '') ? StatusType.ENATTENTE : this.nouveauChantierForm.controls.statusChantier.value;
         const nomChantier = this.nouveauChantierForm.controls.nomChantier.value === '' ? null : this.nouveauChantierForm.controls.nomChantier.value;
         const materiel = this.nouveauChantierForm.controls.materiel.value === '' ? null : this.nouveauChantierForm.controls.materiel.value;
 
@@ -136,16 +134,17 @@ export class FormulaireEstimationComponent implements OnInit {
         const joursRegularite = this.joursRegularite;
 
         let chantierUpdated: Chantier;
+
         if (this.regularite) {
             chantierUpdated = new Chantier(
                 site.id, client.id, null, null, adresse, null, nbOuvrier , materiel, null, null,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
-                regularite, true, this.chantier.statusIntervention, null, null, null,  joursRegularite, dateDebutRegularite, dateFinRegularite);
+                this.chantier.conducteurPresent, regularite, this.chantier.statusIntervention, null, null, null,  joursRegularite, dateDebutRegularite, dateFinRegularite);
         } else {
             chantierUpdated = new Chantier(
                 site.id, client.id, null, null, adresse, null, nbOuvrier, materiel, null, null,
                 estimationTemps, telephone, statusChantier, nomChantier, informationsInterne, description, null, null,
-                true, regularite,  this.chantier.statusIntervention, null, null, null);
+                this.chantier.conducteurPresent, regularite,  this.chantier.statusIntervention, null, null, null);
         }
         this.chantierService.updateChantierById(this.chantier.id + '', chantierUpdated).subscribe(
             (res: HttpResponse<any>) => {
