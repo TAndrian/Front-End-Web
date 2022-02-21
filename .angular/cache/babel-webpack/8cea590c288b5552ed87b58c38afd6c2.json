@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Site {\n  constructor(nomSite, nomChef, prenomChef, adresse, mail, telephone, id) {\n    this.nomSite = nomSite;\n    this.nomChef = nomChef;\n    this.prenomChef = prenomChef;\n    this.adresse = adresse;\n    this.mail = mail;\n    this.telephone = telephone;\n    this.id = id;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Client {\n  constructor(nom, prenom, adresse, mail, infoComplementaire, id) {\n    this.nom = nom;\n    this.prenom = prenom;\n    this.adresse = adresse;\n    this.mail = mail;\n    this.infoComplementaire = infoComplementaire;\n    this.id = id;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
